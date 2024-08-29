@@ -3,83 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander Gallardo - Portafolio</title>
+    <title>Perfil Profesional - Alexander Gallardo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Cabecera -->
     <header>
-        <h1>Alexander Gallardo Gallardo</h1>
-        <p><strong>Email:</strong> alxgall84@gmail.com | <strong>Teléfono:</strong> +56958974623</p>
+        <div class="header-content">
+            <h1>Alexander Gallardo</h1>
+            <p>Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
+        </div>
     </header>
-    <section id="perfil">
-        <h2>Perfil Profesional</h2>
-        <p>Técnico con experiencia en logística, soporte IT y administración de sistemas, con habilidades prácticas y una fuerte disposición para realizar tareas relacionadas con obras civiles.</p>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi">
+        <div class="content">
+            <h2>Sobre Mí</h2>
+            <p>Soy un profesional con amplia experiencia en administración de información, soporte técnico, y logísticas, con un fuerte enfoque en la resolución de problemas y trabajo en equipo. Estoy orientado a la automatización y eficiencia en procesos informáticos, buscando siempre optimizar los recursos disponibles.</p>
+        </div>
     </section>
+
+    <!-- Experiencia -->
     <section id="experiencia">
-        <h2>Experiencia Laboral</h2>
-        <div>
-            <h3>Técnico en Logística y Soporte IT</h3>
-            <p><em>Hospital de Quilpué, SSVQ Marga Marga, Chile (2013 - 2019)</em></p>
+        <div class="content">
+            <h2>Experiencia</h2>
             <ul>
-                <li>Manejo de Inventarios</li>
-                <li>Gestión de Bases de Datos</li>
-                <li>Seguridad de la Información</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Especialista en Soporte Técnico y Logística</h3>
-            <p><em>Fabwood Cabinetry, New Jersey, USA (2021 - 2022)</em></p>
-            <ul>
-                <li>Soporte Técnico en Sistemas</li>
-                <li>Logística y Control de Inventarios</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Técnico en Operación de Maquinaria CNC</h3>
-            <p><em>Exhibitology, New York, USA (2022)</em></p>
-            <ul>
-                <li>Operación de Maquinaria CNC</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Técnico en Soporte y Seguridad Informática</h3>
-            <p><em>Hospital de Quilpué (2023)</em></p>
-            <ul>
-                <li>Redes y Seguridad Informática</li>
-                <li>Capacitación de Personal</li>
+                <li><strong>Agrosuper - Fiordos, Patagonia Chilena (2007-2012)</strong>: Supervisión de labores de centro, cálculo e ingeniería en crecimiento, manejo de Excel avanzado.</li>
+                <li><strong>Hospital de Quilpué (2013-2019)</strong>: Administrativo Bodega Farmacia, manejo de inventario, facturación, contacto con proveedores y logística.</li>
+                <li><strong>Fabwood Cabinetry, New Jersey, USA (2021-2022)</strong>: Logística y picking, soporte IT, configuración e instalación de maquinaria.</li>
+                <li><strong>Exhibitology, New York, USA (2022)</strong>: Diseño 3D, carpintería, operación de impresoras CNC.</li>
+                <li><strong>Hospital de Quilpué (2023)</strong>: Encargado de bodega de abastecimiento, administración de insumos, generación de informes.</li>
             </ul>
         </div>
     </section>
-    <section id="formacion">
-        <h2>Formación Académica</h2>
-        <ul>
-            <li>Ingeniero de Ejecución en Acuicultura, DUOC UC, Valparaíso, Chile (2002 - 2007)</li>
-            <li>Analista Programador Computacional, DUOC UC, Viña del Mar, Chile (2013 - 2016)</li>
-        </ul>
+
+    <!-- Educación -->
+    <section id="educacion">
+        <div class="content">
+            <h2>Educación</h2>
+            <ul>
+                <li><strong>DUOC UC Valparaíso (2002-2006)</strong>: Ingeniería de Ejecución en Acuicultura</li>
+                <li><strong>DUOC UC Viña del Mar (2013-2016)</strong>: Analista Programador Computacional</li>
+            </ul>
+        </div>
     </section>
-    <section id="certificaciones">
-        <h2>Certificaciones</h2>
-        <ul>
-            <li>Curso OS10, Pretorianos Seguridad (2024)</li>
-            <li>Curso Excel Nivel Intermedio</li>
-            <li>Curso Seguridad de la Información</li>
-            <li>Curso ZEBRA para Reparación de Impresoras</li>
-            <li>Curso de Compras en Mercado Público (2023)</li>
-        </ul>
+
+    <!-- Habilidades y Cursos -->
+    <section id="habilidades-cursos">
+        <div class="content">
+            <h2>Habilidades y Cursos</h2>
+            <ul>
+                <li>Automatización de procesos informáticos</li>
+                <li>Administración de información y bases de datos</li>
+                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico)</li>
+                <li>Cursos: Seguridad de la información, Compras Públicas, Excel Intermedio</li>
+            </ul>
+        </div>
     </section>
-    <section id="habilidades">
-        <h2>Habilidades y Competencias</h2>
-        <ul>
-            <li>Preparación del Terreno</li>
-            <li>Asistencia en Construcción</li>
-            <li>Mantenimiento</li>
-            <li>Adaptabilidad y Aprendizaje Rápido</li>
-            <li>Mantenimiento y Soporte Técnico</li>
-            <li>Seguridad Informática</li>
-        </ul>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="content">
+            <h2>Contacto</h2>
+            <form method="post" action="contact.php">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </section>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
 </body>
 </html>
