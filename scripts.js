@@ -1,4 +1,4 @@
-// Agrega una animación de desvanecimiento en el scroll
+// Animación de desvanecimiento en el scroll
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
 

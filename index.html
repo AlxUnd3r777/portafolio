@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Profesional - Alexander Gallardo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Cabecera -->
@@ -12,11 +14,21 @@
         <div class="header-content">
             <h1>Alexander Gallardo</h1>
             <p>Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#educacion">Educación</a></li>
+                    <li><a href="#habilidades-cursos">Habilidades</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Sobre Mí -->
-    <section id="sobre-mi">
+    <section id="sobre-mi" class="hidden">
         <div class="content">
             <h2>Sobre Mí</h2>
             <p>Soy un profesional con amplia experiencia en administración de información, soporte técnico, y logísticas, con un fuerte enfoque en la resolución de problemas y trabajo en equipo. Estoy orientado a la automatización y eficiencia en procesos informáticos, buscando siempre optimizar los recursos disponibles.</p>
@@ -24,7 +36,7 @@
     </section>
 
     <!-- Experiencia -->
-    <section id="experiencia">
+    <section id="experiencia" class="hidden">
         <div class="content">
             <h2>Experiencia</h2>
             <ul>
@@ -38,7 +50,7 @@
     </section>
 
     <!-- Educación -->
-    <section id="educacion">
+    <section id="educacion" class="hidden">
         <div class="content">
             <h2>Educación</h2>
             <ul>
@@ -49,7 +61,7 @@
     </section>
 
     <!-- Habilidades y Cursos -->
-    <section id="habilidades-cursos">
+    <section id="habilidades-cursos" class="hidden">
         <div class="content">
             <h2>Habilidades y Cursos</h2>
             <ul>
@@ -61,8 +73,29 @@
         </div>
     </section>
 
+    <!-- Portafolio -->
+    <section id="portafolio" class="hidden">
+        <div class="content">
+            <h2>Portafolio</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="path/to/image1.jpg" alt="Proyecto 1">
+                    <p>Proyecto 1: Descripción breve del trabajo.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="path/to/image2.jpg" alt="Proyecto 2">
+                    <p>Proyecto 2: Descripción breve del trabajo.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="path/to/image3.jpg" alt="Proyecto 3">
+                    <p>Proyecto 3: Descripción breve del trabajo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contacto -->
-    <section id="contacto">
+    <section id="contacto" class="hidden">
         <div class="content">
             <h2>Contacto</h2>
             <form method="post" action="contact.php">
