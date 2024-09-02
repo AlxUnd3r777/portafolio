@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <!-- Integración de AR.js y A-Frame -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
     <!-- Cabecera -->
@@ -49,7 +49,31 @@
     <section id="experiencia">
         <div class="section-content">
             <h2>Experiencia Laboral</h2>
-            <!-- Detalles de experiencia laboral aquí... -->
+            <h3>Administrativo de Bodega y Soporte IT</h3>
+            <p><strong>Hospital de Quilpué, SSVQ Marga Marga, Chile (2013 - 2019)</strong></p>
+            <ul>
+                <li><strong>Gestión de Inventarios y Logística:</strong> Coordinación de inventarios y logística de suministros, aplicando habilidades de organización y control de materiales, asegurando eficiencia en la distribución de recursos.</li>
+                <li><strong>Configuración de Sistemas Informáticos:</strong> Soporte técnico en hardware y software, con experiencia en la administración de bases de datos y seguridad de información, aptitudes útiles para manejar sistemas tecnológicos y de comunicación en entornos diversos.</li>
+            </ul>
+            <h3>Reemplazo en Bodega de Abastecimiento</h3>
+            <p><strong>Hospital de Quilpué, Chile (2023)</strong></p>
+            <ul>
+                <li>Realicé un reemplazo en la bodega de abastecimiento, ejecutando tareas de control de inventarios y manejo de suministros, adaptando rápidamente las habilidades logísticas adquiridas para asegurar la continuidad operativa en un entorno dinámico y exigente.</li>
+            </ul>
+            <h3>Especialista en Soporte Técnico y Logística</h3>
+            <p><strong>Fabwood Cabinetry, New Jersey, USA (2021 - 2022)</strong></p>
+            <ul>
+                <li><strong>Mantenimiento de Maquinaria y Equipos:</strong> Experiencia en la configuración, instalación y reparación de maquinaria industrial, aplicable al mantenimiento preventivo y correctivo de equipos en operaciones diversas.</li>
+                <li><strong>Gestión de Inventarios y Suministros:</strong> Manejo eficiente de la cadena de suministro, garantizando la disponibilidad de materiales críticos, una competencia clave en la planificación y ejecución de proyectos.</li>
+                <li><strong>Soporte de Infraestructura Técnica:</strong> Instalación de cableado estructurado y configuración de estaciones de trabajo, habilidades útiles para el montaje de instalaciones temporales.</li>
+            </ul>
+            <h3>Operador de Maquinaria CNC, Diseñador 3D y Carpintero</h3>
+            <p><strong>Exhibitology, New York, USA (2022)</strong></p>
+            <ul>
+                <li><strong>Operación de Maquinaria CNC:</strong> Manejo y mantenimiento de maquinaria CNC, demostrando precisión y conocimiento técnico en la operación de equipos especializados.</li>
+                <li><strong>Carpintería y Montaje de Estructuras:</strong> Realización de trabajos de carpintería, incluyendo construcción y reparación de estructuras, habilidades prácticas para la construcción y ensamblaje de instalaciones.</li>
+                <li><strong>Diseño e Implementación de Sistemas:</strong> Diseño de sistemas accesibles y soluciones creativas, reflejando una capacidad para innovar y adaptar tecnologías a diversas necesidades operativas.</li>
+            </ul>
         </div>
     </section>
 
@@ -57,7 +81,10 @@
     <section id="educacion">
         <div class="section-content">
             <h2>Formación Académica</h2>
-            <!-- Detalles de educación aquí... -->
+            <h3>Ingeniero de Ejecución en Acuicultura</h3>
+            <p><strong>DUOC UC, sede Valparaíso, Chile (2002 - 2007)</strong></p>
+            <h3>Analista Programador Computacional</h3>
+            <p><strong>DUOC UC, sede Viña del Mar, Chile (2013 - 2016)</strong></p>
         </div>
     </section>
 
@@ -65,7 +92,13 @@
     <section id="habilidades-cursos">
         <div class="section-content">
             <h2>Certificaciones</h2>
-            <!-- Detalles de certificaciones aquí... -->
+            <ul>
+                <li><strong>Curso OS10:</strong> Pretorianos Seguridad (22 de julio de 2024): Capacitación en seguridad privada, proporcionando una base para roles relacionados con la supervisión y seguridad en cualquier industria.</li>
+                <li><strong>Curso Excel Nivel Intermedio</strong></li>
+                <li><strong>Curso Seguridad de la Información</strong></li>
+                <li><strong>Curso ZEBRA para Reparación de Impresoras</strong></li>
+                <li><strong>Curso de Compras en Mercado Público (2023):</strong> Capacitación en procesos de compra pública, desarrollando habilidades en gestión de adquisiciones y contratos.</li>
+            </ul>
         </div>
     </section>
 
@@ -75,8 +108,6 @@
             <h2>Portafolio</h2>
             <button id="openScannerBtn">Abrir Escáner QR</button>
             <button id="openPageBtn">Ir a Página</button>
-            <!-- Nuevo botón para abrir la cámara -->
-            <button id="openCameraBtn">Abrir Cámara</button>
         </div>
     </section>
 
@@ -84,20 +115,13 @@
     <div id="scannerModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
+            <!-- El a-scene solo se muestra cuando se abre el modal -->
             <a-scene embedded arjs>
                 <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
                     <a-box position="0 0.5 0" material="color: red;"></a-box>
                 </a-marker>
                 <a-entity camera></a-entity>
             </a-scene>
-        </div>
-    </div>
-
-    <!-- Modal para la cámara -->
-    <div id="cameraModal" class="modal">
-        <div class="modal-content">
-            <span class="close-camera">&times;</span>
-            <video id="cameraFeed" autoplay></video>
         </div>
     </div>
 
