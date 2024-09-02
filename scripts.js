@@ -1,44 +1,40 @@
-// Animación de desvanecimiento en el scroll
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-
-    // Observador de intersección para detectar cuando una sección es visible
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        },
-        { threshold: 0.1 } // Ajuste del umbral para activar la visibilidad
-    );
-
-    // Añade la clase "hidden" a las secciones y las observa
-    sections.forEach((section) => {
-        section.classList.add("hidden");
-        observer.observe(section);
-    });
-
-    // Referencias a elementos
-    const openScannerBtn = document.getElementById("openScannerBtn");
+document.addEventListener("DOMContentLoaded", () => {
+    // Modal para escáner de QR
     const scannerModal = document.getElementById("scannerModal");
-    const closeBtn = document.querySelector(".close");
-
-    // Abrir la ventana modal con el escáner
-    openScannerBtn?.addEventListener("click", () => {
+    const openScannerBtn = document.getElementById("openScannerBtn");
+    const closeScanner = scannerModal.querySelector(".close");
+    
+    openScannerBtn.addEventListener("click", () => {
         scannerModal.style.display = "block";
     });
 
-    // Cerrar la ventana modal
-    closeBtn?.addEventListener("click", () => {
+    closeScanner.addEventListener("click", () => {
         scannerModal.style.display = "none";
     });
 
-    // Cerrar la ventana modal si se hace clic fuera de ella
-    window.addEventListener("click", (event) => {
-        if (event.target === scannerModal) {
-            scannerModal.style.display = "none";
+    // Modal para la cámara
+    const cameraModal = document.getElementById("cameraModal");
+    const openCameraBtn = document.getElementById("openCameraBtn");
+    const closeCamera = cameraModal.querySelector(".close-camera");
+    const cameraFeed = document.getElementById("cameraFeed");
+
+    openCameraBtn.addEventListener("click", async () => {
+        cameraModal.style.display = "block";
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            cameraFeed.srcObject = stream;
+        } catch (err) {
+            console.error("Error accessing the camera: ", err);
+        }
+    });
+
+    closeCamera.addEventListener("click", () => {
+        cameraModal.style.display = "none";
+        if (cameraFeed.srcObject) {
+            const stream = cameraFeed.srcObject;
+            const tracks = stream.getTracks();
+            tracks.forEach(track => track.stop());
+            cameraFeed.srcObject = null;
         }
     });
 });
