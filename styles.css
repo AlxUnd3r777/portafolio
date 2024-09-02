@@ -9,10 +9,10 @@ body {
 
 /* Navegación */
 nav {
-    background-color: #2c3e50; /* Color del fondo del menú */
+    background-color: #2c3e50;
     padding: 10px 20px;
     display: flex;
-    justify-content: center; /* Centra el menú horizontalmente */
+    justify-content: center;
     align-items: center;
     position: sticky;
     top: 0;
@@ -24,16 +24,17 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Hace que los elementos se alineen en una fila */
+    display: flex; /* Asegura que los elementos estén en fila */
+    flex-direction: row; /* Define la dirección de los elementos en fila */
 }
 
 nav ul li {
-    margin: 0 15px; /* Espaciado entre los elementos del menú */
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ecf0f1; /* Color del texto */
+    color: #ecf0f1;
     font-weight: bold;
     padding: 10px 15px;
     transition: background-color 0.3s, color 0.3s;
@@ -41,35 +42,6 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #1abc9c; /* Cambia el color de fondo al pasar el ratón */
-    color: #ffffff; /* Cambia el color del texto al pasar el ratón */
-}
-
-/* Estilos de secciones */
-section {
-    padding: 60px 20px;
-    margin: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Animación de desvanecimiento */
-.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 20px;
+    background-color: #1abc9c;
+    color: #ffffff;
 }
