@@ -3,20 +3,27 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #e0e0e0; /* Texto claro para contraste */
 }
 
 header {
-    background-color: #000;
-    color: #fff;
+    background-color: #000; /* Cabecera negra */
+    color: #e0e0e0; /* Texto claro */
     padding: 20px;
     text-align: center;
+    border-bottom: 2px solid #333; /* Línea inferior gris oscuro */
 }
 
 header a {
-    color: #fff;
+    color: #e0e0e0;
     text-decoration: none;
-    padding: 0 10px;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ff4500; /* Color naranja para el hover */
 }
 
 header nav ul {
@@ -31,22 +38,32 @@ header nav ul li {
 
 .section-content {
     padding: 20px;
+    background: #2c2c2c; /* Fondo oscuro para secciones */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra para profundidad */
 }
 
 h2 {
     font-family: 'Orbitron', sans-serif;
+    color: #ff4500; /* Naranja intenso */
+    border-bottom: 2px solid #ff4500;
+    padding-bottom: 10px;
 }
 
 button {
-    background-color: #007BFF;
+    background-color: #ff4500; /* Botones en color naranja */
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e03e00; /* Naranja más oscuro al pasar el cursor */
 }
 
 /* Estilos del modal */
@@ -59,19 +76,20 @@ button:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.8); /* Fondo oscuro del modal */
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: #1e1e1e;
+    margin: 5% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #333;
     width: 80%;
+    border-radius: 8px;
 }
 
 .close {
-    color: #aaa;
+    color: #e0e0e0;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -79,7 +97,7 @@ button:hover {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #ff4500; /* Naranja para el hover */
     text-decoration: none;
     cursor: pointer;
 }
@@ -87,7 +105,15 @@ button:hover {
 /* Estilos del footer */
 footer {
     background-color: #000;
-    color: #fff;
+    color: #e0e0e0;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    border-top: 2px solid #333; /* Línea superior gris oscuro */
+}
+
+/* Diseño del modal AR */
+a-scene {
+    width: 100%;
+    height: 500px; /* Altura fija para la escena AR */
+    border-radius: 8px;
 }
