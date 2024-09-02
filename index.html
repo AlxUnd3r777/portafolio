@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Integración de AR.js y A-Frame -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
     <!-- Cabecera -->
@@ -92,6 +95,20 @@
                     <p>Proyecto 3: Descripción breve del trabajo.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Sección de Realidad Aumentada -->
+    <section id="realidad-aumentada">
+        <div class="section-content">
+            <h2>Experiencia en Realidad Aumentada</h2>
+            <a-scene embedded arjs>
+                <!-- Patrón HIRO básico que puedes cambiar por tu propio patrón -->
+                <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
+                    <a-box position="0 0.5 0" material="color: red;"></a-box>
+                </a-marker>
+                <a-entity camera></a-entity>
+            </a-scene>
         </div>
     </section>
 
