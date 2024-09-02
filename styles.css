@@ -1,47 +1,89 @@
-/* Estilos generales */
-body {
-    font-family: 'Roboto', sans-serif;
+/* Estilos del Encabezado */
+header {
+    background: linear-gradient(135deg, #34495e, #2c3e50); /* Degradado elegante */
+    color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 60%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 700;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1.5s ease-out;
 }
 
-/* Navegación */
-nav {
-    background-color: #2c3e50;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin: 10px 0 20px;
+    animation: fadeInUp 1.5s ease-out;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Asegura que los elementos estén en fila */
-    flex-direction: row; /* Define la dirección de los elementos en fila */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-nav ul li {
-    margin: 0 15px;
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Mejora de la navegación */
 nav ul li a {
-    text-decoration: none;
     color: #ecf0f1;
     font-weight: bold;
     padding: 10px 15px;
-    transition: background-color 0.3s, color 0.3s;
     border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     background-color: #1abc9c;
     color: #ffffff;
+    transform: scale(1.1); /* Hace que los enlaces crezcan ligeramente */
 }
