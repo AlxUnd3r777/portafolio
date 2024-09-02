@@ -2,11 +2,11 @@
 header {
     background: linear-gradient(135deg, #1e3c72, #2a5298); /* Degradado atractivo */
     color: #ffffff;
-    padding: 60px 20px; /* Espaciado aumentado para destacar el contenido */
+    padding: 80px 20px; /* Espaciado aumentado para destacar el contenido */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
 }
 
 .header-content {
@@ -15,44 +15,21 @@ header {
     z-index: 1;
 }
 
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 30%, transparent 70%);
-    opacity: 0.3;
-    pointer-events: none;
-    animation: pulse 5s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 0.3;
-    }
-}
-
-h1 {
-    font-size: 4em; /* Tamaño de fuente mayor */
+#header-title {
+    font-size: 4.5em; /* Tamaño de fuente mayor */
     font-weight: 700;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #ffffff; /* Color blanco para el texto */
     animation: fadeInDown 1.5s ease-out;
 }
 
-p {
-    font-size: 1.5em; /* Tamaño de fuente mayor */
+#header-subtitle {
+    font-size: 1.6em; /* Tamaño de fuente mayor */
     font-weight: 300;
-    margin: 10px 0 20px;
+    margin: 10px 0 30px;
+    color: #ecf0f1; /* Color gris claro para el subtítulo */
     animation: fadeInUp 1.5s ease-out;
 }
 
