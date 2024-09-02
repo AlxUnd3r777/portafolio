@@ -68,7 +68,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #333;
+    background-color: #444;
     color: #0ff;
 }
 
@@ -119,7 +119,8 @@ form label {
     font-weight: bold;
 }
 
-form input, form textarea {
+form input,
+form textarea {
     padding: 10px;
     border: 1px solid #333;
     border-radius: 4px;
@@ -177,4 +178,56 @@ footer {
     text-align: center;
     padding: 20px;
     border-top: 5px solid #0f0f0f;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #555;
 }

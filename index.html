@@ -36,81 +36,36 @@
         <div class="section-content">
             <h2>Sobre Mí</h2>
             <p>Soy un profesional con amplia experiencia en administración de información, soporte técnico y logística, con un fuerte enfoque en la resolución de problemas y trabajo en equipo. Estoy orientado a la automatización y eficiencia en procesos informáticos, buscando siempre optimizar los recursos disponibles.</p>
-        </div>
-    </section>
-
-    <!-- Sección Experiencia -->
-    <section id="experiencia">
-        <div class="section-content">
-            <h2>Experiencia</h2>
             <ul>
-                <li><strong>Agrosuper - Fiordos, Patagonia Chilena (2007-2012)</strong>: Supervisión de labores de centro, cálculo e ingeniería en crecimiento, manejo de Excel avanzado.</li>
-                <li><strong>Hospital de Quilpué (2013-2019)</strong>: Administrativo Bodega Farmacia, manejo de inventario, facturación, contacto con proveedores y logística.</li>
-                <li><strong>Fabwood Cabinetry, New Jersey, USA (2021-2022)</strong>: Logística y picking, soporte IT, configuración e instalación de maquinaria.</li>
-                <li><strong>Exhibitology, New York, USA (2022)</strong>: Diseño 3D, carpintería, operación de impresoras CNC.</li>
-                <li><strong>Hospital de Quilpué (2023)</strong>: Encargado de bodega de abastecimiento, administración de insumos, generación de informes.</li>
+                <li><strong>Correo Electrónico:</strong> alxgall84@gmail.com</li>
+                <li><strong>Teléfono:</strong> +56958974623</li>
+                <li><strong>RUN:</strong> 15.762.275-7</li>
+                <li><strong>Fecha de Nacimiento:</strong> 23-03-1984</li>
             </ul>
         </div>
     </section>
 
-    <!-- Sección Educación -->
-    <section id="educacion">
-        <div class="section-content">
-            <h2>Educación</h2>
-            <ul>
-                <li><strong>DUOC UC Valparaíso (2002-2006)</strong>: Ingeniería de Ejecución en Acuicultura</li>
-                <li><strong>DUOC UC Viña del Mar (2013-2016)</strong>: Analista Programador Computacional</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sección Habilidades y Cursos -->
-    <section id="habilidades-cursos">
-        <div class="section-content">
-            <h2>Habilidades y Cursos</h2>
-            <ul>
-                <li>Automatización de procesos informáticos</li>
-                <li>Administración de información y bases de datos</li>
-                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico)</li>
-                <li>Cursos: Seguridad de la información, Compras Públicas, Excel Intermedio</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sección Portafolio -->
-    <section id="portafolio">
-        <div class="section-content">
-            <h2>Portafolio</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="path/to/image1.jpg" alt="Proyecto 1">
-                    <p>Proyecto 1: Descripción breve del trabajo.</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="path/to/image2.jpg" alt="Proyecto 2">
-                    <p>Proyecto 2: Descripción breve del trabajo.</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="path/to/image3.jpg" alt="Proyecto 3">
-                    <p>Proyecto 3: Descripción breve del trabajo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Realidad Aumentada -->
-    <section id="realidad-aumentada">
+    <!-- Botón para abrir el escáner de QR -->
+    <section id="ar-scanner">
         <div class="section-content">
             <h2>Experiencia en Realidad Aumentada</h2>
+            <button id="openScannerBtn">Abrir Escáner QR</button>
+        </div>
+    </section>
+
+    <!-- Modal para escáner de QR -->
+    <div id="scannerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
             <a-scene embedded arjs>
-                <!-- Patrón HIRO básico que puedes cambiar por tu propio patrón -->
+                <!-- Cambia el marcador según tu necesidad -->
                 <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
                     <a-box position="0 0.5 0" material="color: red;"></a-box>
                 </a-marker>
                 <a-entity camera></a-entity>
             </a-scene>
         </div>
-    </section>
+    </div>
 
     <!-- Sección Contacto -->
     <section id="contacto">
