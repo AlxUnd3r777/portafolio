@@ -11,113 +11,6 @@
     <!-- Integración de AR.js y A-Frame -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-</head>
-<body>
-    <!-- Cabecera -->
-    <header>
-        <div class="header-content">
-            <h1 id="header-title">Alexander Gallardo</h1>
-            <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
-            <nav>
-                <ul>
-                    <li><a href="#sobre-mi">Sobre Mí</a></li>
-                    <li><a href="#experiencia">Experiencia</a></li>
-                    <li><a href="#educacion">Educación</a></li>
-                    <li><a href="#habilidades-cursos">Habilidades</a></li>
-                    <li><a href="#portafolio">Portafolio</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Sección Sobre Mí -->
-    <section id="sobre-mi">
-        <div class="section-content">
-            <h2>Sobre Mí</h2>
-            <p>Soy un profesional con amplia experiencia en administración de información, soporte técnico y logística, con un fuerte enfoque en la resolución de problemas y trabajo en equipo. Estoy orientado a la automatización y eficiencia en procesos informáticos, buscando siempre optimizar los recursos disponibles.</p>
-            <ul>
-                <li><strong>Correo Electrónico:</strong> alxgall84@gmail.com</li>
-                <li><strong>Teléfono:</strong> +56958974623</li>
-                <li><strong>RUN:</strong> 15.762.275-7</li>
-                <li><strong>Fecha de Nacimiento:</strong> 23-03-1984</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Botón para abrir el escáner de QR -->
-    <section id="portafolio">
-        <div class="section-content">
-            <h2>Portafolio</h2>
-            <button id="openScannerBtn">Abrir Escáner QR</button>
-        </div>
-    </section>
-
-    <!-- Modal para escáner de QR -->
-    <div id="scannerModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <!-- El a-scene solo se muestra cuando se abre el modal -->
-            <a-scene embedded arjs>
-                <!-- Cambia el marcador según tu necesidad -->
-                <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
-                    <a-box position="0 0.5 0" material="color: red;"></a-box>
-                </a-marker>
-                <a-entity camera></a-entity>
-            </a-scene>
-        </div>
-    </div>
-
-    <!-- Sección Contacto -->
-    <section id="contacto">
-        <div class="section-content">
-            <h2>Contacto</h2>
-            <form method="post" action="contact.php">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const openScannerBtn = document.getElementById("openScannerBtn");
-            const scannerModal = document.getElementById("scannerModal");
-            const closeBtn = document.querySelector(".close");
-
-            // Abrir la ventana modal con el escáner
-            openScannerBtn?.addEventListener("click", () => {
-                scannerModal.style.display = "block";
-            });
-
-            // Cerrar la ventana modal
-            closeBtn?.addEventListener("click", () => {
-                scannerModal.style.display = "none";
-            });
-
-            // Cerrar la ventana modal si se hace clic fuera de ella
-            window.addEventListener("click", (event) => {
-                if (event.target === scannerModal) {
-                    scannerModal.style.display = "none";
-                }
-            });
-        });
-    </script>
-
     <style>
         /* Estilos generales */
         body {
@@ -273,6 +166,105 @@
             color: #7f7f7f;
             font-size: 0.9em;
         }
+
+        /* Estilos para A-Frame dentro del modal */
+        .a-scene {
+            width: 100%;
+            height: 500px;
+            display: block;
+        }
     </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <div class="header-content">
+            <h1 id="header-title">Alexander Gallardo</h1>
+            <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#educacion">Educación</a></li>
+                    <li><a href="#habilidades-cursos">Habilidades</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+        <div class="section-content">
+            <h2>Sobre Mí</h2>
+            <p>Soy un profesional con amplia experiencia en administración de información, soporte técnico y logística, con un fuerte enfoque en la resolución de problemas y trabajo en equipo. Estoy orientado a la automatización y eficiencia en procesos informáticos, buscando siempre optimizar los recursos disponibles.</p>
+            <ul>
+                <li><strong>Correo Electrónico:</strong> alxgall84@gmail.com</li>
+                <li><strong>Teléfono:</strong> +56958974623</li>
+                <li><strong>RUN:</strong> 15.762.275-7</li>
+                <li><strong>Fecha de Nacimiento:</strong> 23-03-1984</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Botón para abrir el escáner de QR -->
+    <section id="portafolio">
+        <div class="section-content">
+            <h2>Portafolio</h2>
+            <button id="openScannerBtn">Abrir Escáner QR</button>
+        </div>
+    </section>
+
+    <!-- Modal para escáner de QR -->
+    <div id="scannerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- El a-scene solo se muestra cuando se abre el modal -->
+            <a-scene embedded arjs>
+                <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
+                    <a-box position="0 0.5 0" material="color: red;"></a-box>
+                </a-marker>
+                <a-entity camera></a-entity>
+            </a-scene>
+        </div>
+    </div>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <div class="section-content">
+            <h2>Contacto</h2>
+            <p>Para consultas o información adicional, no dudes en contactarme.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Obtener el modal y el botón para abrirlo
+        var modal = document.getElementById("scannerModal");
+        var btn = document.getElementById("openScannerBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cuando el usuario hace clic en el botón, abre el modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Cuando el usuario hace clic en el botón de cerrar, cierra el modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
