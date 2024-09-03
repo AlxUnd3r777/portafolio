@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Botón de abrir escáner no encontrado");
     }
 
-    // Abrir el modal del escáner de QR
+    // Abrir el modal del escáner de QR....
     openScannerBtn.addEventListener('click', function() {
         console.log("Botón de abrir escáner clickeado");
         scannerModal.style.display = 'block';
