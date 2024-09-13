@@ -8,18 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Integración de AR.js y A-Frame -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
     <!-- Cabecera -->
-    <header>
+    <header class="header">
         <div class="header-content">
             <h1 id="header-title">Alexander Gallardo</h1>
             <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
             <nav>
-                <ul>
+                <ul class="nav-list">
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
                     <li><a href="#experiencia">Experiencia</a></li>
                     <li><a href="#educacion">Educación</a></li>
@@ -32,7 +29,7 @@
     </header>
 
     <!-- Sección Sobre Mí -->
-    <section id="sobre-mi">
+    <section id="sobre-mi" class="section">
         <div class="section-content">
             <h2>Sobre Mí</h2>
             <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
@@ -40,7 +37,7 @@
     </section>
 
     <!-- Sección Experiencia -->
-    <section id="experiencia">
+    <section id="experiencia" class="section">
         <div class="section-content">
             <h2>Experiencia</h2>
             <ul>
@@ -54,7 +51,7 @@
     </section>
 
     <!-- Sección Educación -->
-    <section id="educacion">
+    <section id="educacion" class="section">
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
@@ -65,7 +62,7 @@
     </section>
 
     <!-- Sección Habilidades y Cursos -->
-    <section id="habilidades-cursos">
+    <section id="habilidades-cursos" class="section">
         <div class="section-content">
             <h2>Habilidades y Cursos</h2>
             <ul>
@@ -78,30 +75,15 @@
     </section>
 
     <!-- Sección Portafolio -->
-    <section id="portafolio">
+    <section id="portafolio" class="section">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <button id="openScannerBtn">Abrir Escáner QR</button>
-            <button id="openPageBtn">Ir a Página</button>
+            <p>Explora mis proyectos en mi <a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">GitHub</a>.</p>
         </div>
     </section>
 
-    <!-- Modal para escáner de QR -->
-    <div id="scannerModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <!-- El a-scene solo se muestra cuando se abre el modal -->
-            <a-scene embedded arjs>
-                <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
-                    <a-box position="0 0.5 0" material="color: red;"></a-box>
-                </a-marker>
-                <a-entity camera></a-entity>
-            </a-scene>
-        </div>
-    </div>
-
     <!-- Sección Contacto -->
-    <section id="contacto">
+    <section id="contacto" class="section">
         <div class="section-content">
             <h2>Contacto</h2>
             <p>Correo: alxgall84@gmail.com</p>
@@ -111,7 +93,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
