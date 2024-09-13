@@ -85,3 +85,24 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* Botón para subir al top */
+#back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #3a3f44;
+    color: #f56565;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: none;
+}
+
+#back-to-top-btn:hover {
+    background-color: #f56565;
+    color: #ffffff;
+}
