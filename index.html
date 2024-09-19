@@ -8,6 +8,111 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header, .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .header-content, .section-content {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-list li {
+            margin: 0 15px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .section {
+            padding: 20px 0;
+            background-color: #fff;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 20px; /* Espacio para el bullet */
+        }
+
+        ul li::before {
+            content: '•'; /* Bullet personalizado */
+            color: red; /* Color del bullet */
+            font-size: 24px; /* Tamaño del bullet */
+            position: absolute;
+            left: 0; /* Posición del bullet */
+            top: -2px; /* Ajuste vertical del bullet */
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #back-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: none;
+        }
+
+        #back-to-top-btn:hover {
+            background-color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <!-- Cabecera -->
@@ -83,7 +188,9 @@
     <section id="portafolio" class="section">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Explora mis proyectos en mi <a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">GitHub</a>. Incluye sistemas de administración, automatización de procesos, realidad aumentada y desarrollo de páginas web interactivas.</p>
+            <ul>
+                <li>Explora mis proyectos en mi <a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">GitHub</a>. Incluye sistemas de administración, automatización de procesos, realidad aumentada y desarrollo de páginas web interactivas.</li>
+            </ul>
         </div>
     </section>
 
@@ -91,9 +198,11 @@
     <section id="contacto" class="section">
         <div class="section-content">
             <h2>Contacto</h2>
-            <p>Correo: alxgall84@gmail.com</p>
-            <p>Teléfono: +56958974623</p>
-            <p>RUN: 15.762.275-7</p>
+            <ul>
+                <li>Correo: alxgall84@gmail.com</li>
+                <li>Teléfono: +56958974623</li>
+                <li>RUN: 15.762.275-7</li>
+            </ul>
         </div>
     </section>
 
