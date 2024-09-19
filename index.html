@@ -45,23 +45,24 @@
             font-weight: 700;
             font-size: 18px;
             text-transform: uppercase;
+            transition: color 0.3s;
         }
 
         .nav-list a:hover {
-            color: #ff9900; /* Naranja */
+            color: #ff007f; /* Rosa neón */
         }
 
         .section {
             padding: 20px 0;
-            background-color: #333; /* Fondo gris oscuro */
+            background-color: #222; /* Fondo gris oscuro */
             margin: 10px 0;
-            border: 1px solid #ff9900; /* Borde naranja */
+            border: 1px solid #ff007f; /* Borde rosa neón */
             border-radius: 8px;
         }
 
         h2 {
             font-family: 'Orbitron', sans-serif;
-            color: #ff9900; /* Títulos en naranja */
+            color: #ff007f; /* Títulos en rosa neón */
             text-align: center;
             margin: 0 0 15px 0;
         }
@@ -90,11 +91,12 @@
         a {
             color: #00ff00; /* Verde neón */
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         a:hover {
             text-decoration: underline;
-            color: #ff9900; /* Naranja */
+            color: #ff007f; /* Rosa neón */
         }
 
         #back-to-top-btn {
@@ -109,11 +111,13 @@
             border-radius: 50%;
             display: none;
             font-size: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Sombra verde neón */
+            transition: background-color 0.3s, color 0.3s;
         }
 
         #back-to-top-btn:hover {
             background-color: #333; /* Fondo gris oscuro */
-            color: #ff9900; /* Texto naranja */
+            color: #ff007f; /* Texto rosa neón */
         }
 
         .footer {
@@ -159,7 +163,7 @@
                 <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+                <li><strong>2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
                 <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
                 <li><strong>2023 - Presente:</strong> Conserje con curso OS10. Seguridad, monitoreo de cámaras y atención a residentes.</li>
             </ul>
@@ -199,9 +203,9 @@
         <div class="section-content">
             <h2>Portafolio</h2>
             <ul>
-               
                 <li><a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">Portafolio de Proyectos - GitHub</a></li>
                 <li><a href="https://github.com/AlxUnd3r777/Fichas" target="_blank">Sistema de Fichas Clínicas - GitHub</a></li>
+                <li><a href="https://github.com/AlxUnd3r777" target="_blank">Mi Re
                 <li><a href="https://github.com/AlxUnd3r777" target="_blank">Mi Repositorio en GitHub</a></li>
             </ul>
         </div>
@@ -211,7 +215,6 @@
     <section id="contacto" class="section">
         <div class="section-content">
             <h2>Contacto</h2>
-            <p>Para consultas y oportunidades de colaboración, por favor, contáctame a través de:</p>
             <ul>
                 <li>Email: <a href="mailto:alxgall84@gmail.com">alxgall84@gmail.com</a></li>
                 <li>Teléfono: <a href="tel:+56958974623">+569 5897 4623</a></li>
@@ -219,30 +222,29 @@
         </div>
     </section>
 
-    <!-- Botón Volver Arriba -->
-    <button id="back-to-top-btn" title="Volver arriba">↑</button>
+    <!-- Botón Volver al Inicio -->
+    <button id="back-to-top-btn" onclick="scrollToTop()">↑</button>
 
-    <!-- Pie de página -->
+    <!-- Pie de Página -->
     <footer class="footer">
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Mostrar/Ocultar botón de volver arriba
-        window.addEventListener('scroll', function() {
-            const backToTopBtn = document.getElementById('back-to-top-btn');
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'block';
+        // Mostrar botón de volver al inicio cuando el usuario se desplaza hacia abajo
+        window.onscroll = function() {
+            let btn = document.getElementById('back-to-top-btn');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                btn.style.display = "block";
             } else {
-                backToTopBtn.style.display = 'none';
+                btn.style.display = "none";
             }
-        });
+        };
 
-        // Volver arriba al hacer clic
-        document.getElementById('back-to-top-btn').addEventListener('click', function() {
+        // Función para volver al inicio
+        function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        }
     </script>
 </body>
 </html>
