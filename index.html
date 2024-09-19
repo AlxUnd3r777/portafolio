@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Profesional - Alexander Gallardo</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
         body {
@@ -15,14 +11,15 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #1b1b1b; /* Fondo oscuro */
+            color: #e0e0e0; /* Texto claro */
         }
 
         .header, .footer {
-            background-color: #000; /* Fondo negro */
-            color: #fff;
+            background-color: #0a0a0a; /* Fondo negro */
+            color: #00ff00; /* Texto verde neón */
             text-align: center;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         .header-content, .section-content {
@@ -44,20 +41,29 @@
 
         .nav-list a {
             text-decoration: none;
-            color: #fff;
+            color: #00ff00; /* Verde neón */
             font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .nav-list a:hover {
+            color: #ff9900; /* Naranja */
         }
 
         .section {
             padding: 20px 0;
-            background-color: #fff;
+            background-color: #333; /* Fondo gris oscuro */
             margin: 10px 0;
+            border: 1px solid #ff9900; /* Borde naranja */
+            border-radius: 8px;
         }
 
         h2 {
             font-family: 'Orbitron', sans-serif;
-            color: #333;
+            color: #ff9900; /* Títulos en naranja */
             text-align: center;
+            margin: 0 0 15px 0;
         }
 
         ul {
@@ -66,52 +72,55 @@
         }
 
         ul li {
-            margin: 10px 0;
+            margin: 15px 0;
             position: relative;
-            padding-left: 30px; /* Espacio para el bullet */
-            color: red; /* Color del texto */
+            padding-left: 25px; /* Espacio para el bullet */
+            font-size: 16px;
         }
 
         ul li::before {
             content: '•'; /* Bullet personalizado */
-            color: red; /* Color del bullet */
-            font-size: 24px; /* Tamaño del bullet */
+            color: #00ff00; /* Verde neón */
+            font-size: 30px; /* Tamaño del bullet */
             position: absolute;
             left: 0; /* Posición del bullet */
             top: -2px; /* Ajuste vertical del bullet */
         }
 
         a {
-            color: #007bff;
+            color: #00ff00; /* Verde neón */
             text-decoration: none;
         }
 
         a:hover {
             text-decoration: underline;
+            color: #ff9900; /* Naranja */
         }
 
         #back-to-top-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #333;
-            color: #fff;
+            background-color: #0a0a0a; /* Fondo negro */
+            color: #00ff00; /* Texto verde neón */
             border: none;
             padding: 10px;
             cursor: pointer;
             border-radius: 50%;
             display: none;
+            font-size: 20px;
         }
 
         #back-to-top-btn:hover {
-            background-color: #555;
+            background-color: #333; /* Fondo gris oscuro */
+            color: #ff9900; /* Texto naranja */
         }
 
         .footer {
             text-align: center;
-            padding: 20px;
-            background-color: #000; /* Fondo negro */
-            color: #fff;
+            padding: 15px;
+            background-color: #0a0a0a; /* Fondo negro */
+            color: #00ff00; /* Texto verde neón */
         }
     </style>
 </head>
@@ -150,7 +159,7 @@
                 <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-                <li><strong>2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
                 <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
                 <li><strong>2023 - Presente:</strong> Conserje con curso OS10. Seguridad, monitoreo de cámaras y atención a residentes.</li>
             </ul>
@@ -190,7 +199,9 @@
         <div class="section-content">
             <h2>Portafolio</h2>
             <ul>
-                <li>Explora mis proyectos en mi <a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">GitHub</a>. Incluye sistemas de administración, automatización de procesos, realidad aumentada y desarrollo de páginas web interactivas.</li>
+                               <li><a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">Portafolio de Proyectos - GitHub</a></li>
+                <li><a href="https://github.com/AlxUnd3r777/Fichas" target="_blank">Sistema de Fichas Clínicas - GitHub</a></li>
+                <li><a href="https://github.com/AlxUnd3r777" target="_blank">Mi Repositorio en GitHub</a></li>
             </ul>
         </div>
     </section>
@@ -199,22 +210,39 @@
     <section id="contacto" class="section">
         <div class="section-content">
             <h2>Contacto</h2>
+            <p>Para consultas y oportunidades de colaboración, por favor, contáctame a través de:</p>
             <ul>
-                <li>Correo: alxgall84@gmail.com</li>
-                <li>Teléfono: +56958974623</li>
-                <li>RUN: 15.762.275-7</li>
+                <li>Email: <a href="mailto:alxgall84@gmail.com">alxgall84@gmail.com</a></li>
+                <li>Teléfono: <a href="tel:+56958974623">+569 5897 4623</a></li>
             </ul>
         </div>
     </section>
 
-    <!-- Botón para subir al top -->
-    <button id="back-to-top-btn" title="Volver arriba">&#8679;</button>
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top-btn" title="Volver arriba">↑</button>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script>
+        // Mostrar/Ocultar botón de volver arriba
+        window.addEventListener('scroll', function() {
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Volver arriba al hacer clic
+        document.getElementById('back-to-top-btn').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
+
