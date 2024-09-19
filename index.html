@@ -4,151 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Profesional - Alexander Gallardo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #1c1c1c; /* Fondo oscuro */
-            color: #e0e0e0; /* Texto claro */
-        }
-        .header, .footer {
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
-            text-align: center;
-            padding: 20px 0;
-        }
-        .header-content {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .nav-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        .nav-list li {
-            margin: 0;
-        }
-        .nav-list a {
-            text-decoration: none;
-            color: #e0e0e0; /* Blanco */
-            font-weight: 600;
-            font-size: 16px;
-            text-transform: uppercase;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .nav-list a:hover {
-            background-color: #444444; /* Gris oscuro */
-            color: #ffffff; /* Blanco */
-        }
-        .menu-toggle {
-            display: none;
-            background-color: #007BFF; /* Azul */
-            color: #ffffff; /* Blanco */
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            transition: background-color 0.3s;
-        }
-        .menu-toggle:hover {
-            background-color: #0056b3; /* Azul oscuro */
-        }
-        @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                background-color: #000000; /* Negro */
-                width: 200px;
-                border-radius: 5px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
-            }
-            .nav-list.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-        .section {
-            padding: 20px;
-            background-color: #2a2a2a; /* Gris oscuro */
-            margin: 0 auto 15px;
-            width: 90%;
-            max-width: 1200px;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-        .section.visible {
-            opacity: 1;
-        }
-        .section h2 {
-            color: #ffffff; /* Blanco */
-            font-size: 22px;
-            text-align: center;
-            margin: 0 0 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 15px 0;
-            font-size: 16px;
-        }
-        ul li::before {
-            content: '•';
-            color: #ffffff; /* Blanco */
-            font-size: 18px;
-            margin-right: 10px;
-        }
-        #back-to-top-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            display: none;
-            font-size: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
-            transition: background-color 0.3s, color 0.3s;
-        }
-        #back-to-top-btn:hover {
-            background-color: #333333; /* Gris oscuro */
-            color: #ffffff; /* Blanco */
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Integración de AR.js y A-Frame -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
-    <header class="header">
+    <!-- Cabecera -->
+    <header>
         <div class="header-content">
             <h1 id="header-title">Alexander Gallardo</h1>
             <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <nav>
-                <ul class="nav-list">
+                <ul>
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
                     <li><a href="#experiencia">Experiencia</a></li>
                     <li><a href="#educacion">Educación</a></li>
@@ -160,86 +31,90 @@
         </div>
     </header>
 
-    <section id="sobre-mi" class="section" data-aos="fade-up">
-        <h2>Sobre Mí</h2>
-        <p>Descripción sobre ti...</p>
-    </section>
-    
-    <section id="experiencia" class="section" data-aos="fade-up">
-        <h2>Experiencia</h2>
-        <p>Detalles de tu experiencia laboral...</p>
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+        <div class="section-content">
+            <h2>Sobre Mí</h2>
+            <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
+        </div>
     </section>
 
-    <section id="educacion" class="section" data-aos="fade-up">
-        <h2>Educación</h2>
-        <p>Información sobre tu educación...</p>
+    <!-- Sección Experiencia -->
+    <section id="experiencia">
+        <div class="section-content">
+            <h2>Experiencia</h2>
+            <ul>
+                <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
+                <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
+                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
+                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+                <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="habilidades-cursos" class="section" data-aos="fade-up">
-        <h2>Habilidades</h2>
-        <p>Detalles sobre tus habilidades y cursos...</p>
+    <!-- Sección Educación -->
+    <section id="educacion">
+        <div class="section-content">
+            <h2>Educación</h2>
+            <ul>
+                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="portafolio" class="section" data-aos="fade-up">
-        <h2>Portafolio</h2>
-        <p>Información sobre tu portafolio...</p>
+    <!-- Sección Habilidades y Cursos -->
+    <section id="habilidades-cursos">
+        <div class="section-content">
+            <h2>Habilidades y Cursos</h2>
+            <ul>
+                <li>Dominio de tecnologías de administración de información y automatización.</li>
+                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
+                <li>Cursos realizados en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="contacto" class="section" data-aos="fade-up">
-        <h2>Contacto</h2>
-        <p>Puedes contactarme a través de:</p>
-        <ul>
-            <li>Email: <a href="mailto:tuemail@example.com">tuemail@example.com</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">Perfil de LinkedIn</a></li>
-            <li>Teléfono: +56 9 1234 5678</li>
-        </ul>
+    <!-- Sección Portafolio -->
+    <section id="portafolio">
+        <div class="section-content">
+            <h2>Portafolio</h2>
+            <button id="openScannerBtn">Abrir Escáner QR</button>
+            <button id="openPageBtn">Ir a Página</button>
+        </div>
     </section>
 
-    <button id="back-to-top-btn" onclick="scrollToTop()">↑</button>
+    <!-- Modal para escáner de QR -->
+    <div id="scannerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- El a-scene solo se muestra cuando se abre el modal -->
+            <a-scene embedded arjs>
+                <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
+                    <a-box position="0 0.5 0" material="color: red;"></a-box>
+                </a-marker>
+                <a-entity camera></a-entity>
+            </a-scene>
+        </div>
+    </div>
 
-    <footer class="footer">
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <div class="section-content">
+            <h2>Contacto</h2>
+            <p>Correo: alxgall84@gmail.com</p>
+            <p>Teléfono: +56958974623</p>
+            <p>RUN: 15.762.275-7</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        // Inicializa AOS
-        AOS.init();
-
-        // Mostrar el botón de volver arriba cuando se desplaza hacia abajo
-        window.addEventListener('scroll', function() {
-            var button = document.getElementById('back-to-top-btn');
-            if (window.scrollY > 300) {
-                button.style.display = 'block';
-            } else {
-                button.style.display = 'none';
-            }
-        });
-
-        // Función para desplazar hacia arriba
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Función para alternar el menú en móviles
-        function toggleMenu() {
-            var menu = document.querySelector('.nav-list');
-            menu.classList.toggle('active');
-        }
-
-        // Mostrar secciones al hacer scroll
-        const sections = document.querySelectorAll('.section');
-        window.addEventListener('scroll', () => {
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    section.classList.add('visible');
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
