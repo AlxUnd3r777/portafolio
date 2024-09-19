@@ -11,12 +11,12 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #1c1c1c;
-            color: #e0e0e0;
+            background-color: #1c1c1c; /* Fondo oscuro */
+            color: #e0e0e0; /* Texto claro */
         }
         .header, .footer {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #000000; /* Negro */
+            color: #ffffff; /* Blanco */
             text-align: center;
             padding: 20px 0;
         }
@@ -40,7 +40,7 @@
         }
         .nav-list a {
             text-decoration: none;
-            color: #e0e0e0;
+            color: #e0e0e0; /* Blanco */
             font-weight: 600;
             font-size: 16px;
             text-transform: uppercase;
@@ -49,29 +49,40 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .nav-list a:hover {
-            background-color: #444444;
-            color: #ffffff;
+            background-color: #444444; /* Gris oscuro */
+            color: #ffffff; /* Blanco */
         }
         .menu-toggle {
             display: none;
-            background-color: #007bff; /* Color del botón */
-            color: #ffffff;
+            background-color: #007BFF; /* Azul */
+            color: #ffffff; /* Blanco */
             border: none;
             padding: 10px;
             cursor: pointer;
             font-size: 20px;
             border-radius: 5px;
             position: absolute;
-            top: 15px; /* Ajusta la posición */
+            top: 20px;
             right: 20px;
             transition: background-color 0.3s;
         }
         .menu-toggle:hover {
-            background-color: #0056b3; /* Color al pasar el mouse */
+            background-color: #0056b3; /* Azul oscuro */
         }
         @media (max-width: 768px) {
             .nav-list {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #000000; /* Negro */
+                width: 200px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+            }
+            .nav-list.active {
+                display: flex;
             }
             .menu-toggle {
                 display: block;
@@ -79,7 +90,7 @@
         }
         .section {
             padding: 20px;
-            background-color: #2a2a2a;
+            background-color: #2a2a2a; /* Gris oscuro */
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -90,7 +101,7 @@
             opacity: 1;
         }
         .section h2 {
-            color: #ffffff;
+            color: #ffffff; /* Blanco */
             font-size: 22px;
             text-align: center;
             margin: 0 0 20px;
@@ -105,7 +116,7 @@
         }
         ul li::before {
             content: '•';
-            color: #ffffff;
+            color: #ffffff; /* Blanco */
             font-size: 18px;
             margin-right: 10px;
         }
@@ -113,20 +124,20 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #000000; /* Negro */
+            color: #ffffff; /* Blanco */
             border: none;
             padding: 10px;
             cursor: pointer;
             border-radius: 50%;
             display: none;
             font-size: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
             transition: background-color 0.3s, color 0.3s;
         }
         #back-to-top-btn:hover {
-            background-color: #333333;
-            color: #ffffff;
+            background-color: #333333; /* Gris oscuro */
+            color: #ffffff; /* Blanco */
         }
     </style>
 </head>
@@ -151,53 +162,29 @@
 
     <section id="sobre-mi" class="section" data-aos="fade-up">
         <h2>Sobre Mí</h2>
-        <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística, manejo de información y seguridad. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos, tecnología y seguridad.</p>
+        <p>Descripción sobre ti...</p>
     </section>
     
     <section id="experiencia" class="section" data-aos="fade-up">
         <h2>Experiencia</h2>
-        <ul>
-            <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
-            <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
-            <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-            <li><strong>2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
-            <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
-            <li><strong>2023 - Presente:</strong> Conserje con curso OS10. Seguridad, monitoreo de cámaras y atención a residentes.</li>
-        </ul>
+        <p>Detalles de tu experiencia laboral...</p>
     </section>
 
     <section id="educacion" class="section" data-aos="fade-up">
         <h2>Educación</h2>
-        <ul>
-            <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-            <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
-            <li><strong>2023:</strong> Curso OS10 de Carabineros de Chile. Capacitación en seguridad privada.</li>
-        </ul>
+        <p>Información sobre tu educación...</p>
     </section>
 
     <section id="habilidades-cursos" class="section" data-aos="fade-up">
-        <h2>Habilidades y Cursos</h2>
-        <ul>
-            <li>Dominio de tecnologías de administración de información y automatización.</li>
-            <li>Programación en HTML, CSS, SQL, PHP, JavaScript, Node.js, Arduino y desarrollo web.</li>
-            <li>Conocimientos en redes y cableado estructurado.</li>
-            <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-            <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
-            <li>Licencia de conducir clase B.</li>
-            <li>Cursos realizados en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
-        </ul>
+        <h2>Habilidades</h2>
+        <p>Detalles sobre tus habilidades y cursos...</p>
     </section>
 
     <section id="portafolio" class="section" data-aos="fade-up">
         <h2>Portafolio</h2>
-        <ul>
-            <li><a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">Portafolio de Proyectos - GitHub</a></li>
-            <li><a href="https://github.com/AlxUnd3r777/Fichas" target="_blank">Sistema de Fichas Clínicas - GitHub</a></li>
-            <li><a href="https://github.com/AlxUnd3r777" target="_blank">Mi Repositorio en GitHub</a></li>
-        </ul>
+        <p>Información sobre tu portafolio...</p>
     </section>
 
-    <section id="contacto" class="section
     <section id="contacto" class="section" data-aos="fade-up">
         <h2>Contacto</h2>
         <p>Puedes contactarme a través de:</p>
