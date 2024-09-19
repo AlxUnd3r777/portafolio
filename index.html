@@ -65,6 +65,7 @@
             top: 20px;
             right: 20px;
             transition: background-color 0.3s;
+            z-index: 1; /* Para asegurarnos de que esté en frente */
         }
         .menu-toggle:hover {
             background-color: #333333; /* Gris oscuro */
@@ -149,19 +150,63 @@
         </div>
     </header>
 
-    <section id="sobre-mi" class="section">
+    <section id="sobre-mi" class="section" data-aos="fade-up">
         <h2>Sobre Mí</h2>
-        <p>Descripción sobre ti...</p>
+        <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística, manejo de información y seguridad. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos, tecnología y seguridad.</p>
     </section>
     
-    <section id="experiencia" class="section">
+    <section id="experiencia" class="section" data-aos="fade-up">
         <h2>Experiencia</h2>
-        <p>Detalles de tu experiencia laboral...</p>
+        <ul>
+            <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
+            <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
+            <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
+            <li><strong>2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+            <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
+            <li><strong>2023 - Presente:</strong> Conserje con curso OS10. Seguridad, monitoreo de cámaras y atención a residentes.</li>
+        </ul>
     </section>
 
-    <section id="educacion" class="section">
+    <section id="educacion" class="section" data-aos="fade-up">
         <h2>Educación</h2>
-        <p>Información sobre tu educación...</p>
+        <ul>
+            <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+            <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+            <li><strong>2023:</strong> Curso OS10 de Carabineros de Chile. Capacitación en seguridad privada.</li>
+        </ul>
+    </section>
+
+    <section id="habilidades-cursos" class="section" data-aos="fade-up">
+        <h2>Habilidades y Cursos</h2>
+        <ul>
+            <li>Dominio de tecnologías de administración de información y automatización.</li>
+            <li>Programación en HTML, CSS, SQL, PHP, JavaScript, Node.js, Arduino y desarrollo web.</li>
+            <li>Conocimientos en redes y cableado estructurado.</li>
+            <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+            <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
+            <li>Licencia de conducir clase B.</li>
+            <li>Cursos realizados en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
+        </ul>
+    </section>
+
+    <section id="portafolio" class="section" data-aos="fade-up">
+        <h2>Portafolio</h2>
+        <ul>
+            <li><a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">Portafolio de Proyectos - GitHub</a></li>
+            <li><a href="https://github.com/AlxUnd3r777/Fichas" target="_blank">Sistema de Fichas Clínicas - GitHub</a></li>
+            
+            <li><a href="https://github.com/AlxUnd3r777" target="_blank">Mi Repositorio en GitHub</a></li>
+        </ul>
+    </section>
+
+    <section id="contacto" class="section" data-aos="fade-up">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme a través de las siguientes vías:</p>
+        <ul>
+            <li><strong>Email:</strong> alexandergallardo@example.com</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alexandergallardo/" target="_blank">linkedin.com/in/alexandergallardo</a></li>
+            <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
+        </ul>
     </section>
 
     <button id="back-to-top-btn" onclick="scrollToTop()">↑</button>
@@ -197,7 +242,11 @@
         function toggleMenu() {
             var menu = document.querySelector('.nav-list');
             menu.classList.toggle('active');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex'; // Cambia la visibilidad
+            if (menu.classList.contains('active')) {
+                menu.style.display = 'flex';
+            } else {
+                menu.style.display = 'none';
+            }
         }
 
         // Mostrar secciones al hacer scroll
