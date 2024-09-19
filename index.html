@@ -10,14 +10,15 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #1f1f1f; /* Fondo oscuro */
-            color: #dcdcdc; /* Texto claro */
+            background-color: #121212; /* Fondo oscuro */
+            color: #e0e0e0; /* Texto claro */
         }
         .header, .footer {
-            background-color: #0a0a0a; /* Negro intenso */
+            background-color: #000000; /* Negro profundo */
             color: #00bfff; /* Azul claro */
             text-align: center;
             padding: 15px 0;
+            border-bottom: 2px solid #00bfff; /* Línea azul clara */
         }
         .header-content, .section-content {
             width: 80%;
@@ -46,8 +47,10 @@
         }
         .section {
             padding: 20px 0;
-            background-color: #222; /* Gris oscuro */
+            background-color: #1e1e1e; /* Gris muy oscuro */
             margin: 0 0 15px 0;
+            border: 1px solid #333; /* Borde gris oscuro */
+            border-radius: 8px; /* Bordes redondeados */
         }
         .section h2 {
             color: #00bfff; /* Azul claro */
@@ -87,7 +90,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #0a0a0a; /* Negro intenso */
+            background-color: #000000; /* Negro profundo */
             color: #00bfff; /* Azul claro */
             border: none;
             padding: 10px;
@@ -105,8 +108,9 @@
         .footer {
             text-align: center;
             padding: 15px;
-            background-color: #0a0a0a; /* Negro intenso */
+            background-color: #000000; /* Negro profundo */
             color: #00bfff; /* Azul claro */
+            border-top: 2px solid #00bfff; /* Línea azul clara */
         }
     </style>
 </head>
@@ -191,35 +195,35 @@
             <h2>Contacto</h2>
             <ul>
                 <li>Email: <a href="mailto:alxgall84@gmail.com">alxgall84@gmail.com</a></li>
-                <li>Teléfono
                 <li>Teléfono: <a href="tel:+56958974623">+56958974623</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/alexander-gallardo" target="_blank">Perfil de LinkedIn</a></li>
-                <li>GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank">Perfil de GitHub</a></li>
             </ul>
         </div>
     </section>
+
+    <button id="back-to-top-btn" onclick="scrollToTop()">↑</button>
 
     <footer class="footer">
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <button id="back-to-top-btn" title="Volver arriba">&#9650;</button>
-
     <script>
-        // Mostrar el botón "Volver Arriba" cuando el usuario se desplace hacia abajo
+        // Mostrar el botón "volver arriba" cuando el usuario haga scroll hacia abajo
         window.onscroll = function() {
-            let button = document.getElementById('back-to-top-btn');
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                button.style.display = 'block';
+            const btn = document.getElementById('back-to-top-btn');
+            if (document.documentElement.scrollTop > 100) {
+                btn.style.display = 'block';
             } else {
-                button.style.display = 'none';
+                btn.style.display = 'none';
             }
         };
 
-        // Desplazar hacia arriba cuando se haga clic en el botón
-        document.getElementById('back-to-top-btn').onclick = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        // Función para volver al inicio de la página
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
