@@ -11,12 +11,12 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #1c1c1c; /* Fondo oscuro */
-            color: #e0e0e0; /* Texto claro */
+            background-color: #1c1c1c;
+            color: #e0e0e0;
         }
         .header, .footer {
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
+            background-color: #000000;
+            color: #ffffff;
             text-align: center;
             padding: 20px 0;
         }
@@ -40,7 +40,7 @@
         }
         .nav-list a {
             text-decoration: none;
-            color: #e0e0e0; /* Blanco */
+            color: #e0e0e0;
             font-weight: 600;
             font-size: 16px;
             text-transform: uppercase;
@@ -49,26 +49,25 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .nav-list a:hover {
-            background-color: #444444; /* Gris oscuro */
-            color: #ffffff; /* Blanco */
+            background-color: #444444;
+            color: #ffffff;
         }
         .menu-toggle {
             display: none;
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
+            background-color: #007bff; /* Color del botón */
+            color: #ffffff;
             border: none;
             padding: 10px;
             cursor: pointer;
             font-size: 20px;
             border-radius: 5px;
             position: absolute;
-            top: 20px;
+            top: 15px; /* Ajusta la posición */
             right: 20px;
             transition: background-color 0.3s;
-            z-index: 1; /* Para asegurarnos de que esté en frente */
         }
         .menu-toggle:hover {
-            background-color: #333333; /* Gris oscuro */
+            background-color: #0056b3; /* Color al pasar el mouse */
         }
         @media (max-width: 768px) {
             .nav-list {
@@ -80,7 +79,7 @@
         }
         .section {
             padding: 20px;
-            background-color: #2a2a2a; /* Gris oscuro */
+            background-color: #2a2a2a;
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -91,7 +90,7 @@
             opacity: 1;
         }
         .section h2 {
-            color: #ffffff; /* Blanco */
+            color: #ffffff;
             font-size: 22px;
             text-align: center;
             margin: 0 0 20px;
@@ -106,7 +105,7 @@
         }
         ul li::before {
             content: '•';
-            color: #ffffff; /* Blanco */
+            color: #ffffff;
             font-size: 18px;
             margin-right: 10px;
         }
@@ -114,20 +113,20 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
+            background-color: #000000;
+            color: #ffffff;
             border: none;
             padding: 10px;
             cursor: pointer;
             border-radius: 50%;
             display: none;
             font-size: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s, color 0.3s;
         }
         #back-to-top-btn:hover {
-            background-color: #333333; /* Gris oscuro */
-            color: #ffffff; /* Blanco */
+            background-color: #333333;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -194,18 +193,18 @@
         <ul>
             <li><a href="https://github.com/AlxUnd3r777/portafolio" target="_blank">Portafolio de Proyectos - GitHub</a></li>
             <li><a href="https://github.com/AlxUnd3r777/Fichas" target="_blank">Sistema de Fichas Clínicas - GitHub</a></li>
-            
             <li><a href="https://github.com/AlxUnd3r777" target="_blank">Mi Repositorio en GitHub</a></li>
         </ul>
     </section>
 
+    <section id="contacto" class="section
     <section id="contacto" class="section" data-aos="fade-up">
         <h2>Contacto</h2>
-        <p>Puedes contactarme a través de las siguientes vías:</p>
+        <p>Puedes contactarme a través de:</p>
         <ul>
-            <li><strong>Email:</strong> alexandergallardo@example.com</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alexandergallardo/" target="_blank">linkedin.com/in/alexandergallardo</a></li>
-            <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
+            <li>Email: <a href="mailto:tuemail@example.com">tuemail@example.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">Perfil de LinkedIn</a></li>
+            <li>Teléfono: +56 9 1234 5678</li>
         </ul>
     </section>
 
@@ -242,11 +241,6 @@
         function toggleMenu() {
             var menu = document.querySelector('.nav-list');
             menu.classList.toggle('active');
-            if (menu.classList.contains('active')) {
-                menu.style.display = 'flex';
-            } else {
-                menu.style.display = 'none';
-            }
         }
 
         // Mostrar secciones al hacer scroll
