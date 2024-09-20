@@ -8,181 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Integración de AR.js y A-Frame -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #1c1c1c; /* Fondo oscuro */
-            color: #e0e0e0; /* Texto claro */
-        }
-        header {
-            background-color: #000000; /* Fondo negro */
-            color: #ffffff; /* Texto blanco */
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-        }
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            padding: 0 20px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        nav ul li {
-            margin: 0;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #e0e0e0;
-            font-weight: 600;
-            font-size: 16px;
-            text-transform: uppercase;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        nav ul li a:hover {
-            background-color: #444444;
-            color: #ffffff;
-        }
-        .menu-toggle {
-            display: none;
-            background-color: #007bff; /* Azul */
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            transition: background-color 0.3s;
-        }
-        .menu-toggle:hover {
-            background-color: #0056b3; /* Azul oscuro */
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                background-color: #000000;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                text-align: center;
-                padding: 20px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            nav ul.active {
-                display: flex;
-            }
-        }
-        section {
-            padding: 40px 20px;
-            background-color: #2a2a2a;
-            margin: 0 auto 15px;
-            width: 90%;
-            max-width: 1200px;
-        }
-        section h2 {
-            color: #ffffff;
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 15px 0;
-            font-size: 16px;
-        }
-        ul li::before {
-            content: '•';
-            color: #ffffff;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-        .section-content {
-            padding: 0 20px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        .modal-content {
-            position: relative;
-            background-color: #2a2a2a;
-            margin: 10% auto;
-            padding: 20px;
-            max-width: 800px;
-            border-radius: 10px;
-        }
-        .close {
-            color: #ffffff;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover,
-        .close:focus {
-            color: #ff0000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        #openScannerBtn,
-        #openPageBtn {
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        #openScannerBtn:hover,
-        #openPageBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <!-- Cabecera -->
@@ -190,7 +15,6 @@
         <div class="header-content">
             <h1 id="header-title">Alexander Gallardo</h1>
             <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <nav>
                 <ul>
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
@@ -238,8 +62,7 @@
     </section>
 
     <!-- Sección Habilidades y Cursos -->
-    <section id
-    #habilidades-cursos">
+    <section id="habilidades-cursos">
         <div class="section-content">
             <h2>Habilidades y Cursos</h2>
             <ul>
@@ -255,24 +78,10 @@
     <section id="portafolio">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <button id="openScannerBtn">Abrir Escáner QR</button>
-            <button id="openPageBtn">Ir a Página</button>
+            <p>Explora mi portafolio de proyectos y trabajos realizados.</p>
+            <!-- Aquí puedes añadir enlaces a tus proyectos o ejemplos de tu trabajo -->
         </div>
     </section>
-
-    <!-- Modal para escáner de QR -->
-    <div id="scannerModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <!-- El a-scene solo se muestra cuando se abre el modal -->
-            <a-scene embedded arjs>
-                <a-marker type="pattern" url="https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-patt.hiro">
-                    <a-box position="0 0.5 0" material="color: red;"></a-box>
-                </a-marker>
-                <a-entity camera></a-entity>
-            </a-scene>
-        </div>
-    </div>
 
     <!-- Sección Contacto -->
     <section id="contacto">
@@ -294,25 +103,6 @@
         function toggleMenu() {
             var menu = document.querySelector('nav ul');
             menu.classList.toggle('active');
-        }
-
-        // Script para manejar el modal del escáner QR
-        var modal = document.getElementById("scannerModal");
-        var btnOpenScanner = document.getElementById("openScannerBtn");
-        var spanClose = document.getElementsByClassName("close")[0];
-
-        btnOpenScanner.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        spanClose.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
         }
     </script>
 </body>
