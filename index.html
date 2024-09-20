@@ -13,16 +13,22 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #0b0b0b; /* Cambiado a un negro más oscuro */
+            background-color: #1c1c1c;
             color: #e0e0e0;
         }
 
         header {
-            background-color: #1c1c1c;
+            background-color: #000000;
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
             position: relative;
+        }
+
+        .header-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         #header-title {
@@ -104,7 +110,7 @@
 
         .section {
             padding: 20px;
-            background-color: #151515; /* Fondo más oscuro */
+            background-color: #2a2a2a;
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -130,85 +136,111 @@
             padding: 0 10px;
         }
 
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 15px 0;
+        }
+
+        ul li::before {
+            content: '•';
+            color: #ffffff;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .contact-form {
+            background-color: #3a3a3a;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #555555;
+            color: #ffffff;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Estilos del botón para volver al top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3a3a3a;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 24px;
+            display: none; /* Oculto por defecto */
+        }
+
+        .back-to-top:hover {
+            background-color: #007bff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Efecto Zerg */
         .zerg-effect {
-            animation: zerg-appear 0.6s ease forwards;
+            animation: pulse 1.5s infinite;
         }
 
-        @keyframes zerg-appear {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .pulse {
-            animation: pulse-animation 1.5s infinite;
-        }
-
-        @keyframes pulse-animation {
+        @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                opacity: 1;
+                opacity: 0.9;
             }
             50% {
                 transform: scale(1.05);
-                opacity: 0.7;
+                opacity: 1;
             }
         }
 
-        .zerg-button {
-            display: inline-block;
-            padding: 10px 20px;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            text-transform: uppercase;
-            background-color: #62000d; /* Color rojo oscuro, similar a la estética Zerg */
-            border: 2px solid #42000b;
-            border-radius: 12px; /* Bordes redondeados para un efecto orgánico */
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: background-color 0.4s, transform 0.4s;
-        }
-
-        .zerg-button:hover {
-            background-color: #85000f;
-            transform: scale(1.05);
-        }
-
-        .zerg-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(98, 0, 13, 0));
-            transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
-            border-radius: 50%;
-            z-index: 0;
-            transform: translate(-50%, -50%);
-        }
-
-        .zerg-button:hover::before {
-            width: 100%;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-        }
-
-        .zerg-button span {
-            position: relative;
-            z-index: 1;
-        }
     </style>
 </head>
 <body>
@@ -230,60 +262,29 @@
         </div>
     </header>
 
-    <section id="sobre-mi" class="section zerg-effect">
+    <section id="sobre-mi" class="section visible">
         <div class="section-content">
             <h2>Sobre Mí</h2>
             <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
         </div>
     </section>
 
-    <section id="experiencia" class="section zerg-effect">
+    <section id="experiencia" class="section visible">
         <div class="section-content">
             <h2>Experiencia</h2>
             <ul>
                 <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
-                <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="educacion" class="section zerg-effect">
-        <div class="section-content">
-            <h2>Educación</h2>
-            <ul>
-                <li><strong>200
-                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="habilidades-cursos" class="section zerg-effect">
-        <div class="section-content">
-            <h2>Habilidades y Cursos</h2>
-            <ul>
-                <li>Dominio de tecnologías de administración de información y automatización.</li>
-                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
-                <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
-                <li>Curso S10 de seguridad al día.</li>
-                <li>Licencia de conducir clase B al día.</li>
-                <li>Curso de introducción a la inteligencia artificial y de ingeniería en prompt.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="portafolio" class="section zerg-effect">
+                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de
+    <section id="portafolio" class="section visible">
         <div class="section-content">
             <h2>Portafolio</h2>
             <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
         </div>
     </section>
 
-    <section id="contacto" class="section zerg-effect">
+    <section id="contacto" class="section visible">
         <div class="section-content contact-form">
             <h2>Contacto</h2>
             <form action="https://formspree.io/f/mldrygzk" method="POST">
@@ -299,7 +300,7 @@
                     <label for="mensaje">Tu mensaje:</label>
                     <textarea id="mensaje" name="mensaje" required></textarea>
                 </div>
-                <button type="submit" class="zerg-button"><span>Enviar</span></button>
+                <button type="submit">Enviar</button>
             </form>
         </div>
     </section>
@@ -308,31 +309,30 @@
         <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
+    <button class="back-to-top zerg-effect" id="backToTop" onclick="scrollToTop()">↑</button>
+
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
         }
 
-        // Mostrar secciones al hacer scroll
-        const sections = document.querySelectorAll('.section');
-        const options = {
-            threshold: 0.5
+        // Scroll to top functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, options);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            backToTopButton.classList.add('zerg-effect');
+            setTimeout(() => backToTopButton.classList.remove('zerg-effect'), 1500);
+        }
     </script>
 </body>
 </html>
