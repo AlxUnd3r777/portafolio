@@ -168,6 +168,30 @@
             }
         }
 
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #6600cc; /* Color oscuro Zerg */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.4s, box-shadow 0.4s;
+        }
+
+        .top-button:hover {
+            background-color: #9900ff; /* Color más claro al pasar el mouse */
+        }
+
+        .top-button:active {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Resplandor al hacer clic */
+            transform: scale(0.95);
+        }
+
     </style>
 </head>
 <body>
@@ -214,6 +238,7 @@
             <h2>Educación</h2>
             <ul>
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
             </ul>
         </div>
@@ -237,64 +262,69 @@
     <section id="portafolio" class="section">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <
-<section id="portafolio" class="section">
-    <div class="section-content">
-        <h2>Portafolio</h2>
-        <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
-    </div>
-</section>
+            <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
+        </div>
+    </section>
 
-<section id="contacto" class="section">
-    <div class="section-content contact-form">
-        <h2>Contacto</h2>
-        <form action="https://formspree.io/f/mldrygzk" method="POST">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Tu correo:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="mensaje">Tu mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea>
-            </div>
-            <button type="submit" class="xenomorph-button"><span>Enviar</span></button>
-        </form>
-    </div>
-</section>
+    <section id="contacto" class="section">
+        <div class="section-content contact-form">
+            <h2>Contacto</h2>
+            <form action="https://formspree.io/f/mldrygzk" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Tu correo:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Tu mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                </div>
+                <button type="submit" class="xenomorph-button"><span>Enviar</span></button>
+            </form>
+        </div>
+    </section>
 
-<footer>
-    <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
-</footer>
+    <footer>
+        <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
+    </footer>
 
-<script>
-    function toggleMenu() {
-        const nav = document.querySelector('nav ul');
-        nav.classList.toggle('active');
-    }
+    <button class="top-button" onclick="scrollToTop()">↑</button>
 
-    // Mostrar secciones al hacer scroll
-    const sections = document.querySelectorAll('.section');
-    const options = {
-        threshold: 0.5
-    };
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
+        }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Mostrar secciones al hacer scroll
+        const sections = document.querySelectorAll('.section');
+        const options = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
-    }, options);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-</script>
+    </script>
 </body>
 </html>
