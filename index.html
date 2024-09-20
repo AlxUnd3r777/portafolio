@@ -203,31 +203,47 @@
             margin-bottom: 15px;
         }
 
+        /* Estilo del botón de ir al inicio inspirado en un xenomorfo */
         #scroll-to-top {
-            display: none;
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(145deg, #0e0e0e, #3e3e3e); /* Colores oscuros y metálicos */
-            border: 2px solid #0056b3; /* Contorno brillante */
-            border-radius: 50%; /* Forma circular */
-            color: #b2b2b2; /* Color de fuente pálido */
-            font-family: 'Orbitron', sans-serif; /* Fuente futurista */
-            font-size: 22px;
-            text-align: center;
-            line-height: 46px; /* Centrar el icono verticalmente */
+            background-color: #0b3d0b; /* Color verde oscuro */
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
-            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            font-size: 20px;
+            z-index: 100;
+            display: none;
         }
 
         #scroll-to-top:hover {
-            background-color: #1a1a1a; /* Fondo más oscuro al pasar el mouse */
-            transform: translateY(-5px); /* Animación de desplazamiento */
-            color: #e0e0e0; /* Color de texto más claro */
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 1); /* Efecto de resplandor verde */
+        }
+
+        /* Animación de resplandor al hacer clic */
+        .glow-effect {
+            animation: glow 0.4s ease-out;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(0, 255, 0, 1);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            }
         }
     </style>
 </head>
@@ -261,10 +277,10 @@
         <div class="section-content">
             <h2>Experiencia</h2>
             <ul>
-                <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
-                <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
-                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New
-                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, EE.UU. Operario especializado. Supervisión de maquinaria y control de calidad en la producción de gabinetes de cocina y baño.</li>
+                <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales
+                <!-- Completar lista de experiencia -->
+                <li><strong>2013 - 2018:</strong> AquaChile - Fiordo Aysén. Gestión de centro, planificación de recursos y control de mortalidad en cultivo de salmones.</li>
+                <li><strong>2019 - Presente:</strong> Consultor Freelance en proyectos de automatización y programación aplicada a la acuicultura.</li>
             </ul>
         </div>
     </section>
@@ -273,9 +289,8 @@
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
-                <li><strong>2004 - 2010:</strong> Ingeniería de Ejecución en Acuicultura, Universidad de Los Lagos, Osorno, Chile.</li>
-                <li><strong>2018:</strong> Analista Programador, CFT UCEVALPO, Valparaíso, Chile.</li>
-                <li><strong>2022:</strong> Cursos de Introducción a la Inteligencia Artificial e Ingeniería en Prompt, online.</li>
+                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, Universidad Austral de Chile.</li>
+                <li><strong>2019:</strong> Curso de Analista Programador, Instituto Profesional AIEP.</li>
             </ul>
         </div>
     </section>
@@ -284,13 +299,10 @@
         <div class="section-content">
             <h2>Habilidades y Cursos</h2>
             <ul>
-                <li>Licencia de Conducir Clase B al día.</li>
-                <li>Curso S10 de Seguridad al día.</li>
-                <li>Conocimiento en Arduino.</li>
-                <li>Introducción a la Inteligencia Artificial.</li>
-                <li>Ingeniería en Prompt.</li>
-                <li>Manejo de Software de Planificación y Logística.</li>
-                <li>Desarrollo Web y Programación en HTML, CSS, y JavaScript.</li>
+                <li>Conocimiento en Arduino y programación de microcontroladores.</li>
+                <li>Licencia de conducir clase B al día.</li>
+                <li>Curso S10 de seguridad.</li>
+                <li>Curso de Introducción a la Inteligencia Artificial e Ingeniería en Prompt.</li>
             </ul>
         </div>
     </section>
@@ -298,66 +310,80 @@
     <section id="portafolio" class="section visible">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Puedes ver mis proyectos en mi <a href="https://github.com/AlxUnd3r777" target="_blank">GitHub</a>.</p>
+            <p>Puedes revisar algunos de mis proyectos en mi portafolio de GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank">Ver Portafolio</a>.</p>
         </div>
     </section>
 
     <section id="contacto" class="section visible">
         <div class="section-content">
             <h2>Contacto</h2>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="Tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" rows="5" placeholder="Tu mensaje"></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>Alexander Gallardo © 2024 - Todos los derechos reservados.</p>
+        <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón para ir al inicio -->
-    <div id="scroll-to-top" onclick="scrollToTop()">
-        <i class="fas fa-chevron-up"></i>
+    <!-- Botón de ir al inicio -->
+    <div id="scroll-to-top" title="Ir al inicio">
+        ▲
     </div>
 
     <script>
-        // Script para mostrar el botón cuando se desplaza hacia abajo
+        // Mostrar el botón cuando se hace scroll hacia abajo
         window.addEventListener('scroll', function() {
-            var scrollToTopButton = document.getElementById('scroll-to-top');
-            if (window.pageYOffset > 200) {
-                scrollToTopButton.style.display = 'block';
+            var scrollButton = document.getElementById('scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollButton.style.display = 'flex';
             } else {
-                scrollToTopButton.style.display = 'none';
+                scrollButton.style.display = 'none';
             }
         });
 
-        // Función para ir al inicio de la página
-        function scrollToTop() {
+        // Función para ir al inicio con efecto suave
+        document.getElementById('scroll-to-top').addEventListener('click', function() {
+            // Agregar la clase de efecto de resplandor
+            this.classList.add('glow-effect');
+
+            // Remover la clase de efecto de resplandor después de 0.4s (duración de la animación)
+            setTimeout(() => {
+                this.classList.remove('glow-effect');
+            }, 400);
+
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }
+        });
 
-        // Función para mostrar el menú en dispositivos móviles
+        // Función para mostrar/ocultar el menú en dispositivos móviles
         function toggleMenu() {
             var nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
         }
+
+        // Mostrar secciones con efecto de aparición suave
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.add('visible');
+            });
+        });
     </script>
 </body>
 </html>
