@@ -15,7 +15,17 @@
             padding: 0;
             background-color: #0b0b0b;
             color: #e0e0e0;
-            overflow-x: hidden;
+            position: relative;
+            overflow: hidden; /* Evita el desbordamiento del fondo */
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Asegúrate de que esté detrás del contenido */
         }
 
         header {
@@ -105,7 +115,7 @@
 
         .section {
             padding: 20px;
-            background-color: #151515;
+            background-color: rgba(15, 15, 15, 0.9); /* Fondo oscuro con opacidad */
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -114,7 +124,7 @@
         }
 
         .section.visible {
-            opacity: 1;
+            opacity: 1; /* Asegúrate de que se aplica la clase visible */
         }
 
         .section h2 {
@@ -138,7 +148,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 16px;
             text-transform: uppercase;
-            background-color: #00f; /* Color azul */
+            background-color: #0f0; /* Color verde brillante */
             border: 2px solid #0a0; /* Borde verde oscuro */
             border-radius: 12px;
             position: relative;
@@ -167,19 +177,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             z-index: 1000;
         }
 
         .top-button:hover {
-            background-color: #00f; /* Cambiado a azul */
+            background-color: #0f0;
             transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 0, 255, 1);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
         }
 
-        .top-button.animate {
+        .top-button:active {
             animation: pulse 0.5s;
         }
 
@@ -194,31 +204,10 @@
                 transform: scale(1);
             }
         }
-
-        /* Animación de entrada de secciones */
-        @keyframes slideIn {
-            from {
-                transform: translateX(-50%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .section.visible {
-            animation: slideIn 0.5s forwards;
-        }
-
-        /* Efecto de fondo */
-        body {
-            background: url('blood-splash.png') no-repeat center center fixed;
-            background-size: cover;
-        }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <header>
         <div class="header-content">
             <h1 id="header-title">Alexander Gallardo</h1>
@@ -253,14 +242,10 @@
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
                 <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
                 <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
+
+
+
             </ul>
-        </div>
-   
-
-
-
-
-
         </div>
     </section>
 
@@ -321,26 +306,26 @@
         <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <button class="top-button" id="topButton" onclick="scrollToTop()">
-        <i class="fas fa-chevron-up"></i>
+    <button class="top-button" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        particlesJS.load('particles-js', 'https://cdn.rawgit.com/VincentGarreau/particles.js/master/demo/js/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
         function toggleMenu() {
             const nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
         }
 
         function scrollToTop() {
-            const topButton = document.getElementById('topButton');
-            topButton.classList.add('animate');
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-            setTimeout(() => {
-                topButton.classList.remove('animate');
-            }, 500);
         }
 
         // Mostrar secciones al hacer scroll
