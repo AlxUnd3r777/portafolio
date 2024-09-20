@@ -13,9 +13,19 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #0b0b0b;
-            color: #e0e0e0;
-            overflow-x: hidden;
+            background: linear-gradient(90deg, #000, #222);
+            background-size: 200% 100%;
+            animation: backgroundMove 10s linear infinite;
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
         }
 
         header {
@@ -65,42 +75,13 @@
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
             font-size: 14px;
         }
 
         nav ul li a:hover {
             background-color: #555555;
-        }
-
-        .menu-toggle {
-            display: none;
-            background-color: #000000;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            transition: background-color 0.3s;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
+            transform: translateY(-5px);
         }
 
         .section {
@@ -109,28 +90,29 @@
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
+            transform: translateX(-100%);
             opacity: 0;
-            transition: opacity 0.5s;
-            transform: translateY(20px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
         .section.visible {
+            transform: translateX(0);
             opacity: 1;
-            transform: translateY(0);
         }
 
-        .section h2 {
-            color: #ffffff;
-            font-size: 24px;
-            text-align: center;
-            margin: 0 0 20px;
-            font-family: 'Orbitron', sans-serif;
+        .blood-splash {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('blood-splash.png') no-repeat center;
+            background-size: contain;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: -1;
         }
 
-        .section-content {
-            font-size: 16px;
-            line-height: 1.8;
-            padding: 0 10px;
+        .blood-splash.active {
+            opacity: 1;
         }
 
         .xenomorph-button {
@@ -155,20 +137,26 @@
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Resplandor verde al hacer hover */
         }
 
-        .xenomorph-button:active {
-            animation: pulse 0.5s;
-        }
-
+        /* Pulsar */
         @keyframes pulse {
-            0% {
+            0%, 100% {
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.1);
+                transform: scale(1.05);
             }
-            100% {
-                transform: scale(1);
-            }
+        }
+
+        h2 {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
         }
 
         .top-button {
@@ -200,36 +188,6 @@
         .top-button:active {
             animation: pulse 0.5s;
         }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.15);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Efectos inspirados en xenomorfo */
-        .xenomorph-effect {
-            transition: transform 0.3s, opacity 0.3s;
-        }
-
-        .xenomorph-effect:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-
-        .top-button-icon {
-            transition: transform 0.3s;
-        }
-
-        .top-button:hover .top-button-icon {
-            transform: rotate(180deg); /* Rotación al hacer hover */
-        }
     </style>
 </head>
 <body>
@@ -240,12 +198,12 @@
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <nav>
                 <ul>
-                    <li><a href="#sobre-mi" class="xenomorph-effect">Sobre Mí</a></li>
-                    <li><a href="#experiencia" class="xenomorph-effect">Experiencia</a></li>
-                    <li><a href="#educacion" class="xenomorph-effect">Educación</a></li>
-                    <li><a href="#habilidades-cursos" class="xenomorph-effect">Habilidades</a></li>
-                    <li><a href="#portafolio" class="xenomorph-effect">Portafolio</a></li>
-                    <li><a href="#contacto" class="xenomorph-effect">Contacto</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#educacion">Educación</a></li>
+                    <li><a href="#habilidades-cursos">Habilidades</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -263,7 +221,6 @@
             <h2>Experiencia</h2>
             <ul>
                 <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
-                <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
                 <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
@@ -278,6 +235,7 @@
             <ul>
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+            </ul
             </ul>
         </div>
     </section>
@@ -330,7 +288,7 @@
     </footer>
 
     <button class="top-button" onclick="scrollToTop()">
-        <i class="fas fa-caret-up top-button-icon" style="font-size: 24px;"></i>
+        <i class="fas fa-chevron-up"></i>
     </button>
 
     <script>
@@ -340,15 +298,16 @@
         }
 
         function scrollToTop() {
+            const button = document.querySelector('.top-button');
+            button.classList.add('animate');
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-            const topButton = document.querySelector('.top-button');
-            topButton.classList.add('animation-complete');
+
             setTimeout(() => {
-                topButton.classList.remove('animation-complete');
-            }, 1000);
+                button.classList.remove('animate');
+            }, 600);
         }
 
         // Mostrar secciones al hacer scroll
