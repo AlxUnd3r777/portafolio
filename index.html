@@ -170,28 +170,45 @@
 
         .top-button {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #6600cc; /* Color oscuro Zerg */
-            color: #fff;
+            bottom: 30px;
+            right: 30px;
+            background-color: #1c1c1c;
+            color: #ffffff;
             border: none;
-            padding: 10px 15px;
             border-radius: 50%;
-            cursor: pointer;
+            width: 60px;
+            height: 60px;
             font-size: 24px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.4s, box-shadow 0.4s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            z-index: 1000;
         }
 
         .top-button:hover {
-            background-color: #9900ff; /* Color más claro al pasar el mouse */
+            background-color: #0f0;
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
         }
 
         .top-button:active {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Resplandor al hacer clic */
-            transform: scale(0.95);
+            animation: pulse 0.5s;
         }
 
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -237,8 +254,8 @@
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
+               
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
             </ul>
         </div>
