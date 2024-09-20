@@ -93,10 +93,6 @@
             transition: background-color 0.3s;
         }
 
-        .menu-toggle:hover {
-            background-color: #333333;
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -168,22 +164,47 @@
             margin-top: 20px;
         }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #333333;
+        .contact-form {
+            background-color: #3a3a3a;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
             color: #ffffff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #555555;
+            color: #ffffff;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            display: none;
+            font-size: 16px;
             transition: background-color 0.3s;
         }
 
-        .back-to-top:hover {
-            background-color: #555555;
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -242,15 +263,12 @@
             <ul>
                 <li>Dominio de tecnologías de administración de información y automatización.</li>
                 <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+                <li>Idiomas: Español (n
                 <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
-                <li>Curso en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
-                <li>Conocimiento en Arduino para automatización y control de dispositivos electrónicos.</li>
-                <li>Licencia de conducir clase B al día.</li>
+                <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
                 <li>Curso S10 de seguridad al día.</li>
-                <li>Curso de Introducción a la Inteligencia Artificial.</li>
-                <li>Curso de Ingeniería en Prompt.</li>
-                <li>Lenguajes de programación: Python, JavaScript, HTML, CSS, SQL.</li
-                <li>Lenguajes de programación: Python, JavaScript, HTML, CSS, SQL.</li>
+                <li>Licencia de conducir clase B al día.</li>
+                <li>Curso de introducción a la inteligencia artificial y de ingeniería en prompt.</li>
             </ul>
         </div>
     </section>
@@ -258,79 +276,39 @@
     <section id="portafolio" class="section">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Consulta mi portafolio en GitHub para ver proyectos y colaboraciones: <a href="https://github.com/AlxUnd3r777" target="_blank">Alexander Gallardo - GitHub</a></p>
+            <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
         </div>
     </section>
 
     <section id="contacto" class="section">
-        <div class="section-content">
+        <div class="section-content contact-form">
             <h2>Contacto</h2>
             <form action="https://formspree.io/f/mldrygzk" method="POST">
-                <label>
-                    Nombre:
-                    <input type="text" name="nombre" required>
-                </label>
-                <label>
-                    Correo:
-                    <input type="email" name="email" required>
-                </label>
-                <label>
-                    Mensaje:
-                    <textarea name="message" required></textarea>
-                </label>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Tu correo:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Tu mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                </div>
                 <button type="submit">Enviar</button>
             </form>
-            <p>Teléfono: +56958974623</p>
-            <p>RUN: 15.762.275-7</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
+        <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
-
-    <button class="back-to-top" onclick="scrollToTop()">Subir al Top</button>
 
     <script>
         function toggleMenu() {
-            var menu = document.querySelector('nav ul');
-            menu.classList.toggle('active');
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.2
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-
-        const backToTopButton = document.querySelector('.back-to-top');
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
         }
     </script>
 </body>
