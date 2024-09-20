@@ -182,10 +182,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             z-index: 1000;
+            overflow: hidden;
         }
 
         .top-button:hover {
@@ -198,24 +199,32 @@
             animation: pulse 0.5s;
         }
 
-        @keyframes buttonPulse {
+        @keyframes pulse {
             0% {
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.2);
+                transform: scale(1.15);
             }
             100% {
                 transform: scale(1);
             }
         }
 
-        .fa-chevron-up {
-            transition: transform 0.3s;
+        .top-button.animate {
+            animation: bounce 0.5s forwards;
         }
 
-        .top-button:hover .fa-chevron-up {
-            transform: rotate(180deg);
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -253,12 +262,12 @@
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
                 <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+                <li><strong
                 <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
             </ul>
         </div>
     </section>
 
-    
     <section id="educacion" class="section">
         <div class="section-content">
             <h2>Educación</h2>
@@ -317,7 +326,7 @@
     </footer>
 
     <button class="top-button" onclick="scrollToTop()">
-        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
@@ -327,10 +336,15 @@
         }
 
         function scrollToTop() {
+            const button = document.querySelector('.top-button');
+            button.classList.add('animate');
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
+            setTimeout(() => {
+                button.classList.remove('animate');
+            }, 500); // tiempo de la animación
         }
 
         // Mostrar secciones al hacer scroll
