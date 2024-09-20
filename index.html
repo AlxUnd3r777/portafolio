@@ -202,6 +202,25 @@
         .form-group {
             margin-bottom: 15px;
         }
+
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: none; /* Oculto por defecto */
+        }
+
+        #scroll-to-top:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -248,6 +267,7 @@
             <h2>Educación</h2>
             <ul>
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
             </ul>
         </div>
@@ -259,7 +279,7 @@
             <ul>
                 <li>Dominio de tecnologías de administración de información y automatización.</li>
                 <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-                <li>Idiomas: Español (nativo), Inglés (avanzado                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
+                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
                 <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
                 <li>Curso S10 de seguridad al día.</li>
                 <li>Licencia de conducir clase B al día.</li>
@@ -300,12 +320,26 @@
         <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
+    <button id="scroll-to-top" style="display: none;">Ir al inicio</button>
+
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
         }
+
+        window.onscroll = function() {
+            const button = document.getElementById('scroll-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
+
+        document.getElementById('scroll-to-top').onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
     </script>
 </body>
 </html>
-
