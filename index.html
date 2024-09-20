@@ -204,38 +204,30 @@
         }
 
         #scroll-to-top {
+            display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #007bff; /* Color de fondo del botón */
-            color: white; /* Color del texto */
-            border: none;
-            border-radius: 5px;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(145deg, #0e0e0e, #3e3e3e); /* Colores oscuros y metálicos */
+            border: 2px solid #0056b3; /* Contorno brillante */
+            border-radius: 50%; /* Forma circular */
+            color: #b2b2b2; /* Color de fuente pálido */
+            font-family: 'Orbitron', sans-serif; /* Fuente futurista */
+            font-size: 22px;
+            text-align: center;
+            line-height: 46px; /* Centrar el icono verticalmente */
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
-            display: none; /* Inicialmente oculto */
-            opacity: 0; /* Opacidad inicial */
-            transform: translateY(20px); /* Desplazamiento inicial */
-            animation: slide-in 0.5s forwards; /* Animación al aparecer */
-        }
-
-        @keyframes slide-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+            z-index: 1000;
         }
 
         #scroll-to-top:hover {
-            background-color: #0056b3; /* Color de fondo al pasar el ratón */
-            color: #e0e0e0; /* Color del texto al pasar el ratón */
+            background-color: #1a1a1a; /* Fondo más oscuro al pasar el mouse */
+            transform: translateY(-5px); /* Animación de desplazamiento */
+            color: #e0e0e0; /* Color de texto más claro */
         }
     </style>
 </head>
@@ -271,11 +263,8 @@
             <ul>
                 <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
-                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-                <li><strong>2022 - 
-
-                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
-                <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
+                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New
+                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, EE.UU. Operario especializado. Supervisión de maquinaria y control de calidad en la producción de gabinetes de cocina y baño.</li>
             </ul>
         </div>
     </section>
@@ -284,8 +273,9 @@
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
-                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+                <li><strong>2004 - 2010:</strong> Ingeniería de Ejecución en Acuicultura, Universidad de Los Lagos, Osorno, Chile.</li>
+                <li><strong>2018:</strong> Analista Programador, CFT UCEVALPO, Valparaíso, Chile.</li>
+                <li><strong>2022:</strong> Cursos de Introducción a la Inteligencia Artificial e Ingeniería en Prompt, online.</li>
             </ul>
         </div>
     </section>
@@ -294,13 +284,13 @@
         <div class="section-content">
             <h2>Habilidades y Cursos</h2>
             <ul>
-                <li>Dominio de tecnologías de administración de información y automatización.</li>
-                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
-                <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
-                <li>Curso S10 de seguridad al día.</li>
-                <li>Licencia de conducir clase B al día.</li>
-                <li>Curso de introducción a la inteligencia artificial y de ingeniería en prompt.</li>
+                <li>Licencia de Conducir Clase B al día.</li>
+                <li>Curso S10 de Seguridad al día.</li>
+                <li>Conocimiento en Arduino.</li>
+                <li>Introducción a la Inteligencia Artificial.</li>
+                <li>Ingeniería en Prompt.</li>
+                <li>Manejo de Software de Planificación y Logística.</li>
+                <li>Desarrollo Web y Programación en HTML, CSS, y JavaScript.</li>
             </ul>
         </div>
     </section>
@@ -308,60 +298,65 @@
     <section id="portafolio" class="section visible">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
+            <p>Puedes ver mis proyectos en mi <a href="https://github.com/AlxUnd3r777" target="_blank">GitHub</a>.</p>
         </div>
     </section>
 
     <section id="contacto" class="section visible">
-        <div class="section-content contact-form">
+        <div class="section-content">
             <h2>Contacto</h2>
-            <form action="https://formspree.io/f/mldrygzk" method="POST">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Tu correo:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Tu mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
+        <p>Alexander Gallardo © 2024 - Todos los derechos reservados.</p>
     </footer>
 
-    <button id="scroll-to-top" onclick="scrollToTop()">Ir al inicio</button>
+    <!-- Botón para ir al inicio -->
+    <div id="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
-        }
-
-        // Mostrar el botón "Ir al inicio" al hacer scroll
-        window.onscroll = function() {
-            const button = document.getElementById('scroll-to-top');
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                button.style.display = "block";
-                button.style.opacity = "1";
+        // Script para mostrar el botón cuando se desplaza hacia abajo
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scroll-to-top');
+            if (window.pageYOffset > 200) {
+                scrollToTopButton.style.display = 'block';
             } else {
-                button.style.display = "none";
-                button.style.opacity = "0";
+                scrollToTopButton.style.display = 'none';
             }
-        };
+        });
 
+        // Función para ir al inicio de la página
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // Desplazamiento suave
+                behavior: 'smooth'
             });
+        }
+
+        // Función para mostrar el menú en dispositivos móviles
+        function toggleMenu() {
+            var nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
         }
     </script>
 </body>
