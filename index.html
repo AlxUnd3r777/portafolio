@@ -13,22 +13,16 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #1c1c1c;
+            background-color: #0b0b0b; /* Cambiado a un negro más oscuro */
             color: #e0e0e0;
         }
 
         header {
-            background-color: #000000;
+            background-color: #1c1c1c;
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
             position: relative;
-        }
-
-        .header-content {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         #header-title {
@@ -110,7 +104,7 @@
 
         .section {
             padding: 20px;
-            background-color: #2a2a2a;
+            background-color: #151515; /* Fondo más oscuro */
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -136,114 +130,84 @@
             padding: 0 10px;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
+        .zerg-effect {
+            animation: zerg-appear 0.6s ease forwards;
         }
 
-        ul li {
-            margin: 15px 0;
-        }
-
-        ul li::before {
-            content: '•';
-            color: #ffffff;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
-        }
-
-        .contact-form {
-            background-color: #3a3a3a;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            background-color: #555555;
-            color: #ffffff;
-        }
-
-        .contact-form button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .contact-form button:hover {
-            background-color: #0056b3;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        /* Estilo del botón de ir al inicio inspirado en un xenomorfo */
-        #scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #0b3d0b; /* Color verde oscuro */
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-            font-size: 20px;
-            z-index: 100;
-            display: none;
-        }
-
-        #scroll-to-top:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 1); /* Efecto de resplandor verde */
-        }
-
-        /* Animación de resplandor al hacer clic */
-        .glow-effect {
-            animation: glow 0.4s ease-out;
-        }
-
-        @keyframes glow {
+        @keyframes zerg-appear {
             0% {
-                box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+                transform: scale(0);
+                opacity: 0;
             }
             50% {
-                box-shadow: 0 0 50px rgba(0, 255, 0, 1);
+                transform: scale(1.1);
+                opacity: 1;
             }
             100% {
-                box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+                transform: scale(1);
             }
+        }
+
+        .pulse {
+            animation: pulse-animation 1.5s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+        }
+
+        .zerg-button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            background-color: #62000d; /* Color rojo oscuro, similar a la estética Zerg */
+            border: 2px solid #42000b;
+            border-radius: 12px; /* Bordes redondeados para un efecto orgánico */
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.4s, transform 0.4s;
+        }
+
+        .zerg-button:hover {
+            background-color: #85000f;
+            transform: scale(1.05);
+        }
+
+        .zerg-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(98, 0, 13, 0));
+            transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+            border-radius: 50%;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        .zerg-button:hover::before {
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+        }
+
+        .zerg-button span {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -266,71 +230,76 @@
         </div>
     </header>
 
-    <section id="sobre-mi" class="section visible">
+    <section id="sobre-mi" class="section zerg-effect">
         <div class="section-content">
             <h2>Sobre Mí</h2>
             <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
         </div>
     </section>
 
-    <section id="experiencia" class="section visible">
+    <section id="experiencia" class="section zerg-effect">
         <div class="section-content">
             <h2>Experiencia</h2>
             <ul>
-                <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales
-                <!-- Completar lista de experiencia -->
-                <li><strong>2013 - 2018:</strong> AquaChile - Fiordo Aysén. Gestión de centro, planificación de recursos y control de mortalidad en cultivo de salmones.</li>
-                <li><strong>2019 - Presente:</strong> Consultor Freelance en proyectos de automatización y programación aplicada a la acuicultura.</li>
+                <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
+                <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
+                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
+                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+                <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
             </ul>
         </div>
     </section>
 
-    <section id="educacion" class="section visible">
+    <section id="educacion" class="section zerg-effect">
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
-                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, Universidad Austral de Chile.</li>
-                <li><strong>2019:</strong> Curso de Analista Programador, Instituto Profesional AIEP.</li>
+                <li><strong>200
+                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
             </ul>
         </div>
     </section>
 
-    <section id="habilidades-cursos" class="section visible">
+    <section id="habilidades-cursos" class="section zerg-effect">
         <div class="section-content">
             <h2>Habilidades y Cursos</h2>
             <ul>
-                <li>Conocimiento en Arduino y programación de microcontroladores.</li>
+                <li>Dominio de tecnologías de administración de información y automatización.</li>
+                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
+                <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
+                <li>Curso S10 de seguridad al día.</li>
                 <li>Licencia de conducir clase B al día.</li>
-                <li>Curso S10 de seguridad.</li>
-                <li>Curso de Introducción a la Inteligencia Artificial e Ingeniería en Prompt.</li>
+                <li>Curso de introducción a la inteligencia artificial y de ingeniería en prompt.</li>
             </ul>
         </div>
     </section>
 
-    <section id="portafolio" class="section visible">
+    <section id="portafolio" class="section zerg-effect">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Puedes revisar algunos de mis proyectos en mi portafolio de GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank">Ver Portafolio</a>.</p>
+            <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
         </div>
     </section>
 
-    <section id="contacto" class="section visible">
-        <div class="section-content">
+    <section id="contacto" class="section zerg-effect">
+        <div class="section-content contact-form">
             <h2>Contacto</h2>
-            <form class="contact-form">
+            <form action="https://formspree.io/f/mldrygzk" method="POST">
                 <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" placeholder="Tu nombre">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" placeholder="Tu correo electrónico">
+                    <label for="email">Tu correo:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" rows="5" placeholder="Tu mensaje"></textarea>
+                    <label for="mensaje">Tu mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
                 </div>
-                <button type="submit">Enviar</button>
+                <button type="submit" class="zerg-button"><span>Enviar</span></button>
             </form>
         </div>
     </section>
@@ -339,50 +308,30 @@
         <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón de ir al inicio -->
-    <div id="scroll-to-top" title="Ir al inicio">
-        ▲
-    </div>
-
     <script>
-        // Mostrar el botón cuando se hace scroll hacia abajo
-        window.addEventListener('scroll', function() {
-            var scrollButton = document.getElementById('scroll-to-top');
-            if (window.scrollY > 300) {
-                scrollButton.style.display = 'flex';
-            } else {
-                scrollButton.style.display = 'none';
-            }
-        });
-
-        // Función para ir al inicio con efecto suave
-        document.getElementById('scroll-to-top').addEventListener('click', function() {
-            // Agregar la clase de efecto de resplandor
-            this.classList.add('glow-effect');
-
-            // Remover la clase de efecto de resplandor después de 0.4s (duración de la animación)
-            setTimeout(() => {
-                this.classList.remove('glow-effect');
-            }, 400);
-
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Función para mostrar/ocultar el menú en dispositivos móviles
         function toggleMenu() {
-            var nav = document.querySelector('nav ul');
+            const nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
         }
 
-        // Mostrar secciones con efecto de aparición suave
-        document.addEventListener('DOMContentLoaded', function() {
-            var sections = document.querySelectorAll('.section');
-            sections.forEach(function(section) {
-                section.classList.add('visible');
+        // Mostrar secciones al hacer scroll
+        const sections = document.querySelectorAll('.section');
+        const options = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
             });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
