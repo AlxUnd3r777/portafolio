@@ -1,4 +1,4 @@
-<!DoCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -153,6 +152,22 @@
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Resplandor verde al hacer hover */
         }
 
+        .xenomorph-button:active {
+            animation: pulse 0.5s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         .top-button {
             position: fixed;
             bottom: 30px;
@@ -183,16 +198,24 @@
             animation: pulse 0.5s;
         }
 
-        @keyframes pulse {
+        @keyframes buttonPulse {
             0% {
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.15);
+                transform: scale(1.2);
             }
             100% {
                 transform: scale(1);
             }
+        }
+
+        .fa-chevron-up {
+            transition: transform 0.3s;
+        }
+
+        .top-button:hover .fa-chevron-up {
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -235,12 +258,12 @@
         </div>
     </section>
 
+    
     <section id="educacion" class="section">
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-                <li><strong>201
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
             </ul>
         </div>
@@ -284,7 +307,7 @@
                     <label for="mensaje">Tu mensaje:</label>
                     <textarea id="mensaje" name="mensaje" required></textarea>
                 </div>
-                <button type="submit" class="xenomorph-button" onclick="animateButton(event)"><span>Enviar</span></button>
+                <button type="submit" class="xenomorph-button"><span>Enviar</span></button>
             </form>
         </div>
     </section>
@@ -293,7 +316,9 @@
         <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <button class="top-button" onclick="scrollToTop()">↑</button>
+    <button class="top-button" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script>
         function toggleMenu() {
@@ -306,11 +331,6 @@
                 top: 0,
                 behavior: 'smooth'
             });
-        }
-
-        function animateButton(event) {
-            const button = event.currentTarget;
-            gsap.fromTo(button, { scale: 1 }, { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1 });
         }
 
         // Mostrar secciones al hacer scroll
