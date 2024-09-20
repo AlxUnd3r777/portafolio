@@ -13,13 +13,13 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #1c1c1c; /* Fondo oscuro */
-            color: #e0e0e0; /* Texto claro */
+            background-color: #1c1c1c;
+            color: #e0e0e0;
         }
 
         header {
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
+            background-color: #000000;
+            color: #ffffff;
             text-align: center;
             padding: 20px 0;
             position: relative;
@@ -32,7 +32,7 @@
         }
 
         #header-title {
-            font-family: 'Playfair Display', serif; /* Nueva fuente */
+            font-family: 'Playfair Display', serif;
             font-size: 36px;
             font-weight: bold;
             margin: 10px 0;
@@ -44,7 +44,7 @@
         }
 
         nav {
-            background-color: #333333; /* Fondo del menú */
+            background-color: #333333;
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -66,7 +66,7 @@
         nav ul li a {
             display: block;
             padding: 15px 20px;
-            color: #ffffff; /* Blanco */
+            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
@@ -75,13 +75,13 @@
         }
 
         nav ul li a:hover {
-            background-color: #555555; /* Gris oscuro */
+            background-color: #555555;
         }
 
         .menu-toggle {
             display: none;
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
+            background-color: #000000;
+            color: #ffffff;
             border: none;
             padding: 10px;
             cursor: pointer;
@@ -94,12 +94,12 @@
         }
 
         .menu-toggle:hover {
-            background-color: #333333; /* Gris oscuro */
+            background-color: #333333;
         }
 
         @media (max-width: 768px) {
             nav ul {
-                display: none; /* Ocultar el menú por defecto en móviles */
+                display: none;
                 flex-direction: column;
             }
 
@@ -108,17 +108,17 @@
             }
 
             nav ul.active {
-                display: flex; /* Mostrar el menú al activar el botón */
+                display: flex;
             }
 
             .menu-toggle {
-                display: block; /* Mostrar el botón del menú en móviles */
+                display: block;
             }
         }
 
         .section {
             padding: 20px;
-            background-color: #2a2a2a; /* Gris oscuro */
+            background-color: #2a2a2a;
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -131,7 +131,7 @@
         }
 
         .section h2 {
-            color: #ffffff; /* Blanco */
+            color: #ffffff;
             font-size: 24px;
             text-align: center;
             margin: 0 0 20px;
@@ -155,48 +155,35 @@
 
         ul li::before {
             content: '•';
-            color: #ffffff; /* Blanco */
+            color: #ffffff;
             font-size: 18px;
             margin-right: 10px;
         }
 
         footer {
-            background-color: #000000; /* Negro */
-            color: #ffffff; /* Blanco */
+            background-color: #000000;
+            color: #ffffff;
             text-align: center;
             padding: 20px 0;
             margin-top: 20px;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        input, textarea {
-            padding: 10px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            font-size: 16px;
-            width: 100%;
-        }
-
-        button {
-            background-color: #4CAF50; /* Verde */
-            color: white;
-            padding: 10px;
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333333;
+            color: #ffffff;
             border: none;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            display: none;
             transition: background-color 0.3s;
         }
 
-        button:hover {
-            background-color: #45a049; /* Verde más oscuro */
+        .back-to-top:hover {
+            background-color: #555555;
         }
     </style>
 </head>
@@ -255,7 +242,6 @@
             <ul>
                 <li>Dominio de tecnologías de administración de información y automatización.</li>
                 <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-               
                 <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
                 <li>Curso en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
                 <li>Conocimiento en Arduino para automatización y control de dispositivos electrónicos.</li>
@@ -263,6 +249,7 @@
                 <li>Curso S10 de seguridad al día.</li>
                 <li>Curso de Introducción a la Inteligencia Artificial.</li>
                 <li>Curso de Ingeniería en Prompt.</li>
+                <li>Lenguajes de programación: Python, JavaScript, HTML, CSS, SQL.</li
                 <li>Lenguajes de programación: Python, JavaScript, HTML, CSS, SQL.</li>
             </ul>
         </div>
@@ -284,16 +271,15 @@
                     <input type="text" name="nombre" required>
                 </label>
                 <label>
-                    Tu correo:
+                    Correo:
                     <input type="email" name="email" required>
                 </label>
                 <label>
-                    Tu mensaje:
+                    Mensaje:
                     <textarea name="message" required></textarea>
                 </label>
                 <button type="submit">Enviar</button>
             </form>
-            <p>Correo: alxgall84@gmail.com</p>
             <p>Teléfono: +56958974623</p>
             <p>RUN: 15.762.275-7</p>
         </div>
@@ -302,6 +288,8 @@
     <footer>
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()">Subir al Top</button>
 
     <script>
         function toggleMenu() {
@@ -327,6 +315,23 @@
                 observer.observe(section);
             });
         });
+
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
