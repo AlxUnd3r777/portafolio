@@ -13,19 +13,9 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background: linear-gradient(90deg, #000, #222);
-            background-size: 200% 100%;
-            animation: backgroundMove 10s linear infinite;
-            overflow-x: hidden; /* Evita el desbordamiento horizontal */
-        }
-
-        @keyframes backgroundMove {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 100% 0;
-            }
+            background-color: #0b0b0b;
+            color: #e0e0e0;
+            overflow-x: hidden;
         }
 
         header {
@@ -75,13 +65,42 @@
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, color 0.3s;
             font-size: 14px;
         }
 
         nav ul li a:hover {
             background-color: #555555;
-            transform: translateY(-5px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: background-color 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
         }
 
         .section {
@@ -90,29 +109,26 @@
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
-            transform: translateX(-100%);
             opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transition: opacity 0.5s;
         }
 
         .section.visible {
-            transform: translateX(0);
             opacity: 1;
         }
 
-        .blood-splash {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('blood-splash.png') no-repeat center;
-            background-size: contain;
-            opacity: 0;
-            transition: opacity 0.5s;
-            z-index: -1;
+        .section h2 {
+            color: #ffffff;
+            font-size: 24px;
+            text-align: center;
+            margin: 0 0 20px;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        .blood-splash.active {
-            opacity: 1;
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            padding: 0 10px;
         }
 
         .xenomorph-button {
@@ -122,7 +138,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 16px;
             text-transform: uppercase;
-            background-color: #0f0; /* Color verde brillante */
+            background-color: #00f; /* Color azul */
             border: 2px solid #0a0; /* Borde verde oscuro */
             border-radius: 12px;
             position: relative;
@@ -135,28 +151,6 @@
             background-color: #0a0;
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Resplandor verde al hacer hover */
-        }
-
-        /* Pulsar */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        h2 {
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #1c1c1c;
-            color: #ffffff;
         }
 
         .top-button {
@@ -173,20 +167,54 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 255, 0.3);
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             z-index: 1000;
         }
 
         .top-button:hover {
-            background-color: #0f0;
+            background-color: #00f; /* Cambiado a azul */
             transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
+            box-shadow: 0 0 25px rgba(0, 0, 255, 1);
         }
 
-        .top-button:active {
+        .top-button.animate {
             animation: pulse 0.5s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Animación de entrada de secciones */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .section.visible {
+            animation: slideIn 0.5s forwards;
+        }
+
+        /* Efecto de fondo */
+        body {
+            background: url('blood-splash.png') no-repeat center center fixed;
+            background-size: cover;
         }
     </style>
 </head>
@@ -227,6 +255,9 @@
                 <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
             </ul>
         </div>
+   
+
+       
     </section>
 
     <section id="educacion" class="section">
@@ -235,10 +266,6 @@
             <ul>
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
-            </ul
-
-
-
             </ul>
         </div>
     </section>
@@ -290,7 +317,7 @@
         <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
-    <button class="top-button" onclick="scrollToTop()">
+    <button class="top-button" id="topButton" onclick="scrollToTop()">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -301,16 +328,15 @@
         }
 
         function scrollToTop() {
-            const button = document.querySelector('.top-button');
-            button.classList.add('animate');
+            const topButton = document.getElementById('topButton');
+            topButton.classList.add('animate');
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-
             setTimeout(() => {
-                button.classList.remove('animate');
-            }, 600);
+                topButton.classList.remove('animate');
+            }, 500);
         }
 
         // Mostrar secciones al hacer scroll
