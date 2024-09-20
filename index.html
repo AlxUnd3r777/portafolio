@@ -7,16 +7,104 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .header-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+        .menu-toggle {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .menu-toggle:hover {
+            background-color: #333;
+        }
+        section {
+            padding: 20px;
+            margin: 15px auto;
+            width: 90%;
+            max-width: 1200px;
+            background-color: #2a2a2a;
+        }
+        h2 {
+            color: #fff;
+            font-size: 22px;
+            margin: 0 0 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <!-- Cabecera -->
     <header>
         <div class="header-content">
-            <h1 id="header-title">Alexander Gallardo</h1>
-            <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
+            <h1>Alexander Gallardo</h1>
+            <p>Ingeniero de Ejecución en Acuicultura y Analista Programador</p>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <nav>
-                <ul>
+                <ul class="nav-list">
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
                     <li><a href="#experiencia">Experiencia</a></li>
                     <li><a href="#educacion">Educación</a></li>
@@ -28,81 +116,65 @@
         </div>
     </header>
 
-    <!-- Sección Sobre Mí -->
     <section id="sobre-mi">
-        <div class="section-content">
-            <h2>Sobre Mí</h2>
-            <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
-        </div>
+        <h2>Sobre Mí</h2>
+        <p>Soy Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
     </section>
 
-    <!-- Sección Experiencia -->
     <section id="experiencia">
-        <div class="section-content">
-            <h2>Experiencia</h2>
-            <ul>
-                <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
-                <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
-                <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
-                <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
-            </ul>
-        </div>
+        <h2>Experiencia</h2>
+        <ul>
+            <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
+            <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
+            <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
+            <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+            <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
+        </ul>
     </section>
 
-    <!-- Sección Educación -->
     <section id="educacion">
-        <div class="section-content">
-            <h2>Educación</h2>
-            <ul>
-                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
-            </ul>
-        </div>
+        <h2>Educación</h2>
+        <ul>
+            <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+            <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+        </ul>
     </section>
 
-    <!-- Sección Habilidades y Cursos -->
     <section id="habilidades-cursos">
-        <div class="section-content">
-            <h2>Habilidades y Cursos</h2>
-            <ul>
-                <li>Dominio de tecnologías de administración de información y automatización.</li>
-                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
-                <li>Cursos realizados en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
-            </ul>
-        </div>
+        <h2>Habilidades y Cursos</h2>
+        <ul>
+            <li>Dominio de tecnologías de administración de información y automatización.</li>
+            <li>Conocimiento en lenguajes de programación: Python, Java, JavaScript, C++, HTML, CSS.</li>
+            <li>Conocimientos en Arduino y proyectos de electrónica.</li>
+            <li>Curso de introducción a la inteligencia artificial y ingeniería en prompt.</li>
+            <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+            <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
+            <li>Cursos realizados en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
+            <li>Licencia de conducir clase B al día.</li>
+            <li>Curso S10 de seguridad al día.</li>
+        </ul>
     </section>
 
-    <!-- Sección Portafolio -->
     <section id="portafolio">
-        <div class="section-content">
-            <h2>Portafolio</h2>
-            <p>Explora mi portafolio de proyectos y trabajos realizados.</p>
-            <!-- Aquí puedes añadir enlaces a tus proyectos o ejemplos de tu trabajo -->
-        </div>
+        <h2>Portafolio</h2>
+        <p>Puedes ver mis proyectos en mi <a href="https://github.com/AlxUnd3r777" target="_blank">portafolio de GitHub</a>.</p>
     </section>
 
-    <!-- Sección Contacto -->
     <section id="contacto">
-        <div class="section-content">
-            <h2>Contacto</h2>
-            <p>Correo: alxgall84@gmail.com</p>
-            <p>Teléfono: +56958974623</p>
-            <p>RUN: 15.762.275-7</p>
-        </div>
+        <h2>Contacto</h2>
+        <p>Correo: alxgall84@gmail.com</p>
+        <p>Teléfono: +56958974623</p>
+        <p>RUN: 15.762.275-7</p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Alexander Gallardo. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Script para mostrar/ocultar el menú en dispositivos móviles
         function toggleMenu() {
-            var menu = document.querySelector('nav ul');
-            menu.classList.toggle('active');
+            var navList = document.querySelector('.nav-list');
+            navList.classList.toggle('active');
         }
     </script>
 </body>
