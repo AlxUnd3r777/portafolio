@@ -168,55 +168,36 @@
             margin-top: 20px;
         }
 
-        /* Estilos del formulario de contacto */
-        #contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #333;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
         }
 
-        .form-group {
+        form label {
+            margin-bottom: 10px;
+            color: #ffffff; /* Blanco */
+        }
+
+        form input, form textarea {
+            padding: 10px;
             margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #e0e0e0;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #555;
-            border-radius: 5px;
-            background-color: #444;
-            color: #e0e0e0;
-        }
-
-        .form-group input::placeholder, .form-group textarea::placeholder {
-            color: #aaa;
-        }
-
-        button[type="submit"] {
-            display: block;
-            width: 100%;
-            padding: 10px;
             border: none;
             border-radius: 5px;
-            background-color: #0066cc;
-            color: #fff;
-            font-size: 16px;
+        }
+
+        form button {
+            background-color: #333333; /* Gris oscuro */
+            color: #ffffff; /* Blanco */
+            border: none;
+            padding: 10px;
             cursor: pointer;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        button[type="submit"]:hover {
-            background-color: #004999;
+        form button:hover {
+            background-color: #555555; /* Gris más claro */
         }
     </style>
 </head>
@@ -263,7 +244,6 @@
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
-               
                 <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
                 <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
             </ul>
@@ -275,7 +255,7 @@
             <h2>Habilidades y Cursos</h2>
             <ul>
                 <li>Dominio de tecnologías de administración de información y automatización.</li>
-                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+                <li>Capacidad de observación, análisis y síntesis, resolución de problemas                 <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
                 <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
                 <li>Curso en ChileCompras y Mercado Público sobre contratación, compras sustentables, y normativa.</li>
                 <li>Conocimiento en Arduino para automatización y control de dispositivos electrónicos.</li>
@@ -298,23 +278,19 @@
     <section id="contacto" class="section">
         <div class="section-content">
             <h2>Contacto</h2>
-            <p>Correo: <a href="mailto:alxgall84@gmail.com">alxgall84@gmail.com</a></p>
-            <p>Teléfono: +569 5897 4623</p>
+            <p>Correo: alxgall84@gmail.com</p>
+            <p>Teléfono: +56958974623</p>
             <p>RUN: 15.762.275-7</p>
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required placeholder="Tu correo">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje:</label>
-                    <textarea id="message" name="message" rows="4" required placeholder="Tu mensaje"></textarea>
-                </div>
-                <button type="submit">Enviar Mensaje</button>
+            <form action="https://formspree.io/f/mldrygzk" method="POST">
+                <label>
+                    Tu correo:
+                    <input type="email" name="email" required>
+                </label>
+                <label>
+                    Tu mensaje:
+                    <textarea name="message" required></textarea>
+                </label>
+                <button type="submit">Enviar</button>
             </form>
         </div>
     </section>
@@ -352,3 +328,4 @@
     </script>
 </body>
 </html>
+
