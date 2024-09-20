@@ -13,22 +13,16 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #1c1c1c;
+            background-color: #0b0b0b;
             color: #e0e0e0;
         }
 
         header {
-            background-color: #000000;
+            background-color: #1c1c1c;
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
             position: relative;
-        }
-
-        .header-content {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         #header-title {
@@ -110,7 +104,7 @@
 
         .section {
             padding: 20px;
-            background-color: #2a2a2a;
+            background-color: #151515;
             margin: 0 auto 15px;
             width: 90%;
             max-width: 1200px;
@@ -136,108 +130,41 @@
             padding: 0 10px;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin: 15px 0;
-        }
-
-        ul li::before {
-            content: '•';
-            color: #ffffff;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
-        }
-
-        .contact-form {
-            background-color: #3a3a3a;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            background-color: #555555;
-            color: #ffffff;
-        }
-
-        .contact-form button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
+        .xenomorph-button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
             font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .contact-form button:hover {
-            background-color: #0056b3;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        /* Estilos del botón para volver al top */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #3a3a3a;
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
+            text-transform: uppercase;
+            background-color: #0f0; /* Color verde brillante */
+            border: 2px solid #0a0; /* Borde verde oscuro */
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, box-shadow 0.3s;
-            font-size: 24px;
-            display: none; /* Oculto por defecto */
+            transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
         }
 
-        .back-to-top:hover {
-            background-color: #007bff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        .xenomorph-button:hover {
+            background-color: #0a0;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Resplandor verde al hacer hover */
         }
 
-        /* Efecto Zerg */
-        .zerg-effect {
-            animation: pulse 1.5s infinite;
+        .xenomorph-button:active {
+            animation: pulse 0.5s;
         }
 
         @keyframes pulse {
-            0%, 100% {
+            0% {
                 transform: scale(1);
-                opacity: 0.9;
             }
             50% {
-                transform: scale(1.05);
-                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
             }
         }
 
@@ -262,77 +189,112 @@
         </div>
     </header>
 
-    <section id="sobre-mi" class="section visible">
+    <section id="sobre-mi" class="section">
         <div class="section-content">
             <h2>Sobre Mí</h2>
             <p>Ingeniero de Ejecución en Acuicultura y Analista Programador con experiencia en supervisión de labores, logística y manejo de información. Poseo habilidades en análisis, resolución de problemas y trabajo en equipo, con un fuerte interés en la automatización de procesos y tecnología.</p>
         </div>
     </section>
 
-    <section id="experiencia" class="section visible">
+    <section id="experiencia" class="section">
         <div class="section-content">
             <h2>Experiencia</h2>
             <ul>
                 <li><strong>2007 - 2012:</strong> Agrosuper - Fiordos, Patagonia Chilena. Supervisión de labores de centro, cálculo e ingeniería en crecimiento, toma de parámetros ambientales.</li>
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
-                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de
-    <section id="portafolio" class="section visible">
+                <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
+                <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="educacion" class="section">
+        <div class="section-content">
+            <h2>Educación</h2>
+            <ul>
+                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
+                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="habilidades-cursos" class="section">
+        <div class="section-content">
+            <h2>Habilidades y Cursos</h2>
+            <ul>
+                <li>Dominio de tecnologías de administración de información y automatización.</li>
+                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
+                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
+                <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
+                <li>Curso S10 de seguridad al día.</li>
+                <li>Licencia de conducir clase B al día.</li>
+                <li>Curso de introducción a la inteligencia artificial y de ingeniería en prompt.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="portafolio" class="section">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
-        </div>
-    </section>
+            <
+<section id="portafolio" class="section">
+    <div class="section-content">
+        <h2>Portafolio</h2>
+        <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
+    </div>
+</section>
 
-    <section id="contacto" class="section visible">
-        <div class="section-content contact-form">
-            <h2>Contacto</h2>
-            <form action="https://formspree.io/f/mldrygzk" method="POST">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Tu correo:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Tu mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </section>
+<section id="contacto" class="section">
+    <div class="section-content contact-form">
+        <h2>Contacto</h2>
+        <form action="https://formspree.io/f/mldrygzk" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Tu correo:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Tu mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+            <button type="submit" class="xenomorph-button"><span>Enviar</span></button>
+        </form>
+    </div>
+</section>
 
-    <footer>
-        <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
-    </footer>
+<footer>
+    <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
+</footer>
 
-    <button class="back-to-top zerg-effect" id="backToTop" onclick="scrollToTop()">↑</button>
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('nav ul');
+        nav.classList.toggle('active');
+    }
 
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
-        }
+    // Mostrar secciones al hacer scroll
+    const sections = document.querySelectorAll('.section');
+    const options = {
+        threshold: 0.5
+    };
 
-        // Scroll to top functionality
-        const backToTopButton = document.getElementById('backToTop');
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = "block";
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             } else {
-                backToTopButton.style.display = "none";
+                entry.target.classList.remove('visible');
             }
-        };
+        });
+    }, options);
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            backToTopButton.classList.add('zerg-effect');
-            setTimeout(() => backToTopButton.classList.remove('zerg-effect'), 1500);
-        }
-    </script>
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
 </body>
 </html>
