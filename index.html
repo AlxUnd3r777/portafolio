@@ -152,22 +152,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Resplandor verde al hacer hover */
         }
 
-        .xenomorph-button:active {
-            animation: pulse 0.5s;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
         .top-button {
             position: fixed;
             bottom: 30px;
@@ -186,44 +170,30 @@
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             z-index: 1000;
-            overflow: hidden;
         }
 
         .top-button:hover {
-            background-color: #0f0;
+            background-color: #00f;
             transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
-        }
-
-        .top-button:active {
-            animation: pulse 0.5s;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.15);
-            }
-            100% {
-                transform: scale(1);
-            }
+            box-shadow: 0 0 25px rgba(0, 0, 255, 1);
         }
 
         .top-button.animate {
-            animation: bounce 0.5s forwards;
+            animation: xenomorph-pulse 0.5s forwards;
         }
 
-        @keyframes bounce {
+        @keyframes xenomorph-pulse {
             0% {
-                transform: translateY(0);
+                transform: scale(1);
+                box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
             }
             50% {
-                transform: translateY(-10px);
+                transform: scale(1.2);
+                box-shadow: 0 0 40px rgba(0, 0, 255, 1);
             }
             100% {
-                transform: translateY(0);
+                transform: scale(1);
+                box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
             }
         }
     </style>
@@ -262,7 +232,6 @@
                 <li><strong>2013 - 2019:</strong> Hospital de Quilpué, Chile. Administrativo Bodega Farmacia. Manejo de portal ChileCompras, trato con proveedores, organización e inventario, logística.</li>
                 <li><strong>2021 - 2022:</strong> Fabwood Cabinetry, New Jersey, USA. Logística, manejo de inventarios, soporte IT, configuración y reparación de maquinaria ZEBRA.</li>
                 <li><strong>2022 - 2022:</strong> Exhibitology, New York, USA. Diseño 3D, carpintería, operación de impresoras CNC, implementación de sistemas de audio tour.</li>
-                <li><strong
                 <li><strong>2023:</strong> Hospital de Quilpué. Encargado de bodega de abastecimiento, logística y administración de insumos.</li>
             </ul>
         </div>
@@ -272,8 +241,10 @@
         <div class="section-content">
             <h2>Educación</h2>
             <ul>
-                <li><strong>2002 - 2006:</strong> Ingeniería de Ejecución en Acuicultura, DUOC UC, Valparaíso.</li>
-                <li><strong>2013 - 2016:</strong> Analista Programador Computacional, DUOC UC, Viña del Mar.</li>
+                <
+                <li><strong>2010 - 2014:</strong> Universidad de Los Lagos - Ingeniería de Ejecución en Acuicultura.</li>
+                <li><strong>2022:</strong> Certificación en Análisis de Datos.</li>
+                <li><strong>2023:</strong> Curso de Introducción a la Inteligencia Artificial.</li>
             </ul>
         </div>
     </section>
@@ -282,13 +253,11 @@
         <div class="section-content">
             <h2>Habilidades y Cursos</h2>
             <ul>
-                <li>Dominio de tecnologías de administración de información y automatización.</li>
-                <li>Capacidad de observación, análisis y síntesis, resolución de problemas.</li>
-                <li>Idiomas: Español (nativo), Inglés (avanzado), Portugués (básico).</li>
-                <li>Conocimiento en Arduino y programación en diversos lenguajes.</li>
-                <li>Curso S10 de seguridad al día.</li>
+                <li>Programación en Python y Java.</li>
+                <li>Conocimientos en Arduino.</li>
+                <li>Gestión de proyectos.</li>
+                <li>Curso S10 de Seguridad.</li>
                 <li>Licencia de conducir clase B al día.</li>
-                <li>Curso de introducción a la inteligencia artificial y de ingeniería en prompt.</li>
             </ul>
         </div>
     </section>
@@ -296,76 +265,57 @@
     <section id="portafolio" class="section">
         <div class="section-content">
             <h2>Portafolio</h2>
-            <p>Puedes ver mis proyectos en mi GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank" style="color: #007bff;">GitHub Portfolio</a>.</p>
+            <p>Visita mi portafolio en GitHub: <a href="https://github.com/AlxUnd3r777" target="_blank">GitHub</a></p>
         </div>
     </section>
 
     <section id="contacto" class="section">
-        <div class="section-content contact-form">
+        <div class="section-content">
             <h2>Contacto</h2>
-            <form action="https://formspree.io/f/mldrygzk" method="POST">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Tu correo:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Tu mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                </div>
-                <button type="submit" class="xenomorph-button"><span>Enviar</span></button>
-            </form>
+            <p>Puedes contactarme a través de mi correo electrónico: <a href="mailto:alex.gallardo@example.com">alex.gallardo@example.com</a></p>
         </div>
     </section>
 
-    <footer>
-        <p>© 2024 Alexander Gallardo. Todos los derechos reservados.</p>
-    </footer>
-
-    <button class="top-button" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
+    <button class="top-button" id="topButton" onclick="scrollToTop()">
+        <i class="fas fa-rocket"></i>
     </button>
 
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
-        }
-
-        function scrollToTop() {
-            const button = document.querySelector('.top-button');
-            button.classList.add('animate');
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            setTimeout(() => {
-                button.classList.remove('animate');
-            }, 500); // tiempo de la animación
-        }
-
-        // Mostrar secciones al hacer scroll
-        const sections = document.querySelectorAll('.section');
-        const options = {
-            threshold: 0.5
+        // Mostrar el botón al hacer scroll
+        window.onscroll = function() {
+            const topButton = document.getElementById('topButton');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                topButton.style.display = "block";
+                topButton.classList.add('animate');
+            } else {
+                topButton.style.display = "none";
+                topButton.classList.remove('animate');
+            }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, options);
+        // Función para hacer scroll hacia arriba
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+            // Volver a la posición original
+            const topButton = document.getElementById('topButton');
+            topButton.classList.remove('animate');
+        }
+
+        // Función para alternar el menú
+        function toggleMenu() {
+            const navMenu = document.querySelector('nav ul');
+            navMenu.classList.toggle('active');
+        }
+
+        // Hacer visible las secciones al cargar
+        window.onload = function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+        };
     </script>
 </body>
 </html>
