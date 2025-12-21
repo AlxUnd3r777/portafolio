@@ -1,132 +1,265 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Profesional - Alexander Gallardo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil Profesional - Alexander Gallardo</title>
 
-    <!-- FUENTES -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- CSS EXTERNO (OBLIGATORIO) -->
-    <link rel="stylesheet" href="styles.css?v=5">
+<style>
+/* ================= RESET ================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ================= FONDO BASE ================= */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #e5e7eb;
+    background: radial-gradient(circle at top, #101820 0%, #05070a 70%);
+    line-height: 1.6;
+}
+
+/* ================= BACKGROUND ANIMADO ================= */
+#animated-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,180,0.18),
+            rgba(10,20,30,0.88),
+            rgba(0,180,255,0.16)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.10) 0px,
+            rgba(255,255,255,0.10) 1px,
+            transparent 1px,
+            transparent 44px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.08) 0px,
+            rgba(255,255,255,0.08) 1px,
+            transparent 1px,
+            transparent 44px
+        );
+    animation: gridMove 60s linear infinite;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0, 0 0, 0 0; }
+    to { background-position: 1600px 800px, 0 1200px, 1200px 0; }
+}
+
+/* ================= HEADER ================= */
+.header {
+    background: rgba(15,23,32,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+}
+
+.header p {
+    margin-top: 8px;
+    color: #9ca3af;
+}
+
+/* ================= NAV ================= */
+.nav-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.nav-list li {
+    display: inline-block;
+    margin: 6px;
+}
+
+.nav-list a {
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #e5e7eb;
+    background: rgba(255,255,255,0.05);
+    transition: all .3s ease;
+}
+
+.nav-list a:hover {
+    background: rgba(0,255,180,0.8);
+    color: #00130c;
+}
+
+/* ================= SECCIONES ================= */
+.section {
+    padding: 70px 20px;
+}
+
+.section-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 36px;
+    border-radius: 22px;
+    background: rgba(20,30,40,0.92); /* CLAVE: fondo sólido */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.section-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px;
+}
+
+.section-content h2::after {
+    content:"";
+    display:block;
+    width:90px;
+    height:3px;
+    margin-top:8px;
+    background: linear-gradient(90deg,#00ffb4,transparent);
+}
+
+.section-content ul {
+    list-style:none;
+    margin-top:15px;
+}
+
+.section-content ul li {
+    margin-bottom:10px;
+    color:#cbd5e1;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    text-align:center;
+    padding:25px;
+    background: rgba(15,23,32,0.9);
+    border-top:1px solid rgba(255,255,255,0.15);
+    color:#9ca3af;
+}
+
+/* ================= BOTÓN TOP ================= */
+#back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 16px 18px;
+    border-radius: 50%;
+    background: rgba(0,255,180,0.9);
+    color:#00130c;
+    border:none;
+    cursor:pointer;
+    display:none;
+}
+</style>
 </head>
 
 <body>
 
-    <div id="animated-bg"></div>
-<div id="particles-js"></div>
+<div id="animated-bg"></div>
 
 <header class="header">
-    <div class="header-content">
-        <h1>Alexander Gallardo</h1>
-        <p>Ingeniero (E)  Acuicultura · Analista Programador · Automatización y Tecnología</p>
+    <h1>Alexander Gallardo</h1>
+    <p>Ingeniero (E) Acuicultura · Analista Programador · Automatización y Tecnología</p>
 
-        <nav>
-            <ul class="nav-list">
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#educacion">Educación</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyeccion">Proyección</a></li>
-                <li><a href="#portafolio">Portafolio</a></li>
-                 <li><a href="#portafolio">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
+    <ul class="nav-list">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#educacion">Educación</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyeccion">Proyección</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
 </header>
 
 <section id="sobre-mi" class="section">
-    <div class="section-content glass">
-        <h2>Sobre mí</h2>
-        <p>
-            Profesional híbrido con base en ingeniería, programación y automatización de procesos.
-            Especializado en transformar operaciones tradicionales en sistemas eficientes, digitales y escalables.
-        </p>
-    </div>
+<div class="section-content">
+<h2>Sobre mí</h2>
+<p>Profesional híbrido con base en ingeniería, programación y automatización de procesos.</p>
+</div>
 </section>
 
 <section id="experiencia" class="section">
-    <div class="section-content glass">
-        <h2>Experiencia</h2>
-        <ul>
-            <li><strong>Agrosuper – Fiordos:</strong> Supervisión técnica y análisis ambiental.</li>
-            <li><strong>Hospital de Quilpué:</strong> Gestión logística y optimización de inventarios críticos.</li>
-            <li><strong>Fabwood Cabinetry – USA:</strong> Logística, soporte IT y equipos industriales.</li>
-            <li><strong>Exhibitology – USA:</strong> CNC, diseño 3D y soporte tecnológico.</li>
-              <li><strong>Ripley:</strong> Soporte IT equipos Tecnologicos , Sistemas Transaccionales.</li>
-        </ul>
-    </div>
+<div class="section-content">
+<h2>Experiencia</h2>
+<ul>
+<li>Agrosuper – Fiordos</li>
+<li>Hospital de Quilpué</li>
+<li>Fabwood Cabinetry – USA</li>
+<li>Exhibitology – USA</li>
+<li>Ripley – Soporte IT</li>
+</ul>
+</div>
 </section>
 
 <section id="educacion" class="section">
-    <div class="section-content glass">
-        <h2>Educación</h2>
-        <ul>
-            <li>Ingeniería de Ejecución en Acuicultura – DUOC UC</li>
-            <li>Analista Programador Computacional – DUOC UC</li>
-        </ul>
-    </div>
+<div class="section-content">
+<h2>Educación</h2>
+<ul>
+<li>Ingeniería de Ejecución en Acuicultura – DUOC UC</li>
+<li>Analista Programador Computacional – DUOC UC</li>
+</ul>
+</div>
 </section>
 
 <section id="habilidades" class="section">
-    <div class="section-content glass">
-        <h2>Habilidades y Certificaciones</h2>
-        <ul>
-            <li>Tecnología, automatización, IA aplicada</li>
-            <li>Logística y mejora continua</li>
-            <li>Curso OS-10 vigente</li>
-            <li>Licencia de conducir Clase B vigente</li>
-            <li>Desarrollo Web y aplicaciones</li>
-            <li>RaspBerry y Arduino, electronica Nivel usuario</li>
-            
-        </ul>
-    </div>
+<div class="section-content">
+<h2>Habilidades</h2>
+<ul>
+<li>Desarrollo Web y Automatización</li>
+<li>IA aplicada</li>
+<li>Arduino y Raspberry Pi</li>
+<li>Curso OS-10 vigente</li>
+<li>Licencia Clase B</li>
+</ul>
+</div>
 </section>
 
 <section id="proyeccion" class="section">
-    <div class="section-content glass">
-        <h2>Proyección Profesional</h2>
-        <p>
-            Orientado a tecnología, automatización, análisis de sistemas y ciberseguridad operativa.
-        </p>
-    </div>
+<div class="section-content">
+<h2>Proyección Profesional</h2>
+<p>Orientado a tecnología, ciberseguridad y automatización de sistemas.</p>
+</div>
 </section>
 
 <section id="portafolio" class="section">
-    <div class="section-content glass">
-        <h2>Portafolio</h2>
-        <p>
-            GitHub:
-            <a href="https://github.com/AlxUnd3r777" target="_blank">github.com/AlxUnd3r777</a>
-        </p>
-    </div>
+<div class="section-content">
+<h2>Portafolio</h2>
+<a href="https://github.com/AlxUnd3r777" target="_blank">github.com/AlxUnd3r777</a>
+</div>
 </section>
-    <section id="contacto" class="section">
-    <div class="section-content glass">
-        <h2>Portafolio</h2>
-        <p>
-           Correo:
-            <a href="Alxgall83@Gmail.com" target="_blank">Alxgall83@Gmail.com</a>
-            <p>
-           
-            </p>
-            
-        </p>
-    </div>
+
+<section id="contacto" class="section">
+<div class="section-content">
+<h2>Contacto</h2>
+<p>Email: <a href="mailto:Alxgall83@gmail.com">Alxgall83@gmail.com</a></p>
+</div>
 </section>
 
 <footer class="footer">
-    © 2024 Alexander Gallardo · Perfil Profesional
+© 2024 Alexander Gallardo
 </footer>
 
-<button id="back-to-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-    <i class="fas fa-arrow-up"></i>
-</button>
+<script>
+window.addEventListener("scroll",()=>{
+document.getElementById("back-to-top-btn").style.display =
+window.scrollY>300?"block":"none";
+});
+</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-<script src="scripts.js"></script>
+<button id="back-to-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
 
 </body>
 </html>
