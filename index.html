@@ -5,219 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Profesional - Alexander Gallardo</title>
 
-    <!-- Fuentes -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&family=Playfair+Display:wght@700&display=swap">
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #0b0b0b;
-            color: #e0e0e0;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        header {
-            background: #111;
-            text-align: center;
-            padding: 25px 10px;
-        }
-
-        #header-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            margin: 0;
-        }
-
-        #header-subtitle {
-            font-size: 18px;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        nav {
-            margin-top: 20px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 13px;
-        }
-
-        nav ul li a:hover {
-            background-color: #0f0;
-            color: #000;
-            border-radius: 5px;
-        }
-
-        .section {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
-            background: rgba(15,15,15,0.9);
-            border-radius: 10px;
-        }
-
-        .section h2 {
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0f0;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #111;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        .top-button {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            background: #0f0;
-            color: #000;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .top-button:hover {
-            background: #00cc00;
-        }
-    </style>
+    <!-- CSS EXTERNO (OBLIGATORIO) -->
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 
 <body>
+
 <div id="particles-js"></div>
 
-<header>
-    <h1 id="header-title">Alexander Gallardo</h1>
-    <p id="header-subtitle">Ingeniero de Ejecución en Acuicultura · Analista Programador · Automatización y Tecnología</p>
+<header class="header">
+    <div class="header-content">
+        <h1>Alexander Gallardo</h1>
+        <p>Ingeniero de Ejecución · Analista Programador · Automatización y Tecnología</p>
 
-    <nav>
-        <ul>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#educacion">Educación</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#proyeccion">Proyección</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyeccion">Proyección</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <section id="sobre-mi" class="section">
-    <h2>Sobre mí</h2>
-    <p>
-        Profesional híbrido con base en ingeniería, programación y automatización de procesos.
-        Especializado en transformar operaciones tradicionales en sistemas eficientes, digitales y escalables.
-        Orientado a tecnología aplicada, optimización logística, análisis de datos y soluciones prácticas para entornos críticos.
-    </p>
+    <div class="section-content">
+        <h2>Sobre mí</h2>
+        <p>
+            Profesional híbrido con base en ingeniería, programación y automatización de procesos.
+            Especializado en transformar operaciones tradicionales en sistemas eficientes, digitales y escalables.
+        </p>
+    </div>
 </section>
 
 <section id="experiencia" class="section">
-    <h2>Experiencia</h2>
-    <ul>
-        <li>
-            <strong>Agrosuper – Fiordos (2007–2012)</strong><br>
-            Supervisión de centros productivos, análisis de parámetros ambientales y apoyo en ingeniería de crecimiento.
-        </li>
-        <li>
-            <strong>Hospital de Quilpué (2013–2019 / 2023)</strong><br>
-            Gestión logística, inventarios críticos, coordinación con proveedores públicos y optimización de procesos de abastecimiento.
-        </li>
-        <li>
-            <strong>Fabwood Cabinetry – USA (2021–2022)</strong><br>
-            Logística, control de inventarios, soporte IT y mantenimiento de equipos industriales Zebra.
-        </li>
-        <li>
-            <strong>Exhibitology – USA (2022)</strong><br>
-            Diseño 3D, operación CNC y soporte tecnológico para sistemas de audio interactivos.
-        </li>
-    </ul>
+    <div class="section-content">
+        <h2>Experiencia</h2>
+        <ul>
+            <li><strong>Agrosuper – Fiordos:</strong> Supervisión técnica y análisis ambiental.</li>
+            <li><strong>Hospital de Quilpué:</strong> Gestión logística y optimización de inventarios críticos.</li>
+            <li><strong>Fabwood Cabinetry – USA:</strong> Logística, soporte IT y equipos industriales.</li>
+            <li><strong>Exhibitology – USA:</strong> CNC, diseño 3D y soporte tecnológico.</li>
+        </ul>
+    </div>
 </section>
 
 <section id="educacion" class="section">
-    <h2>Educación</h2>
-    <ul>
-        <li>Ingeniería de Ejecución en Acuicultura – DUOC UC, Valparaíso</li>
-        <li>Analista Programador Computacional – DUOC UC, Viña del Mar</li>
-    </ul>
+    <div class="section-content">
+        <h2>Educación</h2>
+        <ul>
+            <li>Ingeniería de Ejecución en Acuicultura – DUOC UC</li>
+            <li>Analista Programador Computacional – DUOC UC</li>
+        </ul>
+    </div>
 </section>
 
 <section id="habilidades" class="section">
-    <h2>Habilidades y Certificaciones</h2>
-    <ul>
-        <li><strong>Tecnología y Automatización:</strong> Programación, Arduino, automatización de procesos, IA aplicada, prompt engineering.</li>
-        <li><strong>Operaciones:</strong> Logística, inventarios, análisis y mejora continua.</li>
-        <li><strong>Idiomas:</strong> Español nativo · Inglés avanzado · Portugués básico.</li>
-        <li><strong>Certificaciones:</strong> Curso OS-10 vigente (seguridad privada).</li>
-        <li><strong>Otros:</strong> Licencia de conducir Clase B vigente.</li>
-    </ul>
+    <div class="section-content">
+        <h2>Habilidades y Certificaciones</h2>
+        <ul>
+            <li>Tecnología, automatización, IA aplicada</li>
+            <li>Logística y mejora continua</li>
+            <li>Curso OS-10 vigente</li>
+            <li>Licencia de conducir Clase B vigente</li>
+        </ul>
+    </div>
 </section>
 
 <section id="proyeccion" class="section">
-    <h2>Proyección Profesional</h2>
-    <p>
-        Enfocado en roles tecnológicos, automatización, análisis de sistemas, soporte avanzado y ciberseguridad operativa.
-        Interés en inteligencia artificial aplicada, eficiencia operacional y soluciones escalables orientadas al futuro del trabajo.
-    </p>
+    <div class="section-content">
+        <h2>Proyección Profesional</h2>
+        <p>
+            Orientado a tecnología, automatización, análisis de sistemas y ciberseguridad operativa.
+        </p>
+    </div>
 </section>
 
 <section id="portafolio" class="section">
-    <h2>Portafolio</h2>
-    <p>
-        Proyectos disponibles en GitHub:
-        <a href="https://github.com/AlxUnd3r777" target="_blank" style="color:#0f0;">github.com/AlxUnd3r777</a>
-    </p>
+    <div class="section-content">
+        <h2>Portafolio</h2>
+        <p>
+            GitHub:
+            <a href="https://github.com/AlxUnd3r777" target="_blank">github.com/AlxUnd3r777</a>
+        </p>
+    </div>
 </section>
 
-<footer>
+<footer class="footer">
     © 2024 Alexander Gallardo · Perfil Profesional
 </footer>
 
-<button class="top-button" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+<button id="back-to-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
     <i class="fas fa-arrow-up"></i>
 </button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-<script>
-particlesJS.load('particles-js','https://cdn.rawgit.com/VincentGarreau/particles.js/master/demo/js/particles.json');
-</script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
