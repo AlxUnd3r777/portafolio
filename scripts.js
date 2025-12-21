@@ -112,4 +112,22 @@ document.addEventListener('mousemove', e => {
         }
     });
 });
+/* ===============================
+   GLASS REACTIVO AL MOUSE
+=============================== */
+const glassEls = document.querySelectorAll('.glass');
+
+document.addEventListener('mousemove', e => {
+    glassEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+
+        if (x >= 0 && y >= 0 && x <= 100 && y <= 100) {
+            el.style.setProperty('--mx', `${x}%`);
+            el.style.setProperty('--my', `${y}%`);
+        }
+    });
+});
+
 
