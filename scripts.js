@@ -1,5 +1,10 @@
-window.onscroll = function() {
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+window.onscroll = function () {
     const btn = document.getElementById("back-to-top-btn");
+    if (!btn) return;
+
     if (document.documentElement.scrollTop > 200) {
         btn.style.display = "block";
     } else {
@@ -7,44 +12,86 @@ window.onscroll = function() {
     }
 };
 
-document.getElementById("back-to-top-btn").addEventListener("click", function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
-
-    const openScannerBtn = document.getElementById('openScannerBtn');
-    const scannerModal = document.getElementById('scannerModal');
-    const closeModal = document.querySelector('.close');
-
-    // Verifica si el botón de abrir escáner existe
-    if (openScannerBtn) {
-        console.log("Botón de abrir escáner encontrado");
-
-        // Abrir el modal del escáner de QR
-        openScannerBtn.addEventListener('click', function() {
-            console.log("Botón de abrir escáner clickeado");
-            scannerModal.style.display = 'block';
-        });
-    } else {
-        console.log("Botón de abrir escáner no encontrado");
-    }
-
-    // Verifica si el botón de cerrar el modal existe
-    if (closeModal) {
-        // Cerrar el modal del escáner de QR
-        closeModal.addEventListener('click', function() {
-            console.log("Botón de cerrar clickeado");
-            scannerModal.style.display = 'none';
+    /* =====================================================
+       SCROLL SUAVE AL TOP
+    ===================================================== */
+    const backToTopBtn = document.getElementById("back-to-top-btn");
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
 
-    // Cerrar el modal si se hace clic fuera del contenido del modal
-    window.addEventListener('click', function(event) {
-        if (event.target === scannerModal) {
-            console.log("Clic fuera del modal detectado");
-            scannerModal.style.display = 'none';
+    /* =====================================================
+       MODAL ESCÁNER QR
+    ===================================================== */
+    const openScannerBtn = document.getElementById("openScannerBtn");
+    const scannerModal = document.getElementById("scannerModal");
+    const closeModal = document.querySelector(".close");
+
+    if (openScannerBtn && scannerModal) {
+        openScannerBtn.addEventListener("click", function () {
+            scannerModal.style.display = "block";
+        });
+    }
+
+    if (closeModal && scannerModal) {
+        closeModal.addEventListener("click", function () {
+            scannerModal.style.display = "none";
+        });
+    }
+
+    window.addEventListener("click", function (event) {
+        if (scannerModal && event.target === scannerModal) {
+            scannerModal.style.display = "none";
         }
     });
+
+    /* =====================================================
+       EFECTO 1: REVEAL ON SCROLL (SECCIONES)
+    ===================================================== */
+    const sections = document.querySelectorAll(".section");
+
+    const revealObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
+
+    sections.forEach(section => revealObserver.observe(section));
+
+    /* =====================================================
+       EFECTO 2: GLOW REACTIVO AL MOUSE (CYBER)
+    ===================================================== */
+    const glowElements = document.querySelectorAll(
+        ".section-content, .nav-list a, .btn-primary"
+    );
+
+    document.addEventListener("mousemove", e => {
+        glowElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (x >= 0 && y >= 0 && x <= rect.width && y <= rect.height) {
+                el.style.background = `
+                    radial-gradient(
+                        circle at ${x}px ${y}px,
+                        rgba(0,255,156,0.18),
+                        rgba(255,255,255,0.05)
+                    )
+                `;
+            } else {
+                el.style.background = "";
+            }
+        });
+    });
+
 });
