@@ -6,22 +6,23 @@
 <title>Perfil Profesional - Alexander Gallardo</title>
 
 <!-- FUENTES -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <style>
 /* ================= RESET ================= */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ================= FONDO BASE ================= */
+/* ================= BODY ================= */
 body {
     font-family: 'Roboto', sans-serif;
     color: #e5e7eb;
-    background: radial-gradient(circle at top, #101820 0%, #05070a 70%);
+    background: radial-gradient(circle at top, #0f172a 0%, #020617 70%);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* ================= BACKGROUND ANIMADO ================= */
+/* ================= BACKGROUND GRID ANIMADO ================= */
 #animated-bg {
     position: fixed;
     inset: 0;
@@ -29,44 +30,46 @@ body {
     background:
         linear-gradient(
             135deg,
-            rgba(0,255,180,0.18),
-            rgba(10,20,30,0.88),
-            rgba(0,180,255,0.16)
+            rgba(0,255,180,0.22),
+            rgba(5,15,25,0.88),
+            rgba(0,180,255,0.20)
         ),
         repeating-linear-gradient(
             0deg,
-            rgba(255,255,255,0.10) 0px,
-            rgba(255,255,255,0.10) 1px,
+            rgba(255,255,255,0.12) 0px,
+            rgba(255,255,255,0.12) 1px,
             transparent 1px,
-            transparent 44px
+            transparent 46px
         ),
         repeating-linear-gradient(
             90deg,
-            rgba(255,255,255,0.08) 0px,
-            rgba(255,255,255,0.08) 1px,
+            rgba(255,255,255,0.10) 0px,
+            rgba(255,255,255,0.10) 1px,
             transparent 1px,
-            transparent 44px
+            transparent 46px
         );
-    animation: gridMove 60s linear infinite;
+    animation: gridMove 70s linear infinite;
+    filter: blur(0.4px);
 }
 
 @keyframes gridMove {
     from { background-position: 0 0, 0 0, 0 0; }
-    to { background-position: 1600px 800px, 0 1200px, 1200px 0; }
+    to   { background-position: 1800px 900px, 0 1200px, 1200px 0; }
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER GLASS ================= */
 .header {
-    background: rgba(15,23,32,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    padding: 30px 15px;
+    background: rgba(15,23,42,0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 32px 16px;
     text-align: center;
 }
 
 .header h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 2.8rem;
+    letter-spacing: 2px;
 }
 
 .header p {
@@ -77,7 +80,7 @@ body {
 /* ================= NAV ================= */
 .nav-list {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
 .nav-list li {
@@ -87,36 +90,86 @@ body {
 
 .nav-list a {
     padding: 10px 18px;
-    border-radius: 12px;
+    border-radius: 14px;
     text-decoration: none;
     color: #e5e7eb;
-    background: rgba(255,255,255,0.05);
-    transition: all .3s ease;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    transition: all .35s ease;
 }
 
 .nav-list a:hover {
-    background: rgba(0,255,180,0.8);
+    background: rgba(0,255,180,0.85);
     color: #00130c;
+    box-shadow: 0 0 25px rgba(0,255,180,0.6);
 }
 
 /* ================= SECCIONES ================= */
 .section {
-    padding: 70px 20px;
+    padding: 80px 20px;
 }
 
+/* ================= GLASS CARD REAL ================= */
 .section-content {
     max-width: 1100px;
     margin: auto;
-    padding: 36px;
-    border-radius: 22px;
-    background: rgba(20,30,40,0.92); /* CLAVE: fondo sólido */
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.15);
+    padding: 38px;
+    border-radius: 26px;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.55),
+        inset 0 0 0 rgba(255,255,255,0.2);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: transform .6s ease, box-shadow .6s ease;
 }
 
+/* Respiración suave */
+.section-content {
+    animation: glassBreath 14s ease-in-out infinite;
+}
+
+@keyframes glassBreath {
+    0%,100% { transform: scale(1); }
+    50%     { transform: scale(1.015); }
+}
+
+/* Reflejo dinámico */
+.section-content::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(
+        circle at var(--mx,50%) var(--my,50%),
+        rgba(255,255,255,0.35),
+        transparent 55%
+    );
+    opacity:.55;
+    pointer-events:none;
+    transition: opacity .4s ease;
+}
+
+.section-content:hover {
+    box-shadow:
+        0 0 35px rgba(0,255,180,0.4),
+        0 0 90px rgba(0,180,255,0.25);
+}
+
+.section-content:hover::before {
+    opacity:.85;
+}
+
+/* ================= TITULOS ================= */
 .section-content h2 {
     font-family: 'Orbitron', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .section-content h2::after {
@@ -124,26 +177,17 @@ body {
     display:block;
     width:90px;
     height:3px;
-    margin-top:8px;
+    margin-top:10px;
     background: linear-gradient(90deg,#00ffb4,transparent);
-}
-
-.section-content ul {
-    list-style:none;
-    margin-top:15px;
-}
-
-.section-content ul li {
-    margin-bottom:10px;
-    color:#cbd5e1;
 }
 
 /* ================= FOOTER ================= */
 .footer {
     text-align:center;
-    padding:25px;
-    background: rgba(15,23,32,0.9);
-    border-top:1px solid rgba(255,255,255,0.15);
+    padding:28px;
+    background: rgba(15,23,42,0.6);
+    backdrop-filter: blur(12px);
+    border-top:1px solid rgba(255,255,255,0.2);
     color:#9ca3af;
 }
 
@@ -168,98 +212,48 @@ body {
 <div id="animated-bg"></div>
 
 <header class="header">
-    <h1>Alexander Gallardo</h1>
-    <p>Ingeniero (E) Acuicultura · Analista Programador · Automatización y Tecnología</p>
-
-    <ul class="nav-list">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#educacion">Educación</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyeccion">Proyección</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-    </ul>
+<h1>Alexander Gallardo</h1>
+<p>Ingeniero (E) Acuicultura · Analista Programador · Automatización y Tecnología</p>
+<ul class="nav-list">
+<li><a href="#sobre-mi">Sobre mí</a></li>
+<li><a href="#experiencia">Experiencia</a></li>
+<li><a href="#educacion">Educación</a></li>
+<li><a href="#habilidades">Habilidades</a></li>
+<li><a href="#proyeccion">Proyección</a></li>
+<li><a href="#portafolio">Portafolio</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
 </header>
 
-<section id="sobre-mi" class="section">
-<div class="section-content">
-<h2>Sobre mí</h2>
-<p>Profesional híbrido con base en ingeniería, programación y automatización de procesos.</p>
-</div>
-</section>
+<section id="sobre-mi" class="section"><div class="section-content"><h2>Sobre mí</h2><p>Profesional híbrido con base en ingeniería, programación y automatización.</p></div></section>
+<section id="experiencia" class="section"><div class="section-content"><h2>Experiencia</h2><ul><li>Agrosuper – Fiordos</li><li>Hospital de Quilpué</li><li>Fabwood – USA</li><li>Exhibitology – USA</li><li>Ripley – Soporte IT</li></ul></div></section>
+<section id="educacion" class="section"><div class="section-content"><h2>Educación</h2><ul><li>Ingeniería Acuicultura – DUOC UC</li><li>Analista Programador – DUOC UC</li></ul></div></section>
+<section id="habilidades" class="section"><div class="section-content"><h2>Habilidades</h2><ul><li>Automatización</li><li>IA aplicada</li><li>Arduino / Raspberry</li><li>OS-10 vigente</li><li>Licencia Clase B</li></ul></div></section>
+<section id="proyeccion" class="section"><div class="section-content"><h2>Proyección</h2><p>Tecnología, ciberseguridad y automatización.</p></div></section>
+<section id="portafolio" class="section"><div class="section-content"><h2>Portafolio</h2><a href="https://github.com/AlxUnd3r777" target="_blank">GitHub</a></div></section>
+<section id="contacto" class="section"><div class="section-content"><h2>Contacto</h2><p><a href="mailto:Alxgall83@gmail.com">Alxgall83@gmail.com</a></p></div></section>
 
-<section id="experiencia" class="section">
-<div class="section-content">
-<h2>Experiencia</h2>
-<ul>
-<li>Agrosuper – Fiordos</li>
-<li>Hospital de Quilpué</li>
-<li>Fabwood Cabinetry – USA</li>
-<li>Exhibitology – USA</li>
-<li>Ripley – Soporte IT</li>
-</ul>
-</div>
-</section>
+<footer class="footer">© 2024 Alexander Gallardo</footer>
 
-<section id="educacion" class="section">
-<div class="section-content">
-<h2>Educación</h2>
-<ul>
-<li>Ingeniería de Ejecución en Acuicultura – DUOC UC</li>
-<li>Analista Programador Computacional – DUOC UC</li>
-</ul>
-</div>
-</section>
-
-<section id="habilidades" class="section">
-<div class="section-content">
-<h2>Habilidades</h2>
-<ul>
-<li>Desarrollo Web y Automatización</li>
-<li>IA aplicada</li>
-<li>Arduino y Raspberry Pi</li>
-<li>Curso OS-10 vigente</li>
-<li>Licencia Clase B</li>
-</ul>
-</div>
-</section>
-
-<section id="proyeccion" class="section">
-<div class="section-content">
-<h2>Proyección Profesional</h2>
-<p>Orientado a tecnología, ciberseguridad y automatización de sistemas.</p>
-</div>
-</section>
-
-<section id="portafolio" class="section">
-<div class="section-content">
-<h2>Portafolio</h2>
-<a href="https://github.com/AlxUnd3r777" target="_blank">github.com/AlxUnd3r777</a>
-</div>
-</section>
-
-<section id="contacto" class="section">
-<div class="section-content">
-<h2>Contacto</h2>
-<p>Email: <a href="mailto:Alxgall83@gmail.com">Alxgall83@gmail.com</a></p>
-</div>
-</section>
-
-<footer class="footer">
-© 2024 Alexander Gallardo
-</footer>
+<button id="back-to-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-window.addEventListener("scroll",()=>{
-document.getElementById("back-to-top-btn").style.display =
-window.scrollY>300?"block":"none";
+window.addEventListener("scroll",()=> {
+  document.getElementById("back-to-top-btn").style.display =
+  window.scrollY > 300 ? "block" : "none";
+});
+document.addEventListener("mousemove",e=>{
+ document.querySelectorAll(".section-content").forEach(el=>{
+  const r=el.getBoundingClientRect();
+  const x=((e.clientX-r.left)/r.width)*100;
+  const y=((e.clientY-r.top)/r.height)*100;
+  if(x>0&&y>0&&x<100&&y<100){
+    el.style.setProperty("--mx",x+"%");
+    el.style.setProperty("--my",y+"%");
+  }
+ });
 });
 </script>
-
-<button id="back-to-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-↑
-</button>
 
 </body>
 </html>
