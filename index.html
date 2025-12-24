@@ -5,138 +5,337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alexander Gallardo G. — CV</title>
 
-  <!-- Fonts (optional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
+      --bg0:#070b14;
       --bg1:#0b1220;
-      --bg2:#111a2e;
-      --text:#e9eefc;
-      --muted:#b6c0da;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.14);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --radius: 18px;
-      --pad: 22px;
-      --gap: 16px;
-      --max: 980px;
+      --bg2:#101a33;
+      --txt:#eaf0ff;
+      --mut:#b9c4de;
+      --stroke:rgba(255,255,255,.14);
+      --glass1:rgba(255,255,255,.10);
+      --glass2:rgba(255,255,255,.06);
+      --shadow:0 18px 70px rgba(0,0,0,.38);
+      --radius:18px;
+      --max:1040px;
+
+      --navH: 64px;
+      --ease: cubic-bezier(.2,.9,.2,1);
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% 10%, rgba(77,132,255,.35), transparent 55%),
-        radial-gradient(900px 600px at 80% 30%, rgba(255,140,80,.25), transparent 55%),
-        radial-gradient(900px 700px at 40% 90%, rgba(64,255,190,.18), transparent 50%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+      color:var(--txt);
+      background: radial-gradient(1200px 800px at 18% 12%, rgba(92,140,255,.28), transparent 55%),
+                  radial-gradient(900px 650px at 88% 28%, rgba(255,140,90,.22), transparent 60%),
+                  radial-gradient(900px 700px at 50% 92%, rgba(75,255,190,.14), transparent 60%),
+                  linear-gradient(180deg, var(--bg0), var(--bg2));
       overflow-x:hidden;
+      min-height:100vh;
     }
 
-    /* subtle animated noise/glow */
-    .bg-glow{
-      position: fixed; inset: -50px;
-      background:
-        radial-gradient(700px 500px at 15% 20%, rgba(120,140,255,.22), transparent 60%),
-        radial-gradient(800px 550px at 85% 30%, rgba(255,140,90,.18), transparent 60%),
-        radial-gradient(900px 650px at 45% 85%, rgba(80,255,190,.13), transparent 65%);
-      filter: blur(18px);
-      animation: drift 14s ease-in-out infinite alternate;
+    /* ===== Animated background layer (mobile friendly) ===== */
+    .bg{
+      position:fixed;
+      inset:-60px;
+      z-index:-3;
       pointer-events:none;
-      z-index:0;
+      filter: blur(18px);
+      opacity: .95;
+      transform: translateZ(0);
+      will-change: transform, opacity;
+      animation: bgDrift 14s var(--ease) infinite alternate;
+      background:
+        radial-gradient(720px 520px at 15% 22%, rgba(110,140,255,.20), transparent 62%),
+        radial-gradient(900px 600px at 85% 28%, rgba(255,140,90,.18), transparent 62%),
+        radial-gradient(950px 700px at 48% 84%, rgba(85,255,190,.12), transparent 65%);
     }
-    @keyframes drift{
-      from{ transform: translate3d(-10px,-8px,0) scale(1); opacity:.85;}
-      to{ transform: translate3d(12px,10px,0) scale(1.04); opacity:1;}
+    @keyframes bgDrift{
+      from{ transform: translate3d(-10px,-10px,0) scale(1); }
+      to  { transform: translate3d(12px,10px,0) scale(1.04); }
     }
 
+    /* Animated gradient wash (subtle) */
+    .wash{
+      position:fixed;
+      inset:-80px;
+      z-index:-4;
+      pointer-events:none;
+      opacity:.55;
+      background: linear-gradient(120deg,
+        rgba(90,130,255,.22),
+        rgba(255,120,80,.18),
+        rgba(80,255,190,.14),
+        rgba(90,130,255,.22)
+      );
+      background-size: 220% 220%;
+      animation: washMove 16s linear infinite;
+      transform: translateZ(0);
+    }
+    @keyframes washMove{
+      0%{ background-position: 0% 50%; }
+      50%{ background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
+    }
+
+    /* Soft noise (grain) — cheap and effective */
+    .noise{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      opacity:.08;
+      mix-blend-mode: overlay;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      background-size: 160px 160px;
+      animation: noiseShift 6s steps(2) infinite;
+      transform: translateZ(0);
+    }
+    @keyframes noiseShift{
+      0%{ transform: translate3d(0,0,0); }
+      100%{ transform: translate3d(-20px,12px,0); }
+    }
+
+    /* ===== Layout ===== */
     .wrap{
-      position:relative;
-      z-index:1;
       max-width: var(--max);
-      margin: 38px auto;
-      padding: 0 16px 40px;
+      margin: 18px auto 50px;
+      padding: 0 16px;
     }
 
+    /* Glass card */
     .card{
-      background: linear-gradient(180deg, var(--card), var(--card2));
+      background: linear-gradient(180deg, var(--glass1), var(--glass2));
       border: 1px solid var(--stroke);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
-    header{
-      padding: 26px;
+    /* ===== Sticky nav with animation ===== */
+    .nav{
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      height: var(--navH);
       display:flex;
-      align-items:flex-start;
+      align-items:center;
+      justify-content:space-between;
+      padding: 10px 12px;
+      margin: 14px 0 14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      user-select:none;
+      white-space:nowrap;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: rgba(120,160,255,.9);
+      box-shadow: 0 0 18px rgba(120,160,255,.55);
+    }
+    .brand b{ font-size:13px; letter-spacing:.2px; }
+    .brand span{ font-size:12px; color:var(--mut); }
+
+    .nav-links{
+      display:flex;
+      gap: 6px;
+      align-items:center;
+      position:relative;
+    }
+    .nav-links a{
+      position:relative;
+      padding: 10px 10px;
+      font-size: 12px;
+      color: var(--mut);
+      text-decoration:none;
+      border-radius: 999px;
+      transition: transform .25s var(--ease), color .25s var(--ease), background .25s var(--ease);
+      will-change: transform;
+      outline:none;
+    }
+    .nav-links a:hover{
+      color: var(--txt);
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+    }
+    .nav-links a.active{
+      color: var(--txt);
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    /* underline indicator (animated) */
+    .indicator{
+      position:absolute;
+      left:0; top: 44px;
+      height: 2px;
+      width: 30px;
+      border-radius: 99px;
+      background: rgba(120,160,255,.9);
+      box-shadow: 0 0 18px rgba(120,160,255,.55);
+      transform: translateX(0);
+      transition: transform .35s var(--ease), width .35s var(--ease), opacity .25s var(--ease);
+      opacity: .95;
+      pointer-events:none;
+    }
+
+    /* Mobile menu button */
+    .hamb{
+      display:none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      transition: transform .25s var(--ease), background .25s var(--ease);
+    }
+    .hamb:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    .hamb .bars{
+      width:18px; height:12px; position:relative;
+    }
+    .hamb .bars span{
+      position:absolute; left:0; right:0;
+      height:2px; border-radius:99px;
+      background: rgba(235,242,255,.95);
+      transition: transform .28s var(--ease), top .28s var(--ease), opacity .22s var(--ease);
+    }
+    .hamb .bars span:nth-child(1){ top:0; }
+    .hamb .bars span:nth-child(2){ top:5px; }
+    .hamb .bars span:nth-child(3){ top:10px; }
+    body.menu-open .hamb .bars span:nth-child(1){ top:5px; transform: rotate(45deg); }
+    body.menu-open .hamb .bars span:nth-child(2){ opacity:0; }
+    body.menu-open .hamb .bars span:nth-child(3){ top:5px; transform: rotate(-45deg); }
+
+    /* Mobile drawer */
+    .drawer{
+      display:none;
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(0,0,0,.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .25s var(--ease);
+    }
+    body.menu-open .drawer{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .drawer-panel{
+      position:absolute;
+      right: 10px;
+      top: 10px;
+      width: min(86vw, 360px);
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      box-shadow: 0 18px 70px rgba(0,0,0,.55);
+      transform: translate3d(16px,-10px,0) scale(.98);
+      transition: transform .28s var(--ease);
+    }
+    body.menu-open .drawer-panel{
+      transform: translate3d(0,0,0) scale(1);
+    }
+    .drawer-panel a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      color: var(--mut);
+      border: 1px solid transparent;
+      transition: background .22s var(--ease), transform .22s var(--ease), color .22s var(--ease), border-color .22s var(--ease);
+      font-size: 13px;
+    }
+    .drawer-panel a:hover{
+      color: var(--txt);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.12);
+      transform: translateY(-1px);
+    }
+    .drawer-panel a.active{
+      color: var(--txt);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.12);
+    }
+
+    /* ===== Sections ===== */
+    .hero{
+      padding: 22px;
+      display:flex;
       justify-content:space-between;
       gap: 16px;
+      align-items:flex-start;
     }
-    .name{
+    .hero h1{
+      margin:0;
       font-size: 34px;
       line-height: 1.05;
-      margin: 0;
-      letter-spacing: .2px;
+      letter-spacing:.2px;
     }
-    .subtitle{
-      margin: 10px 0 0;
-      color: var(--muted);
+    .hero .tag{
+      margin-top: 10px;
+      color: var(--mut);
       font-size: 14px;
-      max-width: 680px;
+      line-height: 1.55;
+      max-width: 720px;
     }
 
-    .contact{
+    .meta{
+      min-width: 290px;
       text-align:right;
-      min-width: 260px;
+      color: var(--mut);
       font-size: 13px;
-      color: var(--muted);
       line-height: 1.45;
     }
-    .contact b{ color: var(--text); font-weight:600; }
+    .meta b{ color: var(--txt); font-weight:600; }
 
     .grid{
+      margin-top: 14px;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: var(--gap);
-      margin-top: var(--gap);
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
     }
 
     .section{
-      padding: var(--pad);
+      padding: 20px;
     }
 
     .h{
-      margin: 0 0 10px;
-      font-size: 14px;
-      letter-spacing: .12em;
+      margin:0 0 10px;
+      font-size: 13px;
+      letter-spacing:.14em;
       text-transform: uppercase;
-      color: #d8e2ff;
-      opacity:.95;
-    }
-    .p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
+      color: rgba(232,240,255,.92);
     }
 
-    .list{
-      margin: 10px 0 0;
-      padding: 0 0 0 18px;
-      color: var(--muted);
+    .p{
+      margin:0;
+      color: var(--mut);
       font-size: 14px;
-      line-height: 1.55;
+      line-height: 1.65;
     }
-    .list li{ margin: 6px 0; }
 
     .chips{
       display:flex;
@@ -145,24 +344,24 @@
       margin-top: 10px;
     }
     .chip{
+      font-size: 12px;
       padding: 7px 10px;
       border-radius: 999px;
+      color: rgba(232,240,255,.92);
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      color: #d8e2ff;
-      font-size: 12px;
-      white-space:nowrap;
+      white-space: nowrap;
     }
 
-    .exp{
+    .jobs{
       display:flex;
       flex-direction:column;
-      gap: 14px;
+      gap: 12px;
       margin-top: 10px;
     }
     .job{
-      padding: 14px 14px;
-      border-radius: 14px;
+      padding: 14px;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
     }
@@ -172,89 +371,130 @@
       gap: 12px;
       align-items:flex-start;
     }
-    .role{
-      margin:0;
-      font-weight:700;
+    .role{ margin:0; font-weight:700; font-size: 14px; }
+    .org{ margin:4px 0 0; color: var(--mut); font-size: 13px; }
+    .when{ margin:0; color: var(--mut); font-size: 12px; white-space:nowrap; }
+    ul{
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: var(--mut);
       font-size: 14px;
-      color: var(--text);
+      line-height: 1.55;
     }
-    .org{
-      margin:4px 0 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .when{
-      margin:0;
-      font-size: 12px;
-      color: var(--muted);
-      white-space:nowrap;
-    }
+    li{ margin: 6px 0; }
 
     .split{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--gap);
+      gap: 14px;
     }
 
     footer{
-      margin-top: var(--gap);
-      padding: 18px 22px;
+      margin-top: 14px;
+      padding: 16px 20px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      color: var(--muted);
+      color: var(--mut);
       font-size: 12px;
     }
 
-    @media (max-width: 860px){
-      header{ flex-direction:column; }
-      .contact{ text-align:left; min-width:auto; }
+    /* ===== Responsive ===== */
+    @media (max-width: 920px){
       .grid{ grid-template-columns: 1fr; }
-      .split{ grid-template-columns: 1fr; }
+      .meta{ text-align:left; min-width:auto; }
+      .hero{ flex-direction:column; }
+    }
+    @media (max-width: 860px){
+      .nav-links{ display:none; }
+      .hamb{ display:flex; }
+      .drawer{ display:block; }
+      .indicator{ display:none; }
+    }
+    @media (max-width: 520px){
+      .hero h1{ font-size: 30px; }
     }
 
-    /* Print-friendly */
+    /* Print */
     @media print{
       body{ background:#fff; color:#111; }
-      .bg-glow{ display:none; }
-      .card{ box-shadow:none; backdrop-filter:none; background:#fff; border:1px solid #ddd; }
-      .chip, .job{ background:#fff; border:1px solid #ddd; }
+      .bg,.wash,.noise,.drawer,.nav{ display:none !important; }
+      .card{ background:#fff; border:1px solid #ddd; box-shadow:none; backdrop-filter:none; }
+      .job,.chip{ background:#fff; border:1px solid #ddd; }
       .h{ color:#111; }
-      .p, .list, .org, .when, .contact{ color:#333 !important; }
-      .name{ color:#111; }
-      a{ color:#111; text-decoration:none; }
+      .p, ul, .org, .when, .meta{ color:#333 !important; }
+      .role{ color:#111; }
     }
   </style>
 </head>
 
 <body>
-  <div class="bg-glow"></div>
+  <div class="wash"></div>
+  <div class="bg"></div>
+  <div class="noise"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel card" role="dialog" aria-modal="true" aria-label="Menu">
+      <a href="#profile" class="mLink">Profile</a>
+      <a href="#competencies" class="mLink">Competencies</a>
+      <a href="#experience" class="mLink">Experience</a>
+      <a href="#education" class="mLink">Education</a>
+      <a href="#skills" class="mLink">Skills</a>
+      <a href="#courses" class="mLink">Courses</a>
+    </div>
+  </div>
 
   <main class="wrap">
-    <!-- HEADER -->
-    <section class="card">
-      <header>
+    <!-- Sticky Nav -->
+    <nav class="nav card" id="nav">
+      <div class="brand">
+        <span class="dot"></span>
         <div>
-          <h1 class="name">Alexander Gallardo G.</h1>
-          <p class="subtitle">
-            IT Operations & Support | Retail Technology | Networks (Switching/VLAN) | Structured Cabling | Information Security (Ops)
-          </p>
+          <b>Alexander Gallardo</b><br>
+          <span>CV • IT Ops / Support</span>
         </div>
+      </div>
 
-        <div class="contact">
-          <div><b>Address:</b> 1003 Bruselas, Quilpué, 2340000, Chile</div>
-          <div><b>Phone:</b> +56 9 5897 4623</div>
-          <div><b>Email:</b> alxgall84@gmail.com</div>
-          <div style="margin-top:8px;"><b>Date of Birth:</b> 23/03/1984</div>
-          <div><b>Nationality:</b> Chilean</div>
-          <div><b>Marital Status:</b> Single</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#profile" class="nLink">Profile</a>
+        <a href="#competencies" class="nLink">Competencies</a>
+        <a href="#experience" class="nLink">Experience</a>
+        <a href="#education" class="nLink">Education</a>
+        <a href="#skills" class="nLink">Skills</a>
+        <a href="#courses" class="nLink">Courses</a>
+        <div class="indicator" id="indicator"></div>
+      </div>
+
+      <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false">
+        <div class="bars" aria-hidden="true">
+          <span></span><span></span><span></span>
         </div>
-      </header>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="card hero" id="profile">
+      <div>
+        <h1>Alexander Gallardo G.</h1>
+        <p class="tag">
+          IT Operations & Support • Retail Technology • Structured Cabling • Switch Configuration (VLAN/LAN) •
+          Cybersecurity & Information Security (Ops)
+        </p>
+      </div>
+
+      <div class="meta">
+        <div><b>Address:</b> 1003 Bruselas, Quilpué, 2340000, Chile</div>
+        <div><b>Phone:</b> +56 9 5897 4623</div>
+        <div><b>Email:</b> alxgall84@gmail.com</div>
+        <div style="margin-top:8px;"><b>Date of Birth:</b> 23/03/1984</div>
+        <div><b>Nationality:</b> Chilean</div>
+        <div><b>Marital Status:</b> Single</div>
+      </div>
     </section>
 
-    <!-- BODY GRID -->
     <section class="grid">
-      <!-- LEFT COLUMN -->
+      <!-- LEFT -->
       <div class="card section">
         <h2 class="h">Professional Profile</h2>
         <p class="p">
@@ -263,27 +503,27 @@
           aquaculture operations, and applied automation. Strong focus on service continuity, documentation, and process optimization.
         </p>
 
-        <div style="height:14px;"></div>
+        <div style="height:14px"></div>
 
-        <h2 class="h">Core Competencies</h2>
+        <h2 class="h" id="competencies">Core Competencies</h2>
         <div class="chips">
           <span class="chip">Onsite IT Support</span>
           <span class="chip">Incident Troubleshooting</span>
-          <span class="chip">Structured Cabling</span>
+          <span class="chip">Structured Cabling (Testing/Labeling)</span>
           <span class="chip">Switch Configuration</span>
-          <span class="chip">VLANs / LAN Support</span>
+          <span class="chip">VLAN / Basic LAN Services</span>
           <span class="chip">OS & Software Setup</span>
           <span class="chip">Printers & Peripherals</span>
-          <span class="chip">Asset & Documentation</span>
-          <span class="chip">InfoSec / Cyber Ops</span>
+          <span class="chip">Documentation & Asset Tracking</span>
+          <span class="chip">InfoSec / Cyber Ops Support</span>
           <span class="chip">Process Automation</span>
           <span class="chip">Advanced Excel</span>
         </div>
 
-        <div style="height:18px;"></div>
+        <div style="height:16px"></div>
 
-        <h2 class="h">Professional Experience</h2>
-        <div class="exp">
+        <h2 class="h" id="experience">Professional Experience</h2>
+        <div class="jobs">
 
           <article class="job">
             <div class="job-top">
@@ -293,14 +533,14 @@
               </div>
               <p class="when">Present</p>
             </div>
-            <ul class="list">
-              <li>Provide end-to-end onsite IT support for store operations (workstations, peripherals, user support, service continuity).</li>
-              <li>Review and troubleshoot structured cabling (patch panels, labeling, link testing, connectivity diagnostics).</li>
-              <li>Support network operations and configure switches to maintain stable connectivity (e.g., VLAN segmentation / basic LAN services).</li>
-              <li>Install and configure software and operating systems; standardize device onboarding and baseline configurations.</li>
-              <li>Support printers and peripherals (drivers, connectivity, maintenance coordination).</li>
-              <li>Support information security tasks: basic hardening, reporting suspicious activity, and assisting incident workflows and awareness.</li>
-              <li>Maintain technical documentation: incidents, changes, inventories, network/patching records, checklists.</li>
+            <ul>
+              <li>End-to-end onsite IT support for store operations (workstations, peripherals, user support, service continuity).</li>
+              <li>Structured cabling review and troubleshooting (patch panels, labeling, link testing, connectivity diagnostics).</li>
+              <li>Network support and switch configuration to maintain stable connectivity (e.g., VLAN segmentation / basic LAN services).</li>
+              <li>Software and OS installation/configuration; device onboarding and baseline configuration standards.</li>
+              <li>Printer and peripheral support (drivers, connectivity, maintenance coordination).</li>
+              <li>Information security support: basic hardening, reporting suspicious activity, assisting incident workflows and user awareness.</li>
+              <li>Technical documentation: incidents, changes, inventories, network/patching records, operational checklists.</li>
             </ul>
           </article>
 
@@ -312,7 +552,7 @@
               </div>
               <p class="when">Apr 2022 – Jan 2023</p>
             </div>
-            <ul class="list">
+            <ul>
               <li>Designed and implemented Audio Tour Systems for visually impaired users.</li>
               <li>Provided technical support and system integration.</li>
             </ul>
@@ -326,11 +566,11 @@
               </div>
               <p class="when">Jan 2020 – Jan 2022</p>
             </div>
-            <ul class="list">
+            <ul>
               <li>Logistics, picking, and inventory management.</li>
               <li>IT support: OS installation, workstation setup, troubleshooting, and process optimization.</li>
               <li>Zebra printer support/repair, structured cabling tasks, and remote support with teams in Philippines/Israel/USA.</li>
-              <li>CNC wood-cutting configuration; machinery installation and repair; 3D design and carpentry tasks.</li>
+              <li>CNC wood-cutting configuration; machinery installation/repair; 3D design, CNC operation, and carpentry tasks.</li>
             </ul>
           </article>
 
@@ -342,7 +582,7 @@
               </div>
               <p class="when">Feb 2014 – Jan 2019</p>
             </div>
-            <ul class="list">
+            <ul>
               <li>Managed ChileCompra procurement portal and coordinated suppliers.</li>
               <li>Invoicing, inventory organization, logistics, and distribution.</li>
               <li>Database handling and reporting for hospital departments.</li>
@@ -357,7 +597,7 @@
               </div>
               <p class="when">Jan 2007 – Jan 2012</p>
             </div>
-            <ul class="list">
+            <ul>
               <li>Supervised aquaculture center operations and supported growth engineering.</li>
               <li>Biomass calculations, growth projections, and diet evaluation.</li>
               <li>Environmental and biological sampling; logistics and supply management.</li>
@@ -368,25 +608,24 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
+      <!-- RIGHT -->
       <aside class="card section">
         <h2 class="h">Languages</h2>
-        <ul class="list">
+        <ul>
           <li>Spanish — Native</li>
           <li>English — Advanced</li>
           <li>Portuguese — Basic</li>
         </ul>
 
-        <div style="height:14px;"></div>
+        <div style="height:14px"></div>
 
-        <h2 class="h">Education</h2>
-        <div class="exp">
+        <h2 class="h" id="education">Education</h2>
+        <div class="jobs">
           <div class="job">
             <p class="role">Aquaculture Engineering (Execution Level)</p>
             <p class="org">DUOC UC — Valparaíso</p>
             <p class="when">2006</p>
           </div>
-
           <div class="job">
             <p class="role">Programmer Analyst</p>
             <p class="org">DUOC UC — Viña del Mar</p>
@@ -394,9 +633,9 @@
           </div>
         </div>
 
-        <div style="height:14px;"></div>
+        <div style="height:14px"></div>
 
-        <h2 class="h">Skills</h2>
+        <h2 class="h" id="skills">Skills</h2>
         <div class="chips">
           <span class="chip">Advanced Excel</span>
           <span class="chip">Technology Support</span>
@@ -408,10 +647,10 @@
           <span class="chip">Invoicing</span>
         </div>
 
-        <div style="height:14px;"></div>
+        <div style="height:14px"></div>
 
-        <h2 class="h">Courses & Certifications</h2>
-        <div class="exp">
+        <h2 class="h" id="courses">Courses & Certifications</h2>
+        <div class="jobs">
           <div class="job">
             <p class="role">ChileCompra Buyer Certification</p>
             <p class="org">Apr 2023 – May 2023</p>
@@ -426,14 +665,14 @@
           </div>
         </div>
 
-        <div style="height:14px;"></div>
+        <div style="height:14px"></div>
 
         <h2 class="h">Career Highlights (Summary)</h2>
-        <ul class="list">
+        <ul>
           <li><b>2007–2012:</b> Aquaculture leadership, growth projections, advanced Excel, environmental monitoring.</li>
-          <li><b>2013–2022:</b> Logistics/admin in Chile + CNC/3D/carpentry projects in USA.</li>
-          <li><b>2020–2023:</b> International logistics + IT support, printer repair, OS installs, network/cabling support.</li>
-          <li><b>Current:</b> Retail IT operator in Ripley Sucre: support, networks, cabling, and information security operations.</li>
+          <li><b>2013–2019:</b> Logistics/administration in Chile (Hospital de Quilpué), procurement and reporting.</li>
+          <li><b>2020–2023:</b> International logistics + IT support, printer repair, OS installs, cabling/network support.</li>
+          <li><b>Current:</b> Retail IT operator at Ripley Sucre: support, networks, cabling, and information security operations.</li>
         </ul>
       </aside>
     </section>
@@ -441,9 +680,91 @@
     <section class="card">
       <footer>
         <span>Last update: 2025-12-24</span>
-        <span>Format: Single-page HTML (Print/PDF ready)</span>
+        <span>Single-file HTML • Print/PDF ready</span>
       </footer>
     </section>
   </main>
+
+  <script>
+    // ===== Menu + active section + animated indicator (desktop) =====
+    const links = Array.from(document.querySelectorAll('.nLink'));
+    const mLinks = Array.from(document.querySelectorAll('.mLink'));
+    const sections = ['profile','competencies','experience','education','skills','courses']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const indicator = document.getElementById('indicator');
+    const navLinks = document.getElementById('navLinks');
+
+    function setActiveById(id){
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      mLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      moveIndicator();
+    }
+
+    function moveIndicator(){
+      // Desktop only (indicator hidden on mobile)
+      const active = links.find(a => a.classList.contains('active'));
+      if(!active || !indicator || !navLinks) return;
+      const rect = active.getBoundingClientRect();
+      const parent = navLinks.getBoundingClientRect();
+      const x = rect.left - parent.left + (rect.width - 28)/2;
+      indicator.style.transform = `translateX(${Math.max(0,x)}px)`;
+      indicator.style.width = `28px`;
+    }
+
+    // Observe sections
+    const io = new IntersectionObserver((entries)=>{
+      // pick the most visible section
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+      if(visible?.target?.id){
+        setActiveById(visible.target.id);
+      }
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.12,0.18,0.25,0.35] });
+
+    sections.forEach(s => io.observe(s));
+
+    // Click behavior: close drawer on mobile
+    function closeMenu(){
+      document.body.classList.remove('menu-open');
+      hamb.setAttribute('aria-expanded','false');
+    }
+
+    links.concat(mLinks).forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#')){
+          // allow smooth scroll; close menu
+          setTimeout(closeMenu, 10);
+        }
+      });
+    });
+
+    // Mobile drawer toggle
+    const hamb = document.getElementById('hamb');
+    const drawer = document.getElementById('drawer');
+
+    hamb.addEventListener('click', ()=>{
+      const open = document.body.classList.toggle('menu-open');
+      hamb.setAttribute('aria-expanded', open ? 'true':'false');
+    });
+
+    drawer.addEventListener('click', (e)=>{
+      // click outside panel closes
+      if(e.target === drawer) closeMenu();
+    });
+
+    // ESC closes
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeMenu();
+    });
+
+    // Indicator on resize
+    window.addEventListener('resize', ()=> moveIndicator());
+    // Initial state
+    setActiveById('profile');
+  </script>
 </body>
 </html>
