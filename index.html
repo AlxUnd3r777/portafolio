@@ -24,6 +24,9 @@
       --glassA:rgba(255,255,255,.12);
       --glassB:rgba(255,255,255,.07);
 
+      --glassHoverA:rgba(255,255,255,.18);
+      --glassHoverB:rgba(255,255,255,.10);
+
       --shadow:0 18px 80px rgba(0,0,0,.42);
       --shadow2:0 10px 30px rgba(0,0,0,.25);
 
@@ -31,7 +34,7 @@
       --radius2:14px;
 
       --max:1120px;
-      --navH: 68px;
+      --navH: 72px;
 
       --ease: cubic-bezier(.2,.9,.2,1);
       --ease2: cubic-bezier(.2,.7,.2,1);
@@ -48,19 +51,19 @@
       min-height:100vh;
     }
 
-    /* ========= Animated Background Stack (fast + mobile friendly) ========= */
-    .bgLayer{ position:fixed; inset:-80px; pointer-events:none; z-index:-5; transform: translateZ(0); }
+    /* ====== Animated Background (visible + smooth) ====== */
+    .bgLayer{ position:fixed; inset:-90px; pointer-events:none; z-index:-5; transform: translateZ(0); }
     .wash{
       background: linear-gradient(120deg,
-        rgba(90,130,255,.24),
-        rgba(255,120,80,.18),
-        rgba(80,255,190,.14),
-        rgba(90,130,255,.24)
+        rgba(90,130,255,.30),
+        rgba(255,120,80,.22),
+        rgba(80,255,190,.18),
+        rgba(90,130,255,.30)
       );
-      background-size: 240% 240%;
-      animation: washMove 18s linear infinite;
+      background-size: 260% 260%;
+      animation: washMove 14s linear infinite;
       opacity:.55;
-      filter: blur(12px);
+      filter: blur(10px);
     }
     @keyframes washMove{
       0%{ background-position: 0% 50%; }
@@ -69,31 +72,31 @@
     }
 
     .blobs{
-      opacity:.92;
-      filter: blur(20px);
-      animation: blobDrift 12s var(--ease) infinite alternate;
+      opacity:.95;
+      filter: blur(22px);
       background:
-        radial-gradient(740px 520px at 14% 22%, rgba(110,140,255,.20), transparent 62%),
-        radial-gradient(950px 650px at 86% 26%, rgba(255,140,90,.17), transparent 62%),
-        radial-gradient(980px 760px at 52% 84%, rgba(85,255,190,.12), transparent 65%);
+        radial-gradient(760px 540px at 14% 22%, rgba(110,140,255,.26), transparent 62%),
+        radial-gradient(980px 680px at 86% 26%, rgba(255,140,90,.22), transparent 62%),
+        radial-gradient(1020px 800px at 52% 84%, rgba(85,255,190,.18), transparent 65%);
+      animation: blobDrift 10s var(--ease) infinite alternate;
     }
     @keyframes blobDrift{
-      from{ transform: translate3d(-12px,-10px,0) scale(1); }
-      to  { transform: translate3d(16px,12px,0) scale(1.05); }
+      from{ transform: translate3d(-14px,-12px,0) scale(1); }
+      to  { transform: translate3d(18px,14px,0) scale(1.06); }
     }
 
     .halo{
       opacity:.55;
-      filter: blur(40px);
+      filter: blur(44px);
       background:
-        radial-gradient(800px 520px at 20% 10%, rgba(120,160,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 88% 36%, rgba(255,140,90,.12), transparent 62%),
-        radial-gradient(900px 650px at 48% 92%, rgba(90,255,200,.10), transparent 64%);
-      animation: haloPulse 10s var(--ease2) infinite alternate;
+        radial-gradient(820px 540px at 20% 10%, rgba(120,160,255,.22), transparent 60%),
+        radial-gradient(920px 620px at 88% 36%, rgba(255,140,90,.16), transparent 62%),
+        radial-gradient(920px 680px at 48% 92%, rgba(90,255,200,.14), transparent 64%);
+      animation: haloPulse 9s var(--ease2) infinite alternate;
     }
     @keyframes haloPulse{
       from{ transform: scale(1) translate3d(0,0,0); opacity:.45; }
-      to  { transform: scale(1.03) translate3d(6px,4px,0); opacity:.62; }
+      to  { transform: scale(1.04) translate3d(8px,6px,0); opacity:.65; }
     }
 
     .noise{
@@ -108,11 +111,11 @@
       100%{ transform: translate3d(-20px,12px,0); }
     }
 
-    /* ========= Layout ========= */
+    /* ====== Layout ====== */
     .wrap{
       max-width: var(--max);
-      margin: 18px auto 64px;
-      padding: 0 16px;
+      margin: 0 auto 64px;
+      padding: calc(var(--navH) + 18px) 16px 0; /* IMPORTANT: space for fixed menu */
       position:relative;
     }
 
@@ -125,31 +128,29 @@
       -webkit-backdrop-filter: blur(18px);
       position:relative;
       overflow:hidden;
+      transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+    }
+    /* Glass hover (mouse only) */
+    @media (hover:hover){
+      .card:hover{
+        background: linear-gradient(180deg, var(--glassHoverA), var(--glassHoverB));
+        border-color: rgba(255,255,255,.20);
+        transform: translateY(-2px);
+      }
     }
 
-    /* subtle inner highlight */
     .card::before{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(900px 260px at 25% 0%, rgba(255,255,255,.10), transparent 55%);
+      background: radial-gradient(900px 260px at 25% 0%, rgba(255,255,255,.12), transparent 55%);
       pointer-events:none;
+      opacity:.9;
+      transition: opacity .25s var(--ease);
+    }
+    @media (hover:hover){
+      .card:hover::before{ opacity: 1; }
     }
 
-    /* Section header bar */
-    .secTitle{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin: 0 0 10px;
-    }
-    .h{
-      margin:0;
-      font-size: 12px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: rgba(232,240,255,.95);
-    }
     .divider{
       height:1px;
       background: linear-gradient(90deg, rgba(255,255,255,.18), transparent);
@@ -162,18 +163,33 @@
       font-size: 14px;
       line-height: 1.7;
     }
+    .h{
+      margin:0;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(232,240,255,.95);
+    }
 
-    /* ========= Nav ========= */
-    .nav{
-      position: sticky;
-      top: 10px;
-      z-index: 30;
+    /* ====== FIXED TOP NAV (always at TOP) ====== */
+    .navFixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 12px 16px;
+      pointer-events: none; /* allow only inner to receive */
+    }
+    .navInner{
+      pointer-events: auto;
+      max-width: var(--max);
+      margin: 0 auto;
       height: var(--navH);
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding: 10px 12px;
-      margin: 14px 0 14px;
       border-radius: 22px;
       box-shadow: var(--shadow2);
     }
@@ -188,7 +204,9 @@
       white-space:nowrap;
       transition: transform .25s var(--ease);
     }
-    .brand:hover{ transform: translateY(-1px); }
+    @media (hover:hover){
+      .brand:hover{ transform: translateY(-1px); }
+    }
     .dot{
       width:10px; height:10px; border-radius:999px;
       background: rgba(120,160,255,.9);
@@ -219,14 +237,16 @@
       will-change: transform;
       outline:none;
       z-index:2;
+      user-select:none;
     }
-    .nav-links a:hover{
-      color: var(--txt);
-      transform: translateY(-1px);
+    @media (hover:hover){
+      .nav-links a:hover{
+        color: var(--txt);
+        transform: translateY(-1px);
+      }
     }
     .nav-links a.active{ color: var(--txt); }
 
-    /* animated pill */
     .pill{
       position:absolute;
       top: 6px;
@@ -234,14 +254,14 @@
       height: 36px;
       width: 80px;
       border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 0 24px rgba(120,160,255,.20);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 0 26px rgba(120,160,255,.22);
       transition: transform .35s var(--ease), width .35s var(--ease);
       z-index:1;
     }
 
-    /* Mobile menu button */
+    /* Mobile button */
     .hamb{
       display:none;
       width: 44px; height: 44px;
@@ -253,7 +273,9 @@
       justify-content:center;
       transition: transform .25s var(--ease), background .25s var(--ease);
     }
-    .hamb:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    @media (hover:hover){
+      .hamb:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    }
     .hamb .bars{ width:18px; height:12px; position:relative; }
     .hamb .bars span{
       position:absolute; left:0; right:0;
@@ -273,7 +295,7 @@
       display:none;
       position: fixed;
       inset: 0;
-      z-index: 60;
+      z-index: 120;
       background: rgba(0,0,0,.45);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -290,7 +312,7 @@
       padding: 12px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.07));
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
       box-shadow: 0 18px 70px rgba(0,0,0,.55);
       transform: translate3d(18px,-10px,0) scale(.98);
       transition: transform .28s var(--ease);
@@ -306,26 +328,27 @@
       transition: background .22s var(--ease), transform .22s var(--ease), color .22s var(--ease), border-color .22s var(--ease);
       font-size: 13px;
     }
-    .drawer-panel a:hover{
-      color: var(--txt);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.12);
-      transform: translateY(-1px);
-    }
     .drawer-panel a.active{
       color: var(--txt);
       background: rgba(255,255,255,.10);
       border-color: rgba(255,255,255,.12);
     }
+    @media (hover:hover){
+      .drawer-panel a:hover{
+        color: var(--txt);
+        background: rgba(255,255,255,.08);
+        border-color: rgba(255,255,255,.12);
+        transform: translateY(-1px);
+      }
+    }
 
-    /* ========= Hero ========= */
+    /* ====== Sections ====== */
     .hero{ padding: 22px; display:flex; justify-content:space-between; gap: 16px; align-items:flex-start; }
     .hero h1{ margin:0; font-size: 36px; line-height: 1.05; letter-spacing:.2px; }
     .tag{ margin-top: 10px; color: var(--mut); font-size: 14px; line-height: 1.6; max-width: 760px; }
     .meta{ min-width: 310px; text-align:right; color: var(--mut); font-size: 13px; line-height: 1.5; }
     .meta b{ color: var(--txt); font-weight:600; }
 
-    /* ========= Content grid ========= */
     .grid{
       margin-top: 14px;
       display:grid;
@@ -334,7 +357,6 @@
     }
     .section{ padding: 20px; }
 
-    /* ========= Chips / jobs ========= */
     .chips{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
     .chip{
       font-size: 12px;
@@ -346,7 +368,9 @@
       white-space: nowrap;
       transition: transform .22s var(--ease), background .22s var(--ease);
     }
-    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    @media (hover:hover){
+      .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    }
 
     .jobs{ display:flex; flex-direction:column; gap: 12px; margin-top: 10px; }
     .job{
@@ -356,10 +380,12 @@
       background: rgba(255,255,255,.05);
       transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
     }
-    .job:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.16);
+    @media (hover:hover){
+      .job:hover{
+        transform: translateY(-2px);
+        background: rgba(255,255,255,.07);
+        border-color: rgba(255,255,255,.18);
+      }
     }
     .job-top{ display:flex; justify-content:space-between; gap: 12px; align-items:flex-start; }
     .role{ margin:0; font-weight:700; font-size: 14px; }
@@ -369,29 +395,21 @@
     ul{ margin: 10px 0 0; padding: 0 0 0 18px; color: var(--mut); font-size: 14px; line-height: 1.55; }
     li{ margin: 6px 0; }
 
-    /* ========= Reveal animations ========= */
-    .reveal{
-      opacity:0;
-      transform: translateY(10px);
-      transition: opacity .5s var(--ease), transform .5s var(--ease);
-      will-change: opacity, transform;
-    }
-    .reveal.in{
-      opacity:1;
-      transform: translateY(0);
-    }
+    /* Reveal */
+    .reveal{ opacity:0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+    .reveal.in{ opacity:1; transform: translateY(0); }
 
-    /* ========= Back to top (glass) ========= */
+    /* Back to top */
     .toTop{
       position: fixed;
       right: 16px;
       bottom: 16px;
-      z-index: 80;
+      z-index: 130;
       width: 48px;
       height: 48px;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,.16);
-      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.09));
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       box-shadow: 0 16px 45px rgba(0,0,0,.35);
@@ -404,12 +422,10 @@
       pointer-events:none;
       transition: opacity .25s var(--ease), transform .25s var(--ease);
     }
-    .toTop.show{
-      opacity:1;
-      transform: translateY(0) scale(1);
-      pointer-events:auto;
+    .toTop.show{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+    @media (hover:hover){
+      .toTop:hover{ transform: translateY(-2px) scale(1.02); }
     }
-    .toTop:hover{ transform: translateY(-2px) scale(1.02); }
     .toTop svg{ width: 18px; height: 18px; fill: rgba(235,242,255,.95); }
 
     footer{
@@ -422,7 +438,7 @@
       font-size: 12px;
     }
 
-    /* ========= Responsive ========= */
+    /* Responsive */
     @media (max-width: 960px){
       .grid{ grid-template-columns: 1fr; }
       .meta{ text-align:left; min-width:auto; }
@@ -438,11 +454,10 @@
       .toTop{ right: 14px; bottom: 14px; }
     }
 
-    /* Print */
     @media print{
       body{ background:#fff; color:#111; }
-      .bgLayer,.noise,.drawer,.nav,.toTop{ display:none !important; }
-      .card{ background:#fff; border:1px solid #ddd; box-shadow:none; backdrop-filter:none; }
+      .bgLayer,.noise,.drawer,.navFixed,.toTop{ display:none !important; }
+      .card{ background:#fff; border:1px solid #ddd; box-shadow:none; backdrop-filter:none; transform:none !important; }
       .job,.chip{ background:#fff; border:1px solid #ddd; }
       .h{ color:#111; }
       .p, ul, .org, .when, .meta{ color:#333 !important; }
@@ -452,7 +467,7 @@
 </head>
 
 <body>
-  <!-- Background stack -->
+  <!-- Background -->
   <div class="bgLayer wash"></div>
   <div class="bgLayer blobs" id="blobs"></div>
   <div class="bgLayer halo" id="halo"></div>
@@ -470,15 +485,16 @@
     </div>
   </div>
 
+  <!-- Back to top -->
   <button class="toTop" id="toTop" aria-label="Back to top" title="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 4l-7 7h4v9h6v-9h4z"></path>
     </svg>
   </button>
 
-  <main class="wrap">
-    <!-- Sticky Nav -->
-    <nav class="nav card reveal" id="nav">
+  <!-- FIXED TOP NAV -->
+  <div class="navFixed">
+    <nav class="navInner card reveal" id="nav">
       <div class="brand">
         <span class="dot"></span>
         <div>
@@ -503,8 +519,10 @@
         </div>
       </button>
     </nav>
+  </div>
 
-    <!-- HERO -->
+  <main class="wrap">
+    <!-- HERO / PROFILE -->
     <section class="card hero reveal" id="profile">
       <div>
         <h1>Alexander Gallardo G.</h1>
@@ -538,9 +556,7 @@
     <section class="grid">
       <!-- LEFT -->
       <div class="card section reveal">
-        <div class="secTitle">
-          <h2 class="h" id="competencies">Core Competencies</h2>
-        </div>
+        <h2 class="h" id="competencies">Core Competencies</h2>
         <div class="chips">
           <span class="chip">Onsite IT Support</span>
           <span class="chip">Incident Troubleshooting</span>
@@ -557,10 +573,7 @@
 
         <div class="divider"></div>
 
-        <div class="secTitle" style="margin-top:14px;">
-          <h2 class="h" id="experience">Professional Experience</h2>
-        </div>
-
+        <h2 class="h" style="margin-top:14px" id="experience">Professional Experience</h2>
         <div class="jobs">
           <article class="job">
             <div class="job-top">
@@ -646,9 +659,7 @@
 
       <!-- RIGHT -->
       <aside class="card section reveal">
-        <div class="secTitle">
-          <h2 class="h" id="education">Education</h2>
-        </div>
+        <h2 class="h" id="education">Education</h2>
         <div class="jobs">
           <div class="job">
             <p class="role">Aquaculture Engineering (Execution Level)</p>
@@ -664,9 +675,7 @@
 
         <div class="divider"></div>
 
-        <div class="secTitle" style="margin-top:14px;">
-          <h2 class="h" id="skills">Skills</h2>
-        </div>
+        <h2 class="h" style="margin-top:14px" id="skills">Skills</h2>
         <div class="chips">
           <span class="chip">Advanced Excel</span>
           <span class="chip">Technology Support</span>
@@ -680,9 +689,7 @@
 
         <div class="divider"></div>
 
-        <div class="secTitle" style="margin-top:14px;">
-          <h2 class="h" id="courses">Courses & Certifications</h2>
-        </div>
+        <h2 class="h" style="margin-top:14px" id="courses">Courses & Certifications</h2>
         <div class="jobs">
           <div class="job">
             <p class="role">ChileCompra Buyer Certification</p>
@@ -700,9 +707,7 @@
 
         <div class="divider"></div>
 
-        <div class="secTitle" style="margin-top:14px;">
-          <h2 class="h">Career Highlights</h2>
-        </div>
+        <h2 class="h" style="margin-top:14px">Career Highlights</h2>
         <ul>
           <li><b>2007–2012:</b> Aquaculture leadership, growth projections, advanced Excel, environmental monitoring.</li>
           <li><b>2014–2019:</b> Hospital logistics/admin, procurement (ChileCompra), reporting and inventory.</li>
@@ -721,54 +726,51 @@
   </main>
 
   <script>
-    // ===== Smooth, professional background parallax (lightweight) =====
+    // ===== Background parallax (desktop only; stable on mobile) =====
     const blobs = document.getElementById('blobs');
     const halo  = document.getElementById('halo');
-
-    let px = 0, py = 0, tx = 0, ty = 0;
     const isTouch = matchMedia('(pointer: coarse)').matches;
 
-    function onMove(x, y){
-      tx = (x / window.innerWidth  - 0.5) * 18;
-      ty = (y / window.innerHeight - 0.5) * 14;
+    let px=0, py=0, tx=0, ty=0;
+    function onMove(x,y){
+      tx = (x / innerWidth  - 0.5) * 20;
+      ty = (y / innerHeight - 0.5) * 16;
     }
-
     if(!isTouch){
-      window.addEventListener('mousemove', (e)=> onMove(e.clientX, e.clientY), {passive:true});
+      addEventListener('mousemove', e => onMove(e.clientX, e.clientY), {passive:true});
     } else {
-      // touch: subtle auto drift only, keep it stable
-      tx = 4; ty = -3;
+      tx = 6; ty = -4;
     }
 
-    function raf(){
+    function bgTick(){
       px += (tx - px) * 0.06;
       py += (ty - py) * 0.06;
-      blobs.style.transform = `translate3d(${px}px, ${py}px, 0)`;
-      halo.style.transform  = `translate3d(${-px*0.6}px, ${-py*0.6}px, 0)`;
-      requestAnimationFrame(raf);
+      if(blobs) blobs.style.transform = `translate3d(${px}px, ${py}px, 0)`;
+      if(halo)  halo.style.transform  = `translate3d(${-px*0.6}px, ${-py*0.6}px, 0)`;
+      requestAnimationFrame(bgTick);
     }
-    requestAnimationFrame(raf);
+    requestAnimationFrame(bgTick);
 
     // ===== Reveal on scroll =====
-    const revealEls = Array.from(document.querySelectorAll('.reveal'));
+    const revealEls = [...document.querySelectorAll('.reveal')];
     const ro = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
+      for(const e of entries){
         if(e.isIntersecting){
           e.target.classList.add('in');
           ro.unobserve(e.target);
         }
-      });
+      }
     }, { threshold: 0.10 });
     revealEls.forEach(el=> ro.observe(el));
 
-    // ===== Menu + animated pill (desktop) + mobile drawer =====
-    const links = Array.from(document.querySelectorAll('.nLink'));
-    const mLinks = Array.from(document.querySelectorAll('.mLink'));
-    const pill = document.getElementById('pill');
+    // ===== Menu active + moving pill (robust) =====
+    const links  = [...document.querySelectorAll('.nLink')];
+    const mLinks = [...document.querySelectorAll('.mLink')];
+    const pill   = document.getElementById('pill');
     const navLinks = document.getElementById('navLinks');
 
-    const sectionIds = ['profile','competencies','experience','education','skills','courses'];
-    const sections = sectionIds.map(id=>document.getElementById(id)).filter(Boolean);
+    const ids = ['profile','competencies','experience','education','skills','courses'];
+    const secs = ids.map(id => document.getElementById(id)).filter(Boolean);
 
     function setActive(id){
       links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
@@ -782,48 +784,68 @@
       if(!active) return;
       const r = active.getBoundingClientRect();
       const p = navLinks.getBoundingClientRect();
-      const x = (r.left - p.left) + 0; // inside container
+      const x = r.left - p.left;
       pill.style.transform = `translateX(${x}px)`;
-      pill.style.width = `${Math.max(72, r.width)}px`;
+      pill.style.width = `${Math.max(74, r.width)}px`;
     }
 
-    const io = new IntersectionObserver((entries)=>{
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
-      if(visible?.target?.id) setActive(visible.target.id);
-    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.12,0.18,0.25,0.35] });
-    sections.forEach(s => io.observe(s));
+    // Use observer when available; fallback with scroll calc
+    let usingObserver = false;
+    if('IntersectionObserver' in window && secs.length){
+      usingObserver = true;
+      const io = new IntersectionObserver((entries)=>{
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+        if(visible?.target?.id) setActive(visible.target.id);
+      }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.12,0.18,0.25,0.35] });
+      secs.forEach(s => io.observe(s));
+    }
+
+    function fallbackActive(){
+      if(usingObserver) return;
+      let bestId = 'profile';
+      let best = -Infinity;
+      for(const s of secs){
+        const rect = s.getBoundingClientRect();
+        const score = -(Math.abs(rect.top - 120)); // closer to top is better
+        if(score > best){ best = score; bestId = s.id; }
+      }
+      setActive(bestId);
+    }
 
     // Mobile drawer
     const hamb = document.getElementById('hamb');
     const drawer = document.getElementById('drawer');
     function closeMenu(){
       document.body.classList.remove('menu-open');
-      hamb.setAttribute('aria-expanded','false');
+      hamb?.setAttribute('aria-expanded','false');
     }
-    hamb.addEventListener('click', ()=>{
+    hamb?.addEventListener('click', ()=>{
       const open = document.body.classList.toggle('menu-open');
       hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    drawer.addEventListener('click', (e)=>{ if(e.target === drawer) closeMenu(); });
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    drawer?.addEventListener('click', (e)=>{ if(e.target === drawer) closeMenu(); });
+    addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
 
     links.concat(mLinks).forEach(a=>{
       a.addEventListener('click', ()=> setTimeout(closeMenu, 10));
     });
 
-    // Back to top button
+    // Back to top
     const toTop = document.getElementById('toTop');
-    toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-
+    toTop?.addEventListener('click', ()=> scrollTo({top:0, behavior:'smooth'}));
     function toggleTop(){
-      if(window.scrollY > 520) toTop.classList.add('show');
-      else toTop.classList.remove('show');
+      if(scrollY > 520) toTop?.classList.add('show');
+      else toTop?.classList.remove('show');
     }
-    window.addEventListener('scroll', toggleTop, {passive:true});
-    window.addEventListener('resize', movePill);
+
+    addEventListener('scroll', ()=>{ toggleTop(); fallbackActive(); }, {passive:true});
+    addEventListener('resize', movePill);
+
+    // Init
     setActive('profile');
+    movePill();
     toggleTop();
   </script>
 </body>
