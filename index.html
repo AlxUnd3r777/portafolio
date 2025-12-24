@@ -1,259 +1,449 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perfil Profesional - Alexander Gallardo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexander Gallardo G. — CV</title>
 
-<!-- FUENTES -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Fonts (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-/* ================= RESET ================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#111a2e;
+      --text:#e9eefc;
+      --muted:#b6c0da;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.14);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --pad: 22px;
+      --gap: 16px;
+      --max: 980px;
+    }
 
-/* ================= BODY ================= */
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #e5e7eb;
-    background: radial-gradient(circle at top, #0f172a 0%, #020617 70%);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(77,132,255,.35), transparent 55%),
+        radial-gradient(900px 600px at 80% 30%, rgba(255,140,80,.25), transparent 55%),
+        radial-gradient(900px 700px at 40% 90%, rgba(64,255,190,.18), transparent 50%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
 
-/* ================= BACKGROUND GRID ANIMADO ================= */
-#animated-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,255,180,0.22),
-            rgba(5,15,25,0.88),
-            rgba(0,180,255,0.20)
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.12) 0px,
-            rgba(255,255,255,0.12) 1px,
-            transparent 1px,
-            transparent 46px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,0.10) 0px,
-            rgba(255,255,255,0.10) 1px,
-            transparent 1px,
-            transparent 46px
-        );
-    animation: gridMove 70s linear infinite;
-    filter: blur(0.4px);
-}
+    /* subtle animated noise/glow */
+    .bg-glow{
+      position: fixed; inset: -50px;
+      background:
+        radial-gradient(700px 500px at 15% 20%, rgba(120,140,255,.22), transparent 60%),
+        radial-gradient(800px 550px at 85% 30%, rgba(255,140,90,.18), transparent 60%),
+        radial-gradient(900px 650px at 45% 85%, rgba(80,255,190,.13), transparent 65%);
+      filter: blur(18px);
+      animation: drift 14s ease-in-out infinite alternate;
+      pointer-events:none;
+      z-index:0;
+    }
+    @keyframes drift{
+      from{ transform: translate3d(-10px,-8px,0) scale(1); opacity:.85;}
+      to{ transform: translate3d(12px,10px,0) scale(1.04); opacity:1;}
+    }
 
-@keyframes gridMove {
-    from { background-position: 0 0, 0 0, 0 0; }
-    to   { background-position: 1800px 900px, 0 1200px, 1200px 0; }
-}
+    .wrap{
+      position:relative;
+      z-index:1;
+      max-width: var(--max);
+      margin: 38px auto;
+      padding: 0 16px 40px;
+    }
 
-/* ================= HEADER GLASS ================= */
-.header {
-    background: rgba(15,23,42,0.55);
-    backdrop-filter: blur(14px) saturate(140%);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding: 32px 16px;
-    text-align: center;
-}
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
 
-.header h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-}
+    header{
+      padding: 26px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .name{
+      font-size: 34px;
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 680px;
+    }
 
-.header p {
-    margin-top: 8px;
-    color: #9ca3af;
-}
+    .contact{
+      text-align:right;
+      min-width: 260px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .contact b{ color: var(--text); font-weight:600; }
 
-/* ================= NAV ================= */
-.nav-list {
-    list-style: none;
-    margin-top: 22px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: var(--gap);
+      margin-top: var(--gap);
+    }
 
-.nav-list li {
-    display: inline-block;
-    margin: 6px;
-}
+    .section{
+      padding: var(--pad);
+    }
 
-.nav-list a {
-    padding: 10px 18px;
-    border-radius: 14px;
-    text-decoration: none;
-    color: #e5e7eb;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(8px);
-    transition: all .35s ease;
-}
+    .h{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #d8e2ff;
+      opacity:.95;
+    }
+    .p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-.nav-list a:hover {
-    background: rgba(0,255,180,0.85);
-    color: #00130c;
-    box-shadow: 0 0 25px rgba(0,255,180,0.6);
-}
+    .list{
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .list li{ margin: 6px 0; }
 
-/* ================= SECCIONES ================= */
-.section {
-    padding: 80px 20px;
-}
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: #d8e2ff;
+      font-size: 12px;
+      white-space:nowrap;
+    }
 
-/* ================= GLASS CARD REAL ================= */
-.section-content {
-    max-width: 1100px;
-    margin: auto;
-    padding: 38px;
-    border-radius: 26px;
+    .exp{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .job{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .job-top{
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .role{
+      margin:0;
+      font-weight:700;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .org{
+      margin:4px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .when{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
 
-    background: rgba(255,255,255,0.10);
-    backdrop-filter: blur(18px) saturate(150%);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
-    border: 1px solid rgba(255,255,255,0.25);
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+    }
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.55),
-        inset 0 0 0 rgba(255,255,255,0.2);
+    footer{
+      margin-top: var(--gap);
+      padding: 18px 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
 
-    position: relative;
-    overflow: hidden;
+    @media (max-width: 860px){
+      header{ flex-direction:column; }
+      .contact{ text-align:left; min-width:auto; }
+      .grid{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+    }
 
-    transition: transform .6s ease, box-shadow .6s ease;
-}
-
-/* Respiración suave */
-.section-content {
-    animation: glassBreath 14s ease-in-out infinite;
-}
-
-@keyframes glassBreath {
-    0%,100% { transform: scale(1); }
-    50%     { transform: scale(1.015); }
-}
-
-/* Reflejo dinámico */
-.section-content::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background: radial-gradient(
-        circle at var(--mx,50%) var(--my,50%),
-        rgba(255,255,255,0.35),
-        transparent 55%
-    );
-    opacity:.55;
-    pointer-events:none;
-    transition: opacity .4s ease;
-}
-
-.section-content:hover {
-    box-shadow:
-        0 0 35px rgba(0,255,180,0.4),
-        0 0 90px rgba(0,180,255,0.25);
-}
-
-.section-content:hover::before {
-    opacity:.85;
-}
-
-/* ================= TITULOS ================= */
-.section-content h2 {
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 22px;
-}
-
-.section-content h2::after {
-    content:"";
-    display:block;
-    width:90px;
-    height:3px;
-    margin-top:10px;
-    background: linear-gradient(90deg,#00ffb4,transparent);
-}
-
-/* ================= FOOTER ================= */
-.footer {
-    text-align:center;
-    padding:28px;
-    background: rgba(15,23,42,0.6);
-    backdrop-filter: blur(12px);
-    border-top:1px solid rgba(255,255,255,0.2);
-    color:#9ca3af;
-}
-
-/* ================= BOTÓN TOP ================= */
-#back-to-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    padding: 16px 18px;
-    border-radius: 50%;
-    background: rgba(0,255,180,0.9);
-    color:#00130c;
-    border:none;
-    cursor:pointer;
-    display:none;
-}
-</style>
+    /* Print-friendly */
+    @media print{
+      body{ background:#fff; color:#111; }
+      .bg-glow{ display:none; }
+      .card{ box-shadow:none; backdrop-filter:none; background:#fff; border:1px solid #ddd; }
+      .chip, .job{ background:#fff; border:1px solid #ddd; }
+      .h{ color:#111; }
+      .p, .list, .org, .when, .contact{ color:#333 !important; }
+      .name{ color:#111; }
+      a{ color:#111; text-decoration:none; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="bg-glow"></div>
 
-<div id="animated-bg"></div>
+  <main class="wrap">
+    <!-- HEADER -->
+    <section class="card">
+      <header>
+        <div>
+          <h1 class="name">Alexander Gallardo G.</h1>
+          <p class="subtitle">
+            IT Operations & Support | Retail Technology | Networks (Switching/VLAN) | Structured Cabling | Information Security (Ops)
+          </p>
+        </div>
 
-<header class="header">
-<h1>Alexander Gallardo</h1>
-<p>Ingeniero (E) Acuicultura · Analista Programador · Automatización y Tecnología</p>
-<ul class="nav-list">
-<li><a href="#sobre-mi">Sobre mí</a></li>
-<li><a href="#experiencia">Experiencia</a></li>
-<li><a href="#educacion">Educación</a></li>
-<li><a href="#habilidades">Habilidades</a></li>
-<li><a href="#proyeccion">Proyección</a></li>
-<li><a href="#portafolio">Portafolio</a></li>
-<li><a href="#contacto">Contacto</a></li>
-</ul>
-</header>
+        <div class="contact">
+          <div><b>Address:</b> 1003 Bruselas, Quilpué, 2340000, Chile</div>
+          <div><b>Phone:</b> +56 9 5897 4623</div>
+          <div><b>Email:</b> alxgall84@gmail.com</div>
+          <div style="margin-top:8px;"><b>Date of Birth:</b> 23/03/1984</div>
+          <div><b>Nationality:</b> Chilean</div>
+          <div><b>Marital Status:</b> Single</div>
+        </div>
+      </header>
+    </section>
 
-<section id="sobre-mi" class="section"><div class="section-content"><h2>Sobre mí</h2><p>Profesional híbrido con base en ingeniería, programación y automatización.</p></div></section>
-<section id="experiencia" class="section"><div class="section-content"><h2>Experiencia</h2><ul><li>Agrosuper – Fiordos</li><li>Hospital de Quilpué</li><li>Fabwood – USA</li><li>Exhibitology – USA</li><li>Ripley – Soporte IT</li></ul></div></section>
-<section id="educacion" class="section"><div class="section-content"><h2>Educación</h2><ul><li>Ingeniería Acuicultura – DUOC UC</li><li>Analista Programador – DUOC UC</li></ul></div></section>
-<section id="habilidades" class="section"><div class="section-content"><h2>Habilidades</h2><ul><li>Automatización</li><li>IA aplicada</li><li>Arduino / Raspberry</li><li>OS-10 vigente</li><li>Licencia Clase B</li></ul></div></section>
-<section id="proyeccion" class="section"><div class="section-content"><h2>Proyección</h2><p>Tecnología, ciberseguridad y automatización.</p></div></section>
-<section id="portafolio" class="section"><div class="section-content"><h2>Portafolio</h2><a href="https://github.com/AlxUnd3r777" target="_blank">GitHub</a></div></section>
-<section id="contacto" class="section"><div class="section-content"><h2>Contacto</h2><p><a href="mailto:Alxgall83@gmail.com">Alxgall83@gmail.com</a></p></div></section>
+    <!-- BODY GRID -->
+    <section class="grid">
+      <!-- LEFT COLUMN -->
+      <div class="card section">
+        <h2 class="h">Professional Profile</h2>
+        <p class="p">
+          Versatile professional with experience in <b>retail IT operations</b>, <b>technical support</b>, <b>structured cabling</b>,
+          <b>network switching</b>, and <b>information security operations</b>. Background also includes logistics, administration,
+          aquaculture operations, and applied automation. Strong focus on service continuity, documentation, and process optimization.
+        </p>
 
-<footer class="footer">© 2024 Alexander Gallardo</footer>
+        <div style="height:14px;"></div>
 
-<button id="back-to-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+        <h2 class="h">Core Competencies</h2>
+        <div class="chips">
+          <span class="chip">Onsite IT Support</span>
+          <span class="chip">Incident Troubleshooting</span>
+          <span class="chip">Structured Cabling</span>
+          <span class="chip">Switch Configuration</span>
+          <span class="chip">VLANs / LAN Support</span>
+          <span class="chip">OS & Software Setup</span>
+          <span class="chip">Printers & Peripherals</span>
+          <span class="chip">Asset & Documentation</span>
+          <span class="chip">InfoSec / Cyber Ops</span>
+          <span class="chip">Process Automation</span>
+          <span class="chip">Advanced Excel</span>
+        </div>
 
-<script>
-window.addEventListener("scroll",()=> {
-  document.getElementById("back-to-top-btn").style.display =
-  window.scrollY > 300 ? "block" : "none";
-});
-document.addEventListener("mousemove",e=>{
- document.querySelectorAll(".section-content").forEach(el=>{
-  const r=el.getBoundingClientRect();
-  const x=((e.clientX-r.left)/r.width)*100;
-  const y=((e.clientY-r.top)/r.height)*100;
-  if(x>0&&y>0&&x<100&&y<100){
-    el.style.setProperty("--mx",x+"%");
-    el.style.setProperty("--my",y+"%");
-  }
- });
-});
-</script>
+        <div style="height:18px;"></div>
 
+        <h2 class="h">Professional Experience</h2>
+        <div class="exp">
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <p class="role">IT Operator / IT Support Specialist</p>
+                <p class="org">Ripley Sucre (Retail Store) — Chile</p>
+              </div>
+              <p class="when">Present</p>
+            </div>
+            <ul class="list">
+              <li>Provide end-to-end onsite IT support for store operations (workstations, peripherals, user support, service continuity).</li>
+              <li>Review and troubleshoot structured cabling (patch panels, labeling, link testing, connectivity diagnostics).</li>
+              <li>Support network operations and configure switches to maintain stable connectivity (e.g., VLAN segmentation / basic LAN services).</li>
+              <li>Install and configure software and operating systems; standardize device onboarding and baseline configurations.</li>
+              <li>Support printers and peripherals (drivers, connectivity, maintenance coordination).</li>
+              <li>Support information security tasks: basic hardening, reporting suspicious activity, and assisting incident workflows and awareness.</li>
+              <li>Maintain technical documentation: incidents, changes, inventories, network/patching records, checklists.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <p class="role">Technical Operator / Systems Designer</p>
+                <p class="org">Exhibitology — New York, USA</p>
+              </div>
+              <p class="when">Apr 2022 – Jan 2023</p>
+            </div>
+            <ul class="list">
+              <li>Designed and implemented Audio Tour Systems for visually impaired users.</li>
+              <li>Provided technical support and system integration.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <p class="role">IT Support & Logistics Technician</p>
+                <p class="org">Fabuwood Co. — Newark, NJ, USA</p>
+              </div>
+              <p class="when">Jan 2020 – Jan 2022</p>
+            </div>
+            <ul class="list">
+              <li>Logistics, picking, and inventory management.</li>
+              <li>IT support: OS installation, workstation setup, troubleshooting, and process optimization.</li>
+              <li>Zebra printer support/repair, structured cabling tasks, and remote support with teams in Philippines/Israel/USA.</li>
+              <li>CNC wood-cutting configuration; machinery installation and repair; 3D design and carpentry tasks.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <p class="role">Administrative / Warehouse Supervisor (Replacement)</p>
+                <p class="org">Hospital de Quilpué — Quilpué, Chile</p>
+              </div>
+              <p class="when">Feb 2014 – Jan 2019</p>
+            </div>
+            <ul class="list">
+              <li>Managed ChileCompra procurement portal and coordinated suppliers.</li>
+              <li>Invoicing, inventory organization, logistics, and distribution.</li>
+              <li>Database handling and reporting for hospital departments.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <p class="role">Aquaculture Center Assistant</p>
+                <p class="org">Agrosuper Fiordos — Patagonia, Chile</p>
+              </div>
+              <p class="when">Jan 2007 – Jan 2012</p>
+            </div>
+            <ul class="list">
+              <li>Supervised aquaculture center operations and supported growth engineering.</li>
+              <li>Biomass calculations, growth projections, and diet evaluation.</li>
+              <li>Environmental and biological sampling; logistics and supply management.</li>
+              <li>Advanced Excel reporting and parameter tracking.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="card section">
+        <h2 class="h">Languages</h2>
+        <ul class="list">
+          <li>Spanish — Native</li>
+          <li>English — Advanced</li>
+          <li>Portuguese — Basic</li>
+        </ul>
+
+        <div style="height:14px;"></div>
+
+        <h2 class="h">Education</h2>
+        <div class="exp">
+          <div class="job">
+            <p class="role">Aquaculture Engineering (Execution Level)</p>
+            <p class="org">DUOC UC — Valparaíso</p>
+            <p class="when">2006</p>
+          </div>
+
+          <div class="job">
+            <p class="role">Programmer Analyst</p>
+            <p class="org">DUOC UC — Viña del Mar</p>
+            <p class="when">2016</p>
+          </div>
+        </div>
+
+        <div style="height:14px;"></div>
+
+        <h2 class="h">Skills</h2>
+        <div class="chips">
+          <span class="chip">Advanced Excel</span>
+          <span class="chip">Technology Support</span>
+          <span class="chip">Administration</span>
+          <span class="chip">Automation</span>
+          <span class="chip">Logistics</span>
+          <span class="chip">Applied AI</span>
+          <span class="chip">Environmental Management</span>
+          <span class="chip">Invoicing</span>
+        </div>
+
+        <div style="height:14px;"></div>
+
+        <h2 class="h">Courses & Certifications</h2>
+        <div class="exp">
+          <div class="job">
+            <p class="role">ChileCompra Buyer Certification</p>
+            <p class="org">Apr 2023 – May 2023</p>
+          </div>
+          <div class="job">
+            <p class="role">Artificial Intelligence in Health Systems</p>
+            <p class="org">Rutgers Technology Center, NJ — Jun 2021 – Aug 2021</p>
+          </div>
+          <div class="job">
+            <p class="role">Intermediate Excel Course</p>
+            <p class="org">SSVQ — Aug 2023</p>
+          </div>
+        </div>
+
+        <div style="height:14px;"></div>
+
+        <h2 class="h">Career Highlights (Summary)</h2>
+        <ul class="list">
+          <li><b>2007–2012:</b> Aquaculture leadership, growth projections, advanced Excel, environmental monitoring.</li>
+          <li><b>2013–2022:</b> Logistics/admin in Chile + CNC/3D/carpentry projects in USA.</li>
+          <li><b>2020–2023:</b> International logistics + IT support, printer repair, OS installs, network/cabling support.</li>
+          <li><b>Current:</b> Retail IT operator in Ripley Sucre: support, networks, cabling, and information security operations.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="card">
+      <footer>
+        <span>Last update: 2025-12-24</span>
+        <span>Format: Single-page HTML (Print/PDF ready)</span>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
