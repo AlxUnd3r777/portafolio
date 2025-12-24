@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Alexander Gallardo G. — CV</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,19 +12,29 @@
   <style>
     :root{
       --bg0:#070b14;
-      --bg1:#0b1220;
+      --bg1:#0a1020;
       --bg2:#101a33;
+
       --txt:#eaf0ff;
       --mut:#b9c4de;
-      --stroke:rgba(255,255,255,.14);
-      --glass1:rgba(255,255,255,.10);
-      --glass2:rgba(255,255,255,.06);
-      --shadow:0 18px 70px rgba(0,0,0,.38);
-      --radius:18px;
-      --max:1040px;
 
-      --navH: 64px;
+      --stroke:rgba(255,255,255,.14);
+      --stroke2:rgba(255,255,255,.10);
+
+      --glassA:rgba(255,255,255,.12);
+      --glassB:rgba(255,255,255,.07);
+
+      --shadow:0 18px 80px rgba(0,0,0,.42);
+      --shadow2:0 10px 30px rgba(0,0,0,.25);
+
+      --radius:18px;
+      --radius2:14px;
+
+      --max:1120px;
+      --navH: 68px;
+
       --ease: cubic-bezier(.2,.9,.2,1);
+      --ease2: cubic-bezier(.2,.7,.2,1);
     }
 
     *{ box-sizing:border-box; }
@@ -32,52 +42,25 @@
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--txt);
-      background: radial-gradient(1200px 800px at 18% 12%, rgba(92,140,255,.28), transparent 55%),
-                  radial-gradient(900px 650px at 88% 28%, rgba(255,140,90,.22), transparent 60%),
-                  radial-gradient(900px 700px at 50% 92%, rgba(75,255,190,.14), transparent 60%),
-                  linear-gradient(180deg, var(--bg0), var(--bg2));
+      color: var(--txt);
+      background: linear-gradient(180deg, var(--bg0), var(--bg2));
       overflow-x:hidden;
       min-height:100vh;
     }
 
-    /* ===== Animated background layer (mobile friendly) ===== */
-    .bg{
-      position:fixed;
-      inset:-60px;
-      z-index:-3;
-      pointer-events:none;
-      filter: blur(18px);
-      opacity: .95;
-      transform: translateZ(0);
-      will-change: transform, opacity;
-      animation: bgDrift 14s var(--ease) infinite alternate;
-      background:
-        radial-gradient(720px 520px at 15% 22%, rgba(110,140,255,.20), transparent 62%),
-        radial-gradient(900px 600px at 85% 28%, rgba(255,140,90,.18), transparent 62%),
-        radial-gradient(950px 700px at 48% 84%, rgba(85,255,190,.12), transparent 65%);
-    }
-    @keyframes bgDrift{
-      from{ transform: translate3d(-10px,-10px,0) scale(1); }
-      to  { transform: translate3d(12px,10px,0) scale(1.04); }
-    }
-
-    /* Animated gradient wash (subtle) */
+    /* ========= Animated Background Stack (fast + mobile friendly) ========= */
+    .bgLayer{ position:fixed; inset:-80px; pointer-events:none; z-index:-5; transform: translateZ(0); }
     .wash{
-      position:fixed;
-      inset:-80px;
-      z-index:-4;
-      pointer-events:none;
-      opacity:.55;
       background: linear-gradient(120deg,
-        rgba(90,130,255,.22),
+        rgba(90,130,255,.24),
         rgba(255,120,80,.18),
         rgba(80,255,190,.14),
-        rgba(90,130,255,.22)
+        rgba(90,130,255,.24)
       );
-      background-size: 220% 220%;
-      animation: washMove 16s linear infinite;
-      transform: translateZ(0);
+      background-size: 240% 240%;
+      animation: washMove 18s linear infinite;
+      opacity:.55;
+      filter: blur(12px);
     }
     @keyframes washMove{
       0%{ background-position: 0% 50%; }
@@ -85,64 +68,127 @@
       100%{ background-position: 0% 50%; }
     }
 
-    /* Soft noise (grain) — cheap and effective */
+    .blobs{
+      opacity:.92;
+      filter: blur(20px);
+      animation: blobDrift 12s var(--ease) infinite alternate;
+      background:
+        radial-gradient(740px 520px at 14% 22%, rgba(110,140,255,.20), transparent 62%),
+        radial-gradient(950px 650px at 86% 26%, rgba(255,140,90,.17), transparent 62%),
+        radial-gradient(980px 760px at 52% 84%, rgba(85,255,190,.12), transparent 65%);
+    }
+    @keyframes blobDrift{
+      from{ transform: translate3d(-12px,-10px,0) scale(1); }
+      to  { transform: translate3d(16px,12px,0) scale(1.05); }
+    }
+
+    .halo{
+      opacity:.55;
+      filter: blur(40px);
+      background:
+        radial-gradient(800px 520px at 20% 10%, rgba(120,160,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 88% 36%, rgba(255,140,90,.12), transparent 62%),
+        radial-gradient(900px 650px at 48% 92%, rgba(90,255,200,.10), transparent 64%);
+      animation: haloPulse 10s var(--ease2) infinite alternate;
+    }
+    @keyframes haloPulse{
+      from{ transform: scale(1) translate3d(0,0,0); opacity:.45; }
+      to  { transform: scale(1.03) translate3d(6px,4px,0); opacity:.62; }
+    }
+
     .noise{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      opacity:.08;
-      mix-blend-mode: overlay;
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      position:fixed; inset:0; z-index:-2; pointer-events:none;
+      opacity:.08; mix-blend-mode: overlay; transform: translateZ(0);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
       background-size: 160px 160px;
       animation: noiseShift 6s steps(2) infinite;
-      transform: translateZ(0);
     }
     @keyframes noiseShift{
       0%{ transform: translate3d(0,0,0); }
       100%{ transform: translate3d(-20px,12px,0); }
     }
 
-    /* ===== Layout ===== */
+    /* ========= Layout ========= */
     .wrap{
       max-width: var(--max);
-      margin: 18px auto 50px;
+      margin: 18px auto 64px;
       padding: 0 16px;
+      position:relative;
     }
 
-    /* Glass card */
     .card{
-      background: linear-gradient(180deg, var(--glass1), var(--glass2));
+      background: linear-gradient(180deg, var(--glassA), var(--glassB));
       border: 1px solid var(--stroke);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      position:relative;
+      overflow:hidden;
     }
 
-    /* ===== Sticky nav with animation ===== */
+    /* subtle inner highlight */
+    .card::before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(900px 260px at 25% 0%, rgba(255,255,255,.10), transparent 55%);
+      pointer-events:none;
+    }
+
+    /* Section header bar */
+    .secTitle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin: 0 0 10px;
+    }
+    .h{
+      margin:0;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(232,240,255,.95);
+    }
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, rgba(255,255,255,.18), transparent);
+      margin: 12px 0 0;
+    }
+
+    .p{
+      margin:0;
+      color: var(--mut);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ========= Nav ========= */
     .nav{
       position: sticky;
       top: 10px;
-      z-index: 20;
+      z-index: 30;
       height: var(--navH);
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding: 10px 12px;
       margin: 14px 0 14px;
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
     }
 
     .brand{
       display:flex; align-items:center; gap:10px;
-      padding: 8px 10px;
+      padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
       user-select:none;
       white-space:nowrap;
+      transition: transform .25s var(--ease);
     }
+    .brand:hover{ transform: translateY(-1px); }
     .dot{
       width:10px; height:10px; border-radius:999px;
       background: rgba(120,160,255,.9);
@@ -156,50 +202,50 @@
       gap: 6px;
       align-items:center;
       position:relative;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
     }
     .nav-links a{
       position:relative;
-      padding: 10px 10px;
+      padding: 10px 12px;
       font-size: 12px;
       color: var(--mut);
       text-decoration:none;
       border-radius: 999px;
-      transition: transform .25s var(--ease), color .25s var(--ease), background .25s var(--ease);
+      transition: transform .22s var(--ease), color .22s var(--ease);
       will-change: transform;
       outline:none;
+      z-index:2;
     }
     .nav-links a:hover{
       color: var(--txt);
       transform: translateY(-1px);
-      background: rgba(255,255,255,.06);
     }
-    .nav-links a.active{
-      color: var(--txt);
+    .nav-links a.active{ color: var(--txt); }
+
+    /* animated pill */
+    .pill{
+      position:absolute;
+      top: 6px;
+      left: 6px;
+      height: 36px;
+      width: 80px;
+      border-radius: 999px;
       background: rgba(255,255,255,.10);
       border: 1px solid rgba(255,255,255,.12);
-    }
-
-    /* underline indicator (animated) */
-    .indicator{
-      position:absolute;
-      left:0; top: 44px;
-      height: 2px;
-      width: 30px;
-      border-radius: 99px;
-      background: rgba(120,160,255,.9);
-      box-shadow: 0 0 18px rgba(120,160,255,.55);
-      transform: translateX(0);
-      transition: transform .35s var(--ease), width .35s var(--ease), opacity .25s var(--ease);
-      opacity: .95;
-      pointer-events:none;
+      box-shadow: 0 0 24px rgba(120,160,255,.20);
+      transition: transform .35s var(--ease), width .35s var(--ease);
+      z-index:1;
     }
 
     /* Mobile menu button */
     .hamb{
       display:none;
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 44px; height: 44px;
+      border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.08);
       cursor:pointer;
@@ -208,9 +254,7 @@
       transition: transform .25s var(--ease), background .25s var(--ease);
     }
     .hamb:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
-    .hamb .bars{
-      width:18px; height:12px; position:relative;
-    }
+    .hamb .bars{ width:18px; height:12px; position:relative; }
     .hamb .bars span{
       position:absolute; left:0; right:0;
       height:2px; border-radius:99px;
@@ -229,35 +273,29 @@
       display:none;
       position: fixed;
       inset: 0;
-      z-index: 50;
+      z-index: 60;
       background: rgba(0,0,0,.45);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       opacity:0;
       pointer-events:none;
       transition: opacity .25s var(--ease);
     }
-    body.menu-open .drawer{
-      opacity:1;
-      pointer-events:auto;
-    }
-
+    body.menu-open .drawer{ opacity:1; pointer-events:auto; }
     .drawer-panel{
       position:absolute;
       right: 10px;
       top: 10px;
-      width: min(86vw, 360px);
+      width: min(88vw, 380px);
       padding: 12px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.07));
       box-shadow: 0 18px 70px rgba(0,0,0,.55);
-      transform: translate3d(16px,-10px,0) scale(.98);
+      transform: translate3d(18px,-10px,0) scale(.98);
       transition: transform .28s var(--ease);
     }
-    body.menu-open .drawer-panel{
-      transform: translate3d(0,0,0) scale(1);
-    }
+    body.menu-open .drawer-panel{ transform: translate3d(0,0,0) scale(1); }
     .drawer-panel a{
       display:block;
       padding: 12px 12px;
@@ -280,69 +318,24 @@
       border-color: rgba(255,255,255,.12);
     }
 
-    /* ===== Sections ===== */
-    .hero{
-      padding: 22px;
-      display:flex;
-      justify-content:space-between;
-      gap: 16px;
-      align-items:flex-start;
-    }
-    .hero h1{
-      margin:0;
-      font-size: 34px;
-      line-height: 1.05;
-      letter-spacing:.2px;
-    }
-    .hero .tag{
-      margin-top: 10px;
-      color: var(--mut);
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 720px;
-    }
-
-    .meta{
-      min-width: 290px;
-      text-align:right;
-      color: var(--mut);
-      font-size: 13px;
-      line-height: 1.45;
-    }
+    /* ========= Hero ========= */
+    .hero{ padding: 22px; display:flex; justify-content:space-between; gap: 16px; align-items:flex-start; }
+    .hero h1{ margin:0; font-size: 36px; line-height: 1.05; letter-spacing:.2px; }
+    .tag{ margin-top: 10px; color: var(--mut); font-size: 14px; line-height: 1.6; max-width: 760px; }
+    .meta{ min-width: 310px; text-align:right; color: var(--mut); font-size: 13px; line-height: 1.5; }
     .meta b{ color: var(--txt); font-weight:600; }
 
+    /* ========= Content grid ========= */
     .grid{
       margin-top: 14px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.25fr .75fr;
       gap: 14px;
     }
+    .section{ padding: 20px; }
 
-    .section{
-      padding: 20px;
-    }
-
-    .h{
-      margin:0 0 10px;
-      font-size: 13px;
-      letter-spacing:.14em;
-      text-transform: uppercase;
-      color: rgba(232,240,255,.92);
-    }
-
-    .p{
-      margin:0;
-      color: var(--mut);
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
+    /* ========= Chips / jobs ========= */
+    .chips{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
     .chip{
       font-size: 12px;
       padding: 7px 10px;
@@ -351,43 +344,73 @@
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       white-space: nowrap;
+      transition: transform .22s var(--ease), background .22s var(--ease);
     }
+    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
 
-    .jobs{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      margin-top: 10px;
-    }
+    .jobs{ display:flex; flex-direction:column; gap: 12px; margin-top: 10px; }
     .job{
       padding: 14px;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
+      transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
     }
-    .job-top{
-      display:flex;
-      justify-content:space-between;
-      gap: 12px;
-      align-items:flex-start;
+    .job:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.16);
     }
+    .job-top{ display:flex; justify-content:space-between; gap: 12px; align-items:flex-start; }
     .role{ margin:0; font-weight:700; font-size: 14px; }
     .org{ margin:4px 0 0; color: var(--mut); font-size: 13px; }
     .when{ margin:0; color: var(--mut); font-size: 12px; white-space:nowrap; }
-    ul{
-      margin: 10px 0 0;
-      padding: 0 0 0 18px;
-      color: var(--mut);
-      font-size: 14px;
-      line-height: 1.55;
-    }
+
+    ul{ margin: 10px 0 0; padding: 0 0 0 18px; color: var(--mut); font-size: 14px; line-height: 1.55; }
     li{ margin: 6px 0; }
 
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    /* ========= Reveal animations ========= */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity .5s var(--ease), transform .5s var(--ease);
+      will-change: opacity, transform;
     }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* ========= Back to top (glass) ========= */
+    .toTop{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 80;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 16px 45px rgba(0,0,0,.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      opacity:0;
+      transform: translateY(10px) scale(.96);
+      pointer-events:none;
+      transition: opacity .25s var(--ease), transform .25s var(--ease);
+    }
+    .toTop.show{
+      opacity:1;
+      transform: translateY(0) scale(1);
+      pointer-events:auto;
+    }
+    .toTop:hover{ transform: translateY(-2px) scale(1.02); }
+    .toTop svg{ width: 18px; height: 18px; fill: rgba(235,242,255,.95); }
 
     footer{
       margin-top: 14px;
@@ -399,26 +422,26 @@
       font-size: 12px;
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 920px){
+    /* ========= Responsive ========= */
+    @media (max-width: 960px){
       .grid{ grid-template-columns: 1fr; }
       .meta{ text-align:left; min-width:auto; }
       .hero{ flex-direction:column; }
     }
-    @media (max-width: 860px){
+    @media (max-width: 880px){
       .nav-links{ display:none; }
       .hamb{ display:flex; }
       .drawer{ display:block; }
-      .indicator{ display:none; }
     }
     @media (max-width: 520px){
-      .hero h1{ font-size: 30px; }
+      .hero h1{ font-size: 32px; }
+      .toTop{ right: 14px; bottom: 14px; }
     }
 
     /* Print */
     @media print{
       body{ background:#fff; color:#111; }
-      .bg,.wash,.noise,.drawer,.nav{ display:none !important; }
+      .bgLayer,.noise,.drawer,.nav,.toTop{ display:none !important; }
       .card{ background:#fff; border:1px solid #ddd; box-shadow:none; backdrop-filter:none; }
       .job,.chip{ background:#fff; border:1px solid #ddd; }
       .h{ color:#111; }
@@ -429,13 +452,15 @@
 </head>
 
 <body>
-  <div class="wash"></div>
-  <div class="bg"></div>
+  <!-- Background stack -->
+  <div class="bgLayer wash"></div>
+  <div class="bgLayer blobs" id="blobs"></div>
+  <div class="bgLayer halo" id="halo"></div>
   <div class="noise"></div>
 
   <!-- Mobile Drawer -->
   <div class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-panel card" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
       <a href="#profile" class="mLink">Profile</a>
       <a href="#competencies" class="mLink">Competencies</a>
       <a href="#experience" class="mLink">Experience</a>
@@ -445,9 +470,15 @@
     </div>
   </div>
 
+  <button class="toTop" id="toTop" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"></path>
+    </svg>
+  </button>
+
   <main class="wrap">
     <!-- Sticky Nav -->
-    <nav class="nav card" id="nav">
+    <nav class="nav card reveal" id="nav">
       <div class="brand">
         <span class="dot"></span>
         <div>
@@ -457,13 +488,13 @@
       </div>
 
       <div class="nav-links" id="navLinks">
+        <div class="pill" id="pill"></div>
         <a href="#profile" class="nLink">Profile</a>
         <a href="#competencies" class="nLink">Competencies</a>
         <a href="#experience" class="nLink">Experience</a>
         <a href="#education" class="nLink">Education</a>
         <a href="#skills" class="nLink">Skills</a>
         <a href="#courses" class="nLink">Courses</a>
-        <div class="indicator" id="indicator"></div>
       </div>
 
       <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false">
@@ -474,12 +505,18 @@
     </nav>
 
     <!-- HERO -->
-    <section class="card hero" id="profile">
+    <section class="card hero reveal" id="profile">
       <div>
         <h1>Alexander Gallardo G.</h1>
         <p class="tag">
           IT Operations & Support • Retail Technology • Structured Cabling • Switch Configuration (VLAN/LAN) •
           Cybersecurity & Information Security (Ops)
+        </p>
+        <div class="divider"></div>
+        <p class="p" style="margin-top:12px">
+          Versatile professional with experience in <b>retail IT operations</b>, <b>technical support</b>, <b>structured cabling</b>,
+          <b>network switching</b>, and <b>information security operations</b>. Background also includes logistics, administration,
+          aquaculture operations, and applied automation—focused on service continuity, documentation, and process optimization.
         </p>
       </div>
 
@@ -490,22 +527,20 @@
         <div style="margin-top:8px;"><b>Date of Birth:</b> 23/03/1984</div>
         <div><b>Nationality:</b> Chilean</div>
         <div><b>Marital Status:</b> Single</div>
+        <div style="margin-top:10px;">
+          <span class="chip">Spanish (Native)</span>
+          <span class="chip">English (Advanced)</span>
+          <span class="chip">Portuguese (Basic)</span>
+        </div>
       </div>
     </section>
 
     <section class="grid">
       <!-- LEFT -->
-      <div class="card section">
-        <h2 class="h">Professional Profile</h2>
-        <p class="p">
-          Versatile professional with experience in <b>retail IT operations</b>, <b>technical support</b>, <b>structured cabling</b>,
-          <b>network switching</b>, and <b>information security operations</b>. Background also includes logistics, administration,
-          aquaculture operations, and applied automation. Strong focus on service continuity, documentation, and process optimization.
-        </p>
-
-        <div style="height:14px"></div>
-
-        <h2 class="h" id="competencies">Core Competencies</h2>
+      <div class="card section reveal">
+        <div class="secTitle">
+          <h2 class="h" id="competencies">Core Competencies</h2>
+        </div>
         <div class="chips">
           <span class="chip">Onsite IT Support</span>
           <span class="chip">Incident Troubleshooting</span>
@@ -520,11 +555,13 @@
           <span class="chip">Advanced Excel</span>
         </div>
 
-        <div style="height:16px"></div>
+        <div class="divider"></div>
 
-        <h2 class="h" id="experience">Professional Experience</h2>
+        <div class="secTitle" style="margin-top:14px;">
+          <h2 class="h" id="experience">Professional Experience</h2>
+        </div>
+
         <div class="jobs">
-
           <article class="job">
             <div class="job-top">
               <div>
@@ -604,22 +641,14 @@
               <li>Advanced Excel reporting and parameter tracking.</li>
             </ul>
           </article>
-
         </div>
       </div>
 
       <!-- RIGHT -->
-      <aside class="card section">
-        <h2 class="h">Languages</h2>
-        <ul>
-          <li>Spanish — Native</li>
-          <li>English — Advanced</li>
-          <li>Portuguese — Basic</li>
-        </ul>
-
-        <div style="height:14px"></div>
-
-        <h2 class="h" id="education">Education</h2>
+      <aside class="card section reveal">
+        <div class="secTitle">
+          <h2 class="h" id="education">Education</h2>
+        </div>
         <div class="jobs">
           <div class="job">
             <p class="role">Aquaculture Engineering (Execution Level)</p>
@@ -633,9 +662,11 @@
           </div>
         </div>
 
-        <div style="height:14px"></div>
+        <div class="divider"></div>
 
-        <h2 class="h" id="skills">Skills</h2>
+        <div class="secTitle" style="margin-top:14px;">
+          <h2 class="h" id="skills">Skills</h2>
+        </div>
         <div class="chips">
           <span class="chip">Advanced Excel</span>
           <span class="chip">Technology Support</span>
@@ -647,9 +678,11 @@
           <span class="chip">Invoicing</span>
         </div>
 
-        <div style="height:14px"></div>
+        <div class="divider"></div>
 
-        <h2 class="h" id="courses">Courses & Certifications</h2>
+        <div class="secTitle" style="margin-top:14px;">
+          <h2 class="h" id="courses">Courses & Certifications</h2>
+        </div>
         <div class="jobs">
           <div class="job">
             <p class="role">ChileCompra Buyer Certification</p>
@@ -665,19 +698,21 @@
           </div>
         </div>
 
-        <div style="height:14px"></div>
+        <div class="divider"></div>
 
-        <h2 class="h">Career Highlights (Summary)</h2>
+        <div class="secTitle" style="margin-top:14px;">
+          <h2 class="h">Career Highlights</h2>
+        </div>
         <ul>
           <li><b>2007–2012:</b> Aquaculture leadership, growth projections, advanced Excel, environmental monitoring.</li>
-          <li><b>2013–2019:</b> Logistics/administration in Chile (Hospital de Quilpué), procurement and reporting.</li>
-          <li><b>2020–2023:</b> International logistics + IT support, printer repair, OS installs, cabling/network support.</li>
+          <li><b>2014–2019:</b> Hospital logistics/admin, procurement (ChileCompra), reporting and inventory.</li>
+          <li><b>2020–2023:</b> International logistics + IT support, OS installs, printers, cabling/network support.</li>
           <li><b>Current:</b> Retail IT operator at Ripley Sucre: support, networks, cabling, and information security operations.</li>
         </ul>
       </aside>
     </section>
 
-    <section class="card">
+    <section class="card reveal">
       <footer>
         <span>Last update: 2025-12-24</span>
         <span>Single-file HTML • Print/PDF ready</span>
@@ -686,85 +721,110 @@
   </main>
 
   <script>
-    // ===== Menu + active section + animated indicator (desktop) =====
+    // ===== Smooth, professional background parallax (lightweight) =====
+    const blobs = document.getElementById('blobs');
+    const halo  = document.getElementById('halo');
+
+    let px = 0, py = 0, tx = 0, ty = 0;
+    const isTouch = matchMedia('(pointer: coarse)').matches;
+
+    function onMove(x, y){
+      tx = (x / window.innerWidth  - 0.5) * 18;
+      ty = (y / window.innerHeight - 0.5) * 14;
+    }
+
+    if(!isTouch){
+      window.addEventListener('mousemove', (e)=> onMove(e.clientX, e.clientY), {passive:true});
+    } else {
+      // touch: subtle auto drift only, keep it stable
+      tx = 4; ty = -3;
+    }
+
+    function raf(){
+      px += (tx - px) * 0.06;
+      py += (ty - py) * 0.06;
+      blobs.style.transform = `translate3d(${px}px, ${py}px, 0)`;
+      halo.style.transform  = `translate3d(${-px*0.6}px, ${-py*0.6}px, 0)`;
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // ===== Reveal on scroll =====
+    const revealEls = Array.from(document.querySelectorAll('.reveal'));
+    const ro = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.10 });
+    revealEls.forEach(el=> ro.observe(el));
+
+    // ===== Menu + animated pill (desktop) + mobile drawer =====
     const links = Array.from(document.querySelectorAll('.nLink'));
     const mLinks = Array.from(document.querySelectorAll('.mLink'));
-    const sections = ['profile','competencies','experience','education','skills','courses']
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-
-    const indicator = document.getElementById('indicator');
+    const pill = document.getElementById('pill');
     const navLinks = document.getElementById('navLinks');
 
-    function setActiveById(id){
+    const sectionIds = ['profile','competencies','experience','education','skills','courses'];
+    const sections = sectionIds.map(id=>document.getElementById(id)).filter(Boolean);
+
+    function setActive(id){
       links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
       mLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-      moveIndicator();
+      movePill();
     }
 
-    function moveIndicator(){
-      // Desktop only (indicator hidden on mobile)
+    function movePill(){
+      if(!pill || !navLinks) return;
       const active = links.find(a => a.classList.contains('active'));
-      if(!active || !indicator || !navLinks) return;
-      const rect = active.getBoundingClientRect();
-      const parent = navLinks.getBoundingClientRect();
-      const x = rect.left - parent.left + (rect.width - 28)/2;
-      indicator.style.transform = `translateX(${Math.max(0,x)}px)`;
-      indicator.style.width = `28px`;
+      if(!active) return;
+      const r = active.getBoundingClientRect();
+      const p = navLinks.getBoundingClientRect();
+      const x = (r.left - p.left) + 0; // inside container
+      pill.style.transform = `translateX(${x}px)`;
+      pill.style.width = `${Math.max(72, r.width)}px`;
     }
 
-    // Observe sections
     const io = new IntersectionObserver((entries)=>{
-      // pick the most visible section
       const visible = entries
         .filter(e => e.isIntersecting)
         .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
-      if(visible?.target?.id){
-        setActiveById(visible.target.id);
-      }
+      if(visible?.target?.id) setActive(visible.target.id);
     }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.12,0.18,0.25,0.35] });
-
     sections.forEach(s => io.observe(s));
 
-    // Click behavior: close drawer on mobile
+    // Mobile drawer
+    const hamb = document.getElementById('hamb');
+    const drawer = document.getElementById('drawer');
     function closeMenu(){
       document.body.classList.remove('menu-open');
       hamb.setAttribute('aria-expanded','false');
     }
-
-    links.concat(mLinks).forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const href = a.getAttribute('href');
-        if(href && href.startsWith('#')){
-          // allow smooth scroll; close menu
-          setTimeout(closeMenu, 10);
-        }
-      });
-    });
-
-    // Mobile drawer toggle
-    const hamb = document.getElementById('hamb');
-    const drawer = document.getElementById('drawer');
-
     hamb.addEventListener('click', ()=>{
       const open = document.body.classList.toggle('menu-open');
-      hamb.setAttribute('aria-expanded', open ? 'true':'false');
+      hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    drawer.addEventListener('click', (e)=>{ if(e.target === drawer) closeMenu(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+    links.concat(mLinks).forEach(a=>{
+      a.addEventListener('click', ()=> setTimeout(closeMenu, 10));
     });
 
-    drawer.addEventListener('click', (e)=>{
-      // click outside panel closes
-      if(e.target === drawer) closeMenu();
-    });
+    // Back to top button
+    const toTop = document.getElementById('toTop');
+    toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-    // ESC closes
-    window.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeMenu();
-    });
-
-    // Indicator on resize
-    window.addEventListener('resize', ()=> moveIndicator());
-    // Initial state
-    setActiveById('profile');
+    function toggleTop(){
+      if(window.scrollY > 520) toTop.classList.add('show');
+      else toTop.classList.remove('show');
+    }
+    window.addEventListener('scroll', toggleTop, {passive:true});
+    window.addEventListener('resize', movePill);
+    setActive('profile');
+    toggleTop();
   </script>
 </body>
 </html>
